@@ -20,8 +20,7 @@ public class ResourceGenerator : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0f)
         {
-            timer = timerMax;
-            Debug.Log("Wydobycie");
+            timer = timerMax;            
             ResourceManager.Instance.AddResource(buildingType.resourceGeneratorData.resourceType, 1);
         }
     }
