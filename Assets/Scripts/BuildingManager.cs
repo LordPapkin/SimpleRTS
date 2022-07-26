@@ -17,6 +17,7 @@ public class BuildingManager : MonoBehaviour
 
     private BuildingTypeSO activeBuildingType;
     private BuildingTypeListSO buildingTypeList;
+    [SerializeField] private float maxConstrutionRadius = 10f;
 
     public void SetActiveBuildingType(BuildingTypeSO buildingType)
     {
@@ -38,8 +39,42 @@ public class BuildingManager : MonoBehaviour
         {
             if (activeBuildingType == null)
                 return;
+            if (!CanSpawnBuilding(activeBuildingType, Utilities.GetMouseWorldPosition()))
+                return;
             Instantiate(activeBuildingType.prefab, Utilities.GetMouseWorldPosition(), Quaternion.identity);
         }
+    }
+    private bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 position)
+    {
+        BoxCollider2D boxCollider = buildingType.prefab.GetComponent<BoxCollider2D>();
+
+        //checks if area for building is clear if not return false
+        Collider2D[] collidersOnBuildingArea = Physics2D.OverlapBoxAll(position + (Vector3)boxCollider.offset, boxCollider.size, 0);
+        if(collidersOnBuildingArea.Length != 0)
+            return false;
+
+        //chceks if they are other buildings same type nearby if yes, return false
+        Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(position, buildingType.minConstrutionRadius);
+        foreach (Collider2D collider in nearbyColliders)
+        {
+            BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
+            if (buildingTypeHolder != null && buildingTypeHolder.BuildingType == buildingType)
+            {
+                return false;
+            }
+                
+        }
+
+        //checks if they are any building at all, if yes return true
+        nearbyColliders = Physics2D.OverlapCircleAll(position, maxConstrutionRadius);
+        foreach (Collider2D collider in nearbyColliders)
+        {
+            BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
+            if (buildingTypeHolder != null)
+                return true;
+        }
+
+        return false;
     }
     
     

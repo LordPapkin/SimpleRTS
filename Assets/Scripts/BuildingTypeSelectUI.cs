@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BuildingTypeSelectUI : MonoBehaviour
 {
     [SerializeField] private Sprite arrowSprite;
+    [SerializeField] private List<BuildingTypeSO> buildingsToIgnore;
     private GameObject arrowButton;
     private GameObject arrowButtonSelected;
 
@@ -53,6 +54,9 @@ public class BuildingTypeSelectUI : MonoBehaviour
 
         foreach (BuildingTypeSO buildingType in buildingTypeList.list)
         {
+            if (buildingsToIgnore.Contains(buildingType))
+                continue;
+
             GameObject copyTemplate = Instantiate(buildingSelectTemplate, this.transform);
             copyTemplate.SetActive(true);
 
