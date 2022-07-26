@@ -1,42 +1,46 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildingManager : MonoBehaviour
 {
-    private Camera mainCamera;
+    public static BuildingManager Instance { get; private set; }
 
-    private BuildingTypeSO buildingType;
-    private BuildingTypeListSO buildingTypeList;
-    private void Start()
+    public event EventHandler<OnActiveBuildingTypeChangedEventArgs> OnActiveBuildingTypeChanged;
+
+    public class OnActiveBuildingTypeChangedEventArgs : EventArgs
     {
-        mainCamera = Camera.main;
-
-        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
-        buildingType = buildingTypeList.list[0];
+        public BuildingTypeSO activeBuildingType;
     }
+
+    private BuildingTypeSO activeBuildingType;
+    private BuildingTypeListSO buildingTypeList;
+
+    public void SetActiveBuildingType(BuildingTypeSO buildingType)
+    {
+        activeBuildingType = buildingType;
+        OnActiveBuildingTypeChanged?.Invoke(this, new OnActiveBuildingTypeChangedEventArgs { activeBuildingType = activeBuildingType});
+    }
+    public BuildingTypeSO GetActiveBuildingType()
+    {
+        return activeBuildingType;
+    } 
+    private void Awake()
+    {
+        Instance = this;
+        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);        
+    }    
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Instantiate(buildingType.prefab, GetMouseWorldPosition(), Quaternion.identity);
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            buildingType = buildingTypeList.list[0];            
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            buildingType = buildingTypeList.list[1];
+            if (activeBuildingType == null)
+                return;
+            Instantiate(activeBuildingType.prefab, Utilities.GetMouseWorldPosition(), Quaternion.identity);
         }
     }
-    private Vector3 GetMouseWorldPosition()
-    {
-        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0f;
-
-        return mouseWorldPosition;
-    }
+    
+    
 }

@@ -38,12 +38,14 @@ public class ResourcesUI : MonoBehaviour
 
         foreach (ResourceTypeSO resourceType in resourceTypeList.list)
         {
-            GameObject templateCopy = Instantiate(resourceTemplate, transform);
+            GameObject templateCopy = Instantiate(resourceTemplate, this.transform);
             templateCopy.gameObject.SetActive(true);
 
             templateCopy.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * i, 0);
+
             templateCopy.transform.Find("image").GetComponent<Image>().sprite = resourceType.sprite;
             TextMeshProUGUI resourceAmountUI = templateCopy.transform.Find("text").GetComponent<TextMeshProUGUI>();
+
             resourceTypeUIDictionary.Add(resourceType, resourceAmountUI);
             i++;
         }
