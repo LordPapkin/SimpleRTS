@@ -5,13 +5,15 @@ using UnityEngine;
 public class BuildingGhost : MonoBehaviour
 {
     private GameObject spirteGameObject;
+    private ResourceNearbyOverlay resourceNearbyOverlay;
     private void Awake()
     {
         spirteGameObject = transform.Find("sprite").gameObject;
+        resourceNearbyOverlay = transform.Find("pfResourceNearbyOverlay").GetComponent<ResourceNearbyOverlay>();  
     }
     private void Start()
     {
-        BuildingManager.Instance.OnActiveBuildingTypeChanged += BuildingManager_OnActiveBuildingTypeChanged;
+        BuildingManager.Instance.OnActiveBuildingTypeChanged += BuildingManager_OnActiveBuildingTypeChanged;        
     }    
 
     private void Update()
@@ -32,10 +34,12 @@ public class BuildingGhost : MonoBehaviour
         if(e.activeBuildingType == null)
         {
             Hide();
+            resourceNearbyOverlay.Hide();
         }
         else
         {
             Show(e.activeBuildingType.sprite);
+            resourceNearbyOverlay.Show(e.activeBuildingType.resourceGeneratorData);
         }
     }
 }

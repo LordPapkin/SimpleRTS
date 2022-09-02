@@ -17,7 +17,13 @@ MonoBehaviour:
   resourceGeneratorData:
     timerMax: 2
     resourceType: {fileID: 11400000, guid: 809faa391ab1fe440b4f27f8afb903a2, type: 2}
-    resourceDetectionRadius: 7
+    resourceDetectionRadius: 5
     maxResourceNodes: 3
   sprite: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
-  minConstrutionRadius: 7
+  minConstrutionRadius: 8
+  constructionCostArray:
+  - resourceType: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
+    amount: 50
+  - resourceType: {fileID: 11400000, guid: 4e9a4bd3e6c352c4182a886e12ea8cdb, type: 2}
+    amount: 50
+  healthAmountMax: 100

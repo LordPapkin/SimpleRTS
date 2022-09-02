@@ -28,6 +28,7 @@ public class BuildingManager : MonoBehaviour
     {
         return activeBuildingType;
     } 
+
     private void Awake()
     {
         Instance = this;
@@ -39,19 +40,35 @@ public class BuildingManager : MonoBehaviour
         {
             if (activeBuildingType == null)
                 return;
-            if (!CanSpawnBuilding(activeBuildingType, Utilities.GetMouseWorldPosition()))
+            if (!CanSpawnBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), out string errorMessage))
+            {
+                TooltipUI.Instance.Show(errorMessage, new TooltipUI.TooltipTimer { timer = 2f }); ;
                 return;
+                
+            }               
+            if (!ResourceManager.Instance.CanAfford(activeBuildingType.constructionCostArray))
+            {
+                TooltipUI.Instance.Show("Cannot afford " + activeBuildingType.GetConstructionCostString(), new TooltipUI.TooltipTimer { timer = 2f });
+                return;               
+            }
+                
+
+            ResourceManager.Instance.SpendResources(activeBuildingType.constructionCostArray);
             Instantiate(activeBuildingType.prefab, Utilities.GetMouseWorldPosition(), Quaternion.identity);
         }
     }
-    private bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 position)
+    private bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 position, out string errorMessage)
     {
         BoxCollider2D boxCollider = buildingType.prefab.GetComponent<BoxCollider2D>();
 
         //checks if area for building is clear if not return false
         Collider2D[] collidersOnBuildingArea = Physics2D.OverlapBoxAll(position + (Vector3)boxCollider.offset, boxCollider.size, 0);
         if(collidersOnBuildingArea.Length != 0)
+        {
+            errorMessage = "Area is not clear";
             return false;
+        }
+            
 
         //chceks if they are other buildings same type nearby if yes, return false
         Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(position, buildingType.minConstrutionRadius);
@@ -60,6 +77,7 @@ public class BuildingManager : MonoBehaviour
             BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
             if (buildingTypeHolder != null && buildingTypeHolder.BuildingType == buildingType)
             {
+                errorMessage = "Too close for another building of the same type";
                 return false;
             }
                 
@@ -71,9 +89,13 @@ public class BuildingManager : MonoBehaviour
         {
             BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
             if (buildingTypeHolder != null)
+            {
+                errorMessage = "";
                 return true;
+            }
+                
         }
-
+        errorMessage = "Too far from any other building";
         return false;
     }
     

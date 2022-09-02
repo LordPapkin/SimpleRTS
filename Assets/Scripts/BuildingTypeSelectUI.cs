@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,6 +49,11 @@ public class BuildingTypeSelectUI : MonoBehaviour
         arrowButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * i, 0);
         arrowButton.GetComponent<Button>().onClick.AddListener(() => { BuildingManager.Instance.SetActiveBuildingType(null); });
 
+        MouseEnterExitEvents mouseEnterExitEvents = arrowButton.GetComponent<MouseEnterExitEvents>();
+
+        mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show("Pointer"); };
+        mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs e) => { TooltipUI.Instance.Hide(); };
+
         arrowButtonSelected = arrowButton.transform.Find("selected").gameObject;        
         i++;
         #endregion
@@ -64,6 +70,12 @@ public class BuildingTypeSelectUI : MonoBehaviour
 
             copyTemplate.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * i, 0);
             copyTemplate.GetComponent<Button>().onClick.AddListener(() => { BuildingManager.Instance.SetActiveBuildingType(buildingType); });
+
+
+            mouseEnterExitEvents = copyTemplate.GetComponent<MouseEnterExitEvents>();
+
+            mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show(buildingType.nameString + "\n" + buildingType.GetConstructionCostString() ); };
+            mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs e) => { TooltipUI.Instance.Hide(); };
 
             GameObject copyTemplateSelected = copyTemplate.transform.Find("selected").gameObject;
             buildingTypeUIDictionary.Add(buildingType, copyTemplateSelected);

@@ -11,7 +11,7 @@ public static class Utilities
             mainCamera = Camera.main;
 
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0f;
+        mouseWorldPosition.z = 0f; 
 
         return mouseWorldPosition;
     }
