@@ -15,9 +15,12 @@ public class BuildingManager : MonoBehaviour
         public BuildingTypeSO activeBuildingType;
     }
 
+    [SerializeField] private Building hqBuilding;
+    [SerializeField] private float maxConstrutionRadius = 10f;
+    [SerializeField] private float safeRadius;    
     private BuildingTypeSO activeBuildingType;
     private BuildingTypeListSO buildingTypeList;
-    [SerializeField] private float maxConstrutionRadius = 10f;
+    
 
     public void SetActiveBuildingType(BuildingTypeSO buildingType)
     {
@@ -28,6 +31,10 @@ public class BuildingManager : MonoBehaviour
     {
         return activeBuildingType;
     } 
+    public Building GetHQBuilding()
+    {
+        return hqBuilding;
+    }
 
     private void Awake()
     {
@@ -62,16 +69,26 @@ public class BuildingManager : MonoBehaviour
         BoxCollider2D boxCollider = buildingType.prefab.GetComponent<BoxCollider2D>();
 
         //checks if area for building is clear if not return false
-        Collider2D[] collidersOnBuildingArea = Physics2D.OverlapBoxAll(position + (Vector3)boxCollider.offset, boxCollider.size, 0);
-        if(collidersOnBuildingArea.Length != 0)
+        Collider2D[] nearbyColliders = Physics2D.OverlapBoxAll(position + (Vector3)boxCollider.offset, boxCollider.size, 0);
+        if(nearbyColliders.Length != 0)
         {
             errorMessage = "Area is not clear";
             return false;
         }
-            
+
+        nearbyColliders = Physics2D.OverlapCircleAll(position, safeRadius);
+        foreach(Collider2D collider in nearbyColliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                errorMessage = "Can't build near enemies!";
+                return false;
+            }
+        }
 
         //chceks if they are other buildings same type nearby if yes, return false
-        Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(position, buildingType.minConstrutionRadius);
+         nearbyColliders = Physics2D.OverlapCircleAll(position, buildingType.minConstrutionRadius);
         foreach (Collider2D collider in nearbyColliders)
         {
             BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();

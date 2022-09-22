@@ -7,6 +7,7 @@ public class BuildingTypeSO : ScriptableObject
 {
     public string nameString;
     public GameObject prefab;
+    public bool hasResourceGeneratorData;
     public ResourceGeneratorData resourceGeneratorData;
     public Sprite sprite;
     public float minConstrutionRadius;

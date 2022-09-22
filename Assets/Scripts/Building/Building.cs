@@ -13,13 +13,8 @@ public class Building : MonoBehaviour
         healthSystem = GetComponent<HealthSystem>();
         healthSystem.OnDied += HealthSystem_OnDied;
         healthSystem.SetHealthAmountMax(buildingType.healthAmountMax, true);
-    } 
-   
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-            healthSystem.TakeDamege(10);
-    }
+    }    
+    
     private void HealthSystem_OnDied(object sender, System.EventArgs e)
     {
         Destroy(gameObject);
