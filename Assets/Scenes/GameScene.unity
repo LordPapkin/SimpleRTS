@@ -3217,6 +3217,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2148533747857550965, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082979756819178730, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
+      propertyPath: arrowsParent
+      value: 
+      objectReference: {fileID: 1547665591}
     - target: {fileID: 8377893412898791642, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
       propertyPath: m_Name
       value: pfHQ
@@ -6754,6 +6762,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5208365312607565117, guid: bdbc4b31d7f8a1741895849a4fe9065e, type: 3}
   m_PrefabInstance: {fileID: 1519229381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1547665591 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8466807702159645132, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
+  m_PrefabInstance: {fileID: 668078286}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1558554506
 PrefabInstance:

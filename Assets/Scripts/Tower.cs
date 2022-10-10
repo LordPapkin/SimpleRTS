@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private float lookForTargetTimerMax;
     [SerializeField] private float shootTimerMax;
     [SerializeField] private Transform arrowSpawn;
+    [SerializeField] private GameObject arrowType;
     [Header("Arrow Hierarchy")]
     [SerializeField] private Transform arrowsParent;
 
@@ -18,7 +19,7 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
-        lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);
+        lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);        
     }
 
     private void Update()
@@ -33,12 +34,17 @@ public class Tower : MonoBehaviour
             return;
         shootTimer -= Time.deltaTime;
         if(shootTimer < 0)
-        {
-            ArrowProjectile arrow = ArrowProjectile.Create(arrowSpawn.position, target);
+        {            
+            GameObject arrow = Instantiate(arrowType, arrowSpawn.position, Quaternion.identity);
             arrow.gameObject.transform.SetParent(arrowsParent);
+
+            ArrowProjectile arrowProjectile = arrow.GetComponent<ArrowProjectile>();
+            arrowProjectile.SetTarget(target);
+            
             shootTimer += shootTimerMax;
         }        
     }
+
     private void HandleTargetSearch()
     {
         lookForTargetTimer -= Time.deltaTime;

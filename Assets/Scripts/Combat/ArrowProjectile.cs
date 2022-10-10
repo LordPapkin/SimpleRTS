@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class ArrowProjectile : MonoBehaviour
 {
-    public static ArrowProjectile Create(Vector3 position, Enemy enemy)
-    {
-        GameObject pfArrowProjectile = Resources.Load<GameObject>("pfArrowProjectile");
-        GameObject arrow = Instantiate(pfArrowProjectile, position, Quaternion.identity);
-
-        ArrowProjectile arrowProjectile = arrow.GetComponent<ArrowProjectile>();
-        arrowProjectile.SetTarget(enemy);
-        return arrowProjectile;
-    }
-
     [SerializeField] private int dmg;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float timeToDie;
     private Enemy targetEnemy;   
     private Vector3 lastMoveDir;
     private Vector3 moveDir;
+
+    public void SetTarget(Enemy targetEnemy)
+    {
+        this.targetEnemy = targetEnemy;
+    }
 
     private void Update()
     {
@@ -43,11 +38,6 @@ public class ArrowProjectile : MonoBehaviour
 
         transform.eulerAngles = new Vector3(0, 0, Utilities.GetAngleFromVector(moveDir));
         transform.position += moveDir * moveSpeed * Time.deltaTime;
-    }
-
-    private void SetTarget(Enemy targetEnemy)
-    {
-        this.targetEnemy = targetEnemy;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

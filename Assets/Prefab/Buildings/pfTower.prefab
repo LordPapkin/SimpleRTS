@@ -261,6 +261,7 @@ MonoBehaviour:
   lookForTargetTimerMax: 0.2
   shootTimerMax: 0.25
   arrowSpawn: {fileID: 6774880578167422857}
+  arrowType: {fileID: 4589000473416501578, guid: e96545f0ce2f247469e1dc83f1c172a6, type: 3}
   arrowsParent: {fileID: 5922362847031057053}
 --- !u!1001 &7885848050940330817
 PrefabInstance:
