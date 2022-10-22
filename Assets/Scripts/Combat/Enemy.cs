@@ -28,13 +28,12 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         healthSystem = GetComponent<HealthSystem>();
+        healthSystem.OnDamaged += HealthSystem_OnDamaged;
         healthSystem.OnDied += HealthSystem_OnDied;
 
         rb = GetComponent<Rigidbody2D>();
         lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);
     }
-
-    
 
     private void Start()
     {
@@ -63,7 +62,6 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
     private void HandleTargetSearch()
     {
         lookForTargetTimer -= Time.deltaTime;
@@ -86,6 +84,7 @@ public class Enemy : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
+
     private void LookForTargets()
     {
         Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, searchRange);
@@ -120,8 +119,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void HealthSystem_OnDamaged(object sender, System.EventArgs e)
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+    }
+
     private void HealthSystem_OnDied(object sender, System.EventArgs e)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
         Destroy(this.gameObject);
     }
 }

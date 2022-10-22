@@ -167,8 +167,8 @@ GameObject:
   - component: {fileID: 8377893412898791638}
   - component: {fileID: 8377893412898791637}
   - component: {fileID: -6714378512983718203}
-  - component: {fileID: -7654104800794136653}
   - component: {fileID: 8082979756819178730}
+  - component: {fileID: 7841680119527803489}
   m_Layer: 0
   m_Name: pfHQ
   m_TagString: Untagged
@@ -209,7 +209,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030815601, y: -0.4447328}
+  m_Offset: {x: 0.014662027, y: -0.46088672}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -220,7 +220,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.124789, y: 3.7915628}
+  m_Size: {x: 6.2540183, y: 3.9530988}
   m_EdgeRadius: 0
 --- !u!114 &8377893412898791638
 MonoBehaviour:
@@ -260,20 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmountMax: 100
---- !u!114 &-7654104800794136653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377893412898791642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea0abc7d42f20248939e7b58c207b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  demolishButtonGameObject: {fileID: 0}
-  delayTime: 1.5
 --- !u!114 &8082979756819178730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +278,21 @@ MonoBehaviour:
   arrowSpawn: {fileID: 8466807702159645132}
   arrowType: {fileID: 4589000473416501578, guid: 4711c058e57e05b43b73c1dbecdb836f, type: 3}
   arrowsParent: {fileID: 271151134329102203}
+--- !u!114 &7841680119527803489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377893412898791642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d798a4c82056a4693935e71a2f56f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demolishButtonGameObject: {fileID: 0}
+  reapirButtonGameObject: {fileID: 0}
+  delayTime: 2.5
 --- !u!1001 &68424184001648247
 PrefabInstance:
   m_ObjectHideFlags: 0

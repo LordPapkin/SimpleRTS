@@ -13,7 +13,7 @@ public class BuildingManager : MonoBehaviour
     public class OnActiveBuildingTypeChangedEventArgs : EventArgs
     {
         public BuildingTypeSO activeBuildingType;
-    }
+    }   
 
     [SerializeField] private Building hqBuilding;
     [SerializeField] private float maxConstrutionRadius = 10f;
@@ -41,11 +41,7 @@ public class BuildingManager : MonoBehaviour
         Instance = this;
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);        
     }
-    private void Start()
-    {
-        hqBuilding.GetComponent<HealthSystem>().OnDied += HQDiedGameOver;
-    }
-
+   
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -67,6 +63,7 @@ public class BuildingManager : MonoBehaviour
 
             ResourceManager.Instance.SpendResources(activeBuildingType.constructionCostArray);
             //Instantiate(activeBuildingType.prefab, Utilities.GetMouseWorldPosition(), Quaternion.identity);
+            SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
             BuildingConstruction.Create(Utilities.GetMouseWorldPosition(), activeBuildingType);
         }
     }
@@ -120,10 +117,6 @@ public class BuildingManager : MonoBehaviour
         }
         errorMessage = "Too far from any other building";
         return false;
-    }
-    private void HQDiedGameOver(object sender, EventArgs e)
-    {
-        GameOverUI.Instance.Show();
     }
 
 }

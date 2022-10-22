@@ -31,10 +31,16 @@ public class BuildingConstruction : MonoBehaviour
 
     private void Update()
     {
+        HandleConstruction();
+    }
+
+    private void HandleConstruction()
+    {
         constructionMaterial.SetFloat("_Progress", ConstructionTimerNormailezed);
         constructionTimer -= Time.deltaTime;
-        if(constructionTimer <= 0f)
-        {           
+        if (constructionTimer <= 0f)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
             Instantiate(buildingType.prefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
