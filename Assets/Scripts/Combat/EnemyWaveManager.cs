@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class EnemyWaveManager : MonoBehaviour
 {
+    public static EnemyWaveManager Instance => instance;
+    private static EnemyWaveManager instance;
+
     private enum State
     {
         WaitingToSpawnWave,
@@ -12,7 +15,8 @@ public class EnemyWaveManager : MonoBehaviour
     }
 
     public Vector3 SpawnPoint => spawnPoint;
-    public string WaveNumberString => waveNumber.ToString();   
+    public string WaveNumberString => waveNumber.ToString();
+    public int WaveNumber => waveNumber;
     public float WaveTimer => nextWaveTimer;
 
     public event EventHandler OnWaveNumberChanged;
@@ -32,14 +36,17 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField] private float nextEnenyTimer;
     [SerializeField] private int remainingEnemySpawnAmount;
     [SerializeField] private int waveNumber = 0;
-    
+
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+    }
     private void Start()
     {
         nextWaveTimer = 10f;        
         SetNextSpawnPoint();        
     }
-
-    
 
     private void Update()
     {

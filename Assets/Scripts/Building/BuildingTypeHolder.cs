@@ -9,5 +9,6 @@ public class BuildingTypeHolder : MonoBehaviour
     public BuildingTypeSO BuildingType
     {
         get => buildingType;
+        set => buildingType = value;
     }
 }

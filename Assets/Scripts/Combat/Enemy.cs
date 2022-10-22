@@ -38,9 +38,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        targetBuilding = BuildingManager.Instance.GetHQBuilding().gameObject;
-        
+        SetDefaultTarget();
     }
+   
     private void Update()
     {
         HandleMovemnet();
@@ -108,10 +108,18 @@ public class Enemy : MonoBehaviour
 
         if(targetBuilding == null)
         {
+            SetDefaultTarget();
+        }
+    }
+
+    private void SetDefaultTarget()
+    {
+        if (BuildingManager.Instance.GetHQBuilding() != null)
+        {
             targetBuilding = BuildingManager.Instance.GetHQBuilding().gameObject;
         }
-
     }
+
     private void HealthSystem_OnDied(object sender, System.EventArgs e)
     {
         Destroy(this.gameObject);

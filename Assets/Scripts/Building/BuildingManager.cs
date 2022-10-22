@@ -40,7 +40,12 @@ public class BuildingManager : MonoBehaviour
     {
         Instance = this;
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);        
-    }    
+    }
+    private void Start()
+    {
+        hqBuilding.GetComponent<HealthSystem>().OnDied += HQDiedGameOver;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -61,7 +66,8 @@ public class BuildingManager : MonoBehaviour
                 
 
             ResourceManager.Instance.SpendResources(activeBuildingType.constructionCostArray);
-            Instantiate(activeBuildingType.prefab, Utilities.GetMouseWorldPosition(), Quaternion.identity);
+            //Instantiate(activeBuildingType.prefab, Utilities.GetMouseWorldPosition(), Quaternion.identity);
+            BuildingConstruction.Create(Utilities.GetMouseWorldPosition(), activeBuildingType);
         }
     }
     private bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 position, out string errorMessage)
@@ -115,6 +121,9 @@ public class BuildingManager : MonoBehaviour
         errorMessage = "Too far from any other building";
         return false;
     }
-    
-    
+    private void HQDiedGameOver(object sender, EventArgs e)
+    {
+        GameOverUI.Instance.Show();
+    }
+
 }
