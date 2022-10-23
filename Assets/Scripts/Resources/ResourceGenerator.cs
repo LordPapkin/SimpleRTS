@@ -60,7 +60,7 @@ public class ResourceGenerator : MonoBehaviour
         }
         else
         {
-            timerMax = (generatorData.timerMax / 2f) + generatorData.timerMax * (1 - (float)nearbyResourceNodesAmount / generatorData.maxResourceNodes);
+            timerMax = generatorData.timerMax + (generatorData.timerMax * (1f - ((float)nearbyResourceNodesAmount/(float)generatorData.maxResourceNodes)));
         }
     }    
 

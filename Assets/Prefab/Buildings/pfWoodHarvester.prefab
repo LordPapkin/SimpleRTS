@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 5.7280297, y: 3.42891, z: 1}
   m_Children: []
   m_Father: {fileID: 3516654491173055410}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8479971820990288764
 SpriteRenderer:
@@ -129,9 +129,9 @@ Transform:
   - {fileID: 7012235362903967925}
   - {fileID: 4591610299999823644}
   - {fileID: 3005131785429358272}
-  - {fileID: 7345197855325350035}
   - {fileID: 5619697714338474111}
   - {fileID: 6487400241769331722}
+  - {fileID: 7345197855325350035}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -303,6 +303,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3516654491173055410}
     m_Modifications:
+    - target: {fileID: 2736603011440900270, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: m_Name
+      value: DemolishButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -329,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517079, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517079, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_AnchorMax.x
@@ -601,6 +605,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3516654491173055410}
     m_Modifications:
+    - target: {fileID: 2736603011440900270, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: m_Name
+      value: RepairButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -619,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517079, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517079, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_AnchorMax.x
@@ -693,6 +701,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3903417296681424308, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: 973380131693546713}
+    - target: {fileID: 3903417296681424308, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: repairButton
+      value: 
+      objectReference: {fileID: 6487400241553046385}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
 --- !u!1 &6487400241769331734 stripped
@@ -705,3 +721,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736603011568517079, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
   m_PrefabInstance: {fileID: 9222736336425812957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6487400241553046385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2736603011440900268, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+  m_PrefabInstance: {fileID: 9222736336425812957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

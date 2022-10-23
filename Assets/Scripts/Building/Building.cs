@@ -22,15 +22,15 @@ public class Building : MonoBehaviour
         healthSystem = GetComponent<HealthSystem>();
         healthSystem.OnDied += HealthSystem_OnDied;
         healthSystem.OnDamaged += HealthSystem_OnDamaged;
+        healthSystem.OnHeal += HealthSystem_OnHeal;
         healthSystem.SetHealthAmountMax(buildingType.healthAmountMax, true);
         ToggleDemolishButton(false);
         ToggleRepairButton(false);
     }
-
+    
     private void OnMouseEnter()
     {
-        ToggleDemolishButton(true);
-        ToggleRepairButton(true);
+        ToggleDemolishButton(true);       
     }    
 
     private void OnMouseExit()
@@ -63,13 +63,18 @@ public class Building : MonoBehaviour
     private IEnumerator ToggleDelay()
     {
         yield return new WaitForSeconds(delayTime);
-        ToggleDemolishButton(false);
-        ToggleRepairButton(false);
+        ToggleDemolishButton(false);        
     }
 
     private void HealthSystem_OnDamaged(object sender, System.EventArgs e)
     {
+        ToggleRepairButton(true);
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDamaged);
+    }
+
+    private void HealthSystem_OnHeal(object sender, System.EventArgs e)
+    {
+        ToggleRepairButton(false);
     }
 
 

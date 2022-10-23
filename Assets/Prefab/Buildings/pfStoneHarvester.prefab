@@ -221,6 +221,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3516654491173055410}
     m_Modifications:
+    - target: {fileID: 2736603011440900270, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: m_Name
+      value: DemolishButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -229,6 +233,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfBuildingDemolishButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2736603011568517078, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: -1253102326483105346}
+    - target: {fileID: 2736603011568517078, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: demolishButton
+      value: 
+      objectReference: {fileID: 105441416282342293}
     - target: {fileID: 2736603011568517079, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -325,6 +337,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736603011568517079, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
   m_PrefabInstance: {fileID: 2633699338931239737}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &105441416282342293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2736603011440900268, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+  m_PrefabInstance: {fileID: 2633699338931239737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4576899691411942439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,6 +437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3516654491173055410}
     m_Modifications:
+    - target: {fileID: 2736603011440900270, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: m_Name
+      value: RepairButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -506,6 +533,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3903417296681424308, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: -1253102326483105346}
+    - target: {fileID: 3903417296681424308, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: repairButton
+      value: 
+      objectReference: {fileID: 7013139559687624044}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
 --- !u!1 &7013139559707267595 stripped
@@ -518,6 +553,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736603011568517079, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
   m_PrefabInstance: {fileID: 4947750326416010688}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7013139559687624044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2736603011440900268, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+  m_PrefabInstance: {fileID: 4947750326416010688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8813228397222524101
 PrefabInstance:
   m_ObjectHideFlags: 0

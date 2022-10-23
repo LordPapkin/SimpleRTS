@@ -8,7 +8,6 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager Instance { get; private set; }
 
     public event EventHandler OnResourceAmountChanged;
-
     [SerializeField] private List<ResourceAmount> startingResourceAmountList;
     [SerializeField] private ResourceTypeSO repairResource;
     private Dictionary<ResourceTypeSO, int> resourceAmountDictionary;
@@ -27,24 +26,22 @@ public class ResourceManager : MonoBehaviour
 
     public bool CanAffordRepair(int amount)
     {
-        if (amount > GetResourceAmount(repairResource))
-        { 
+        int repairResourceAmount = GetResourceAmount(repairResource);
+        if (amount > repairResourceAmount)
+        {
+            ShowNeededResources(amount, repairResourceAmount);
             return false;
         }
         return true;
     }
-
-    public void SpendRepairCost(int amount)
-    {
-        resourceAmountDictionary[repairResource] -= amount;
-        OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
-    }
+    
     public bool CanAfford(ResourceAmount[] resourceCostAmountArray)
     {
         foreach(ResourceAmount resourceCostAmount in resourceCostAmountArray)
         {
             if(resourceCostAmount.amount > GetResourceAmount(resourceCostAmount.resourceType))
             {
+                ShowNeededResources(resourceCostAmountArray);
                 return false;
             }
         }
@@ -59,6 +56,13 @@ public class ResourceManager : MonoBehaviour
         }
         OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
     }
+
+    public void SpendRepairCost(int amount)
+    {
+        resourceAmountDictionary[repairResource] -= amount;
+        OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     private void Awake()
     {
         Instance = this;
@@ -75,13 +79,26 @@ public class ResourceManager : MonoBehaviour
             AddResource(resourceAmount.resourceType, resourceAmount.amount);
         }
     }
-    private void TestLogResourceAmountDictionary()
+
+    private void ShowNeededResources(int amountNeeded, int amountAvailable)
     {
-        foreach(ResourceTypeSO resourceType in resourceAmountDictionary.Keys)
-        {
-            Debug.Log(resourceType.nameString + " : " + resourceAmountDictionary[resourceType]);
-        }
+        string result = "";       
+        result += "<color=" + repairResource.colorHex + ">" + repairResource.nameShort + (amountNeeded - amountAvailable) + "</color> ";
+        TooltipUI.Instance.Show(result + " Needed!", new TooltipUI.TooltipTimer { timer = 2f });
     }
 
-    
+    private void ShowNeededResources(ResourceAmount[] resourceCostAmountArray)
+    {
+        string result = "";
+        foreach (ResourceAmount constructionCost in resourceCostAmountArray)
+        {
+            int resourcesNeeded = constructionCost.amount;
+            int resourcesAvailable = GetResourceAmount(constructionCost.resourceType);
+            if (resourcesNeeded > resourcesAvailable)
+            {
+                result += "<color=" + constructionCost.resourceType.colorHex + ">" + constructionCost.resourceType.nameShort + (resourcesNeeded - resourcesAvailable) + "</color> ";
+            }            
+        }        
+        TooltipUI.Instance.Show(result + " Needed!", new TooltipUI.TooltipTimer { timer = 2f });
+    }
 }

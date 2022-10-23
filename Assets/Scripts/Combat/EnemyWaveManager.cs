@@ -22,6 +22,8 @@ public class EnemyWaveManager : MonoBehaviour
     public event EventHandler OnWaveNumberChanged;
 
     [Header("Spawn Settings")]
+    [SerializeField] private float timeToFirstWave;
+    [SerializeField] private float timeBetweenWaves;
     [SerializeField] private List<GameObject> spawnPoints;
     [SerializeField] private GameObject nextWaveSpawnPoint;
     [SerializeField] [Range(0f, 30f)] private float spawnRandominess;
@@ -33,7 +35,7 @@ public class EnemyWaveManager : MonoBehaviour
     //SF for testing only
     [SerializeField] private State state;
     [SerializeField] private float nextWaveTimer;
-    [SerializeField] private float nextEnenyTimer;
+    [SerializeField] private float nextEnemyTimer;
     [SerializeField] private int remainingEnemySpawnAmount;
     [SerializeField] private int waveNumber = 0;
 
@@ -44,8 +46,9 @@ public class EnemyWaveManager : MonoBehaviour
     }
     private void Start()
     {
-        nextWaveTimer = 10f;        
-        SetNextSpawnPoint();        
+        nextWaveTimer = timeToFirstWave;        
+        SetNextSpawnPoint();
+        state = State.WaitingToSpawnWave;
     }
 
     private void Update()
@@ -74,10 +77,10 @@ public class EnemyWaveManager : MonoBehaviour
     {
         if (remainingEnemySpawnAmount > 0)
         {
-            nextEnenyTimer -= Time.deltaTime;
-            if (nextEnenyTimer < 0f)
+            nextEnemyTimer -= Time.deltaTime;
+            if (nextEnemyTimer < 0f)
             {
-                nextEnenyTimer = UnityEngine.Random.Range(0f, 0.2f);
+                nextEnemyTimer = UnityEngine.Random.Range(0f, 0.2f);
                 Enemy enemy = Enemy.Create(spawnPoint + Utilities.GetRandomDir() * UnityEngine.Random.Range(0f, 5f));
                 enemy.gameObject.transform.SetParent(enemiesParent);
                 remainingEnemySpawnAmount--;
@@ -92,7 +95,7 @@ public class EnemyWaveManager : MonoBehaviour
 
     private void SetWave()
     {        
-        nextWaveTimer = 10f;
+        nextWaveTimer = timeBetweenWaves;
         remainingEnemySpawnAmount = 5 + (waveNumber * 3);
         waveNumber++;
         OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);

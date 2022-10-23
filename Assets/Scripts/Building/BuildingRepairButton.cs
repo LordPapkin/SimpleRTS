@@ -27,11 +27,7 @@ public class BuildingRepairButton : MonoBehaviour
             {
                 healthSystem.Heal();  
                 ResourceManager.Instance.SpendRepairCost(repairCost);
-            }
-            else
-            {
-                TooltipUI.Instance.Show("Cannot afford reapir cost!", new TooltipUI.TooltipTimer { timer = 2f }); 
-            }
+            }           
         });
         
     }

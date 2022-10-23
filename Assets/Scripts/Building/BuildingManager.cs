@@ -55,14 +55,12 @@ public class BuildingManager : MonoBehaviour
                 
             }               
             if (!ResourceManager.Instance.CanAfford(activeBuildingType.constructionCostArray))
-            {
-                TooltipUI.Instance.Show("Cannot afford " + activeBuildingType.GetConstructionCostString(), new TooltipUI.TooltipTimer { timer = 2f });
+            {                
                 return;               
             }
                 
 
-            ResourceManager.Instance.SpendResources(activeBuildingType.constructionCostArray);
-            //Instantiate(activeBuildingType.prefab, Utilities.GetMouseWorldPosition(), Quaternion.identity);
+            ResourceManager.Instance.SpendResources(activeBuildingType.constructionCostArray);            
             SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
             BuildingConstruction.Create(Utilities.GetMouseWorldPosition(), activeBuildingType);
         }

@@ -263,9 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68a3da284eb5d6428e1a723cbc66f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchRange: 15
+  searchRange: 22
   lookForTargetTimerMax: 0.2
-  shootTimerMax: 0.25
+  shootTimerMax: 0.5
   arrowSpawn: {fileID: 6774880578167422857}
   arrowType: {fileID: 4589000473416501578, guid: e96545f0ce2f247469e1dc83f1c172a6, type: 3}
   arrowsParent: {fileID: 5922362847031057053}
@@ -370,6 +370,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8377893412898791643}
     m_Modifications:
+    - target: {fileID: 2736603011440900270, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: m_Name
+      value: DemolishButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -566,6 +570,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8377893412898791643}
     m_Modifications:
+    - target: {fileID: 2736603011440900270, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: m_Name
+      value: RepairButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
