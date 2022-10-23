@@ -9,8 +9,8 @@ public class ResourcesUI : MonoBehaviour
     private ResourceTypeListSO resourceTypeList;
     private Dictionary<ResourceTypeSO, TextMeshProUGUI> resourceTypeUIDictionary;
 
-    private float offsetAmount = -200f;
-    private int i = 0;   
+    private float offsetAmount = -180f;
+    private int i = 1;   
 
     private void Awake()
     {

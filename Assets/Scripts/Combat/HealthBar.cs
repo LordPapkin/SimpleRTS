@@ -5,17 +5,30 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private HealthSystem healthSystem;
-
-    private Transform barTransform;
+    [SerializeField] private Transform barTransform;
+    [SerializeField] private Transform barSprite;
+    [SerializeField] private Transform separatorContainer;
+    [SerializeField] private Transform separatorTemplate;
+    [SerializeField] private float hpSegment = 50f;
+    private float barSize;
 
     private void Awake()
     {
-        barTransform = transform.Find("Bar");        
+        separatorTemplate.gameObject.SetActive(false);
+        healthSystem.OnDamaged += HealthSystem_OnDamaged;
+        healthSystem.OnHeal += HealthSystem_OnHeal;
     }
     private void Start()
     {
-        healthSystem.OnDamaged += HealthSystem_OnDamaged;
-        healthSystem.OnHeal += HealthSystem_OnHeal;
+        barSize = barSprite.transform.localScale.x;
+        float oneHealthSegmentSize = (barSize / (float)healthSystem.HealthAmountMax) * hpSegment;
+        int healthSeparatorCount = Mathf.FloorToInt(healthSystem.HealthAmountMax / hpSegment);
+        for (int i = 1; i < healthSeparatorCount; i++)
+        {
+            Transform separator = Instantiate(separatorTemplate, separatorContainer);
+            separator.gameObject.SetActive(true);
+            separator.localPosition = new Vector3(oneHealthSegmentSize * i, 0, 0);
+        }
         UpdateHeatlhBarVisibility();
         UpdateBar();
     }

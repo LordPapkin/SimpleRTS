@@ -19,8 +19,14 @@ public class GameOverUI : MonoBehaviour
         if (instace == null)
             instace = this;
 
-        mainMenuButton.onClick.AddListener(() => { GameSceneManager.Load(GameSceneManager.Scene.MainMenuScene); });
-        retryButton.onClick.AddListener(() => { GameSceneManager.Load(GameSceneManager.Scene.GameScene); });
+        mainMenuButton.onClick.AddListener(() => 
+        {
+            GameSceneManager.Load(GameSceneManager.Scene.MainMenuScene);
+        });
+        retryButton.onClick.AddListener(() => 
+        { 
+            GameSceneManager.Load(GameSceneManager.Scene.GameScene);
+        });
     }
     public void Show()
     {
