@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ArrowMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 8a9da69f38ea76347a29dd4a41ebc0f2, type: 3}
+  m_Name: EnemyTrail
+  m_Shader: {fileID: -6465566751694194690, guid: 175f1ea97bc5ffa40bd1f2b1401875cc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,12 +23,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _EmissionTexture:
-        m_Texture: {fileID: 2800000, guid: 49aed72b3ea76684e88b877779d0880c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a22379c83f8066c46a7316edfb040bf1, type: 3}
+        m_Texture: {fileID: 2800000, guid: d2fa16b4e8e25ab448ddb02430ef315c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -55,7 +51,7 @@ Material:
     - _EnableExternalAlpha: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.124188974, g: 0.9935118, b: 2.0698164, a: 0}
+    - _EmissionColor: {r: 1, g: 0.0412694, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

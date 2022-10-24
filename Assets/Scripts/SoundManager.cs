@@ -31,12 +31,14 @@ public class SoundManager : MonoBehaviour
     {
         volume += 0.1f;
         volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("soundVolume", volume);
     }
 
     public void DecreaseVolume()
     {
         volume -= 0.1f;
         volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("soundVolume", volume);
     }
 
     private void Awake()
@@ -45,6 +47,7 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
         }
+        volume = PlayerPrefs.GetFloat("soundVolume", 0.5f);
         LoadSounds();
     }
 

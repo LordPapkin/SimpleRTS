@@ -18,6 +18,7 @@ public class MusicManager : MonoBehaviour
         {
             instance = this;
         }
+        volume = PlayerPrefs.GetFloat("musicVolume", 0.5f);
         musicAudioSource.volume = volume;
     }
 
@@ -26,6 +27,7 @@ public class MusicManager : MonoBehaviour
         volume += 0.1f;
         Mathf.Clamp01(volume);
         musicAudioSource.volume = volume;
+        PlayerPrefs.SetFloat("musicVolume", volume);
     }
 
     public void DecreaseVolume()
@@ -33,6 +35,7 @@ public class MusicManager : MonoBehaviour
         volume -= 0.1f;
         Mathf.Clamp01(volume);
         musicAudioSource.volume = volume;
+        PlayerPrefs.SetFloat("musicVolume", volume);
     }
    
 }
