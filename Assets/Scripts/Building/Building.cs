@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem buildingDestroyedSFX;
     [SerializeField] private GameObject demolishButtonGameObject;
     [SerializeField] private GameObject reapirButtonGameObject;
     [SerializeField] private float delayTime = 1.5f;
@@ -13,6 +14,7 @@ public class Building : MonoBehaviour
     protected virtual void HealthSystem_OnDied(object sender, System.EventArgs e)
     {
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDestroyed);
+        Instantiate(buildingDestroyedSFX, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -158,6 +158,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8232694784927971364}
   boxCollider: {fileID: 8232694785259780006}
   buildingTypeHolder: {fileID: 1095085661514611063}
+  buildingBuiltSFX: {fileID: 6314537111679933592, guid: 4ac58936248f3144db274df6c4356236, type: 3}
 --- !u!114 &1095085661514611063
 MonoBehaviour:
   m_ObjectHideFlags: 0

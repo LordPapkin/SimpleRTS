@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea0abc7d42f20248939e7b58c207b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingDestroyedSFX: {fileID: 5133218796547245083, guid: 5731055b57af76744aa0f260d9e0e788, type: 3}
   demolishButtonGameObject: {fileID: 105441416479720690}
   reapirButtonGameObject: {fileID: 7013139559707267595}
   delayTime: 2.5

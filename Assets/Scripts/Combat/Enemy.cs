@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int dmg;
     [SerializeField] private float searchRange;
     [SerializeField] private float lookForTargetTimerMax;
+    [SerializeField] private ParticleSystem deathEffect;
 
     private GameObject targetBuilding;
     private Rigidbody2D rb;
@@ -59,7 +60,7 @@ public class Enemy : MonoBehaviour
             HealthSystem healthSystem = building.GetComponent<HealthSystem>();
             healthSystem.TakeDamege(dmg);
 
-            Destroy(this.gameObject);
+            Die();
         }
     }
     private void HandleTargetSearch()
@@ -119,14 +120,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        CinemamachineShake.Instance.ShakeCamera(4f, 0.1f);
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
+
     private void HealthSystem_OnDamaged(object sender, System.EventArgs e)
     {
         SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
     }
 
     private void HealthSystem_OnDied(object sender, System.EventArgs e)
-    {
-        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
-        Destroy(this.gameObject);
+    {        
+        Die();
     }
 }

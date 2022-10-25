@@ -57,8 +57,7 @@ public class BuildingManager : MonoBehaviour
             if (!ResourceManager.Instance.CanAfford(activeBuildingType.constructionCostArray))
             {                
                 return;               
-            }
-                
+            }                
 
             ResourceManager.Instance.SpendResources(activeBuildingType.constructionCostArray);            
             SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
