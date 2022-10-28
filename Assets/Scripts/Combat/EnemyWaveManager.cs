@@ -24,14 +24,17 @@ public class EnemyWaveManager : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private float timeToFirstWave;
     [SerializeField] private float timeBetweenWaves;
+    [SerializeField] private float nextEnemyTimerMax;
     [SerializeField] private List<GameObject> spawnPoints;
     [SerializeField] private GameObject nextWaveSpawnPoint;
     [SerializeField] [Range(0f, 30f)] private float spawnRandominess;
 
     [Header("Enemies")]
     [SerializeField] private Transform enemiesParent;
+    [SerializeField] private GameObject[] enemyUnits;
 
     private Vector3 spawnPoint;
+    private float nextEnemyTimerMaxCurrent;
     //SF for testing only
     [SerializeField] private State state;
     [SerializeField] private float nextWaveTimer;
@@ -59,7 +62,7 @@ public class EnemyWaveManager : MonoBehaviour
                 HandleWaitingToSpawnWave();
                 break;
             case State.SpawningWave:
-                SpawnWave();
+                SpawningWave();
                 break;
         }       
        
@@ -73,30 +76,50 @@ public class EnemyWaveManager : MonoBehaviour
             SetWave();
         }
     }
-    private void SpawnWave()
-    {
-        if (remainingEnemySpawnAmount > 0)
-        {
-            nextEnemyTimer -= Time.deltaTime;
-            if (nextEnemyTimer < 0f)
-            {
-                nextEnemyTimer = UnityEngine.Random.Range(0f, 0.2f);
-                Enemy enemy = Enemy.Create(spawnPoint + Utilities.GetRandomDir() * UnityEngine.Random.Range(0f, 5f));
-                enemy.gameObject.transform.SetParent(enemiesParent);
-                remainingEnemySpawnAmount--;
-            }
-        }
-        else
+    private void SpawningWave()
+    {        
+        if(remainingEnemySpawnAmount < 0)
         {
             SetNextSpawnPoint();
             state = State.WaitingToSpawnWave;
         }
+
+        nextEnemyTimer -= Time.deltaTime;
+        if (nextEnemyTimer > 0f)
+        {
+            return;
+        }
+
+        switch (waveNumber)
+        {
+            //case int n when (n >= 100):
+            //    Debug.Log($"I am 100 or above: {n}");
+            //    break;
+
+            //case int n when (n < 100 && n >= 50):
+            //    Debug.Log($"I am between 99 and 50: {n}");
+            //    break;
+
+            //case int n when (n < 50):
+            //    Debug.Log($"I am less than 50: {n}");
+            //    break;
+
+            default:
+                nextEnemyTimer = UnityEngine.Random.Range(0f, nextEnemyTimerMaxCurrent);
+                GameObject spawnedEnemy = Instantiate(enemyUnits[0], spawnPoint + Utilities.GetRandomDir() * UnityEngine.Random.Range(0f, 5f), Quaternion.identity);
+                spawnedEnemy.transform.SetParent(enemiesParent);
+                remainingEnemySpawnAmount--;
+                break;
+        }
+       
     }
 
     private void SetWave()
     {        
         nextWaveTimer = timeBetweenWaves;
-        remainingEnemySpawnAmount = 5 + (waveNumber * 3);
+        remainingEnemySpawnAmount = 5 + (waveNumber * (3 + Mathf.FloorToInt(waveNumber/5f)));
+        nextEnemyTimerMaxCurrent = nextEnemyTimerMax - (waveNumber * 0.0005f);
+        Mathf.Clamp(nextEnemyTimerMaxCurrent, 0f, nextEnemyTimerMax / 2f);
         waveNumber++;
         OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);
         state = State.SpawningWave;

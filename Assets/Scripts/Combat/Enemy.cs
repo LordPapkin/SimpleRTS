@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public static Enemy Create(Vector3 position)
-    {
-        GameObject pfEnemy = Resources.Load<GameObject>("pfEnemy");
-        GameObject enemyGameObject = Instantiate(pfEnemy, position, Quaternion.identity); 
-
-        Enemy enemy = enemyGameObject.GetComponent<Enemy>();
-        return enemy;
-    }
-
     [Header("Enemy Settings")]
     [SerializeField] private float speed;
     [SerializeField] private int dmg;
