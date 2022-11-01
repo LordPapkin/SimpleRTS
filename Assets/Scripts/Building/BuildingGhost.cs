@@ -9,7 +9,7 @@ public class BuildingGhost : MonoBehaviour
     private void Awake()
     {
         spirteGameObject = transform.Find("sprite").gameObject;
-        resourceNearbyOverlay = transform.Find("pfResourceNearbyOverlay").GetComponent<ResourceNearbyOverlay>();  
+        resourceNearbyOverlay = transform.Find("ResourceNearbyOverlay").GetComponent<ResourceNearbyOverlay>();  
     }
     private void Start()
     {

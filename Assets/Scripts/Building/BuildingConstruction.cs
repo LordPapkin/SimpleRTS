@@ -6,7 +6,7 @@ public class BuildingConstruction : MonoBehaviour
 {
     public static BuildingConstruction Create(Vector3 position, BuildingTypeSO buildingType)
     {
-        GameObject buildingConstructionPrefab = Resources.Load<GameObject>("pfBuildingConstruction");
+        GameObject buildingConstructionPrefab = Resources.Load<GameObject>("BuildingConstruction");
         GameObject buildingConstructionGameObject = Instantiate(buildingConstructionPrefab, position, Quaternion.identity);        
 
         BuildingConstruction buildingConstruction = buildingConstructionGameObject.GetComponent<BuildingConstruction>();

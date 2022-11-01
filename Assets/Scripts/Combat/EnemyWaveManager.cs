@@ -22,9 +22,9 @@ public class EnemyWaveManager : MonoBehaviour
     public event EventHandler OnWaveNumberChanged;
 
     [Header("Spawn Settings")]
-    [SerializeField] private float timeToFirstWave;
-    [SerializeField] private float timeBetweenWaves;
-    [SerializeField] private float nextEnemyTimerMax;
+    [SerializeField] private float timeToFirstWave = 30f;
+    [SerializeField] private float timeBetweenWaves = 15f;
+    [SerializeField] private float nextEnemyTimerMax = 0.2f;
     [SerializeField] private List<GameObject> spawnPoints;
     [SerializeField] private GameObject nextWaveSpawnPoint;
     [SerializeField] [Range(0f, 30f)] private float spawnRandominess;
