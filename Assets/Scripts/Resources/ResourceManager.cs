@@ -20,8 +20,17 @@ public class ResourceManager : MonoBehaviour
 
     public void AddResource(ResourceTypeSO resourceType, int amount)
     {
-        resourceAmountDictionary[resourceType] += amount;
+        if(resourceAmountDictionary[resourceType] + amount < 9999)
+        {
+            resourceAmountDictionary[resourceType] += amount;
+        }
+        else
+        {
+            resourceAmountDictionary[resourceType] += amount - (resourceAmountDictionary[resourceType] + amount - 9999);
+        }
+        
         OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
+        
     }
 
     public bool CanAffordRepair(int amount)
@@ -55,6 +64,7 @@ public class ResourceManager : MonoBehaviour
             resourceAmountDictionary[resourceCostAmount.resourceType] -= resourceCostAmount.amount;
         }
         OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
+
     }
 
     public void SpendRepairCost(int amount)

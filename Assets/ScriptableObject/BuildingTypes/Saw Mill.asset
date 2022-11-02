@@ -16,12 +16,13 @@ MonoBehaviour:
   <Prefab>k__BackingField: {fileID: 3516654491173055411, guid: 4c5f44661c0de6344b3be61c84e6c7a0, type: 3}
   <HasResourceGeneratorData>k__BackingField: 1
   <ResourceGeneratorData>k__BackingField:
-    timerMax: 1
-    resourceType: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
-    resourceDetectionRadius: 10
-    maxResourceNodes: 10
+    <AmountPerCycle>k__BackingField: 1
+    <SecondsPerCycle>k__BackingField: 1
+    <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
+    <ResourceDetectionRadius>k__BackingField: 8
+    <MaxResourceNodes>k__BackingField: 10
   <Sprite>k__BackingField: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
-  <MinConstrutionRadius>k__BackingField: 10
+  <MinConstrutionRadius>k__BackingField: 16
   <ConstructionCostArray>k__BackingField:
   - resourceType: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
     amount: 15

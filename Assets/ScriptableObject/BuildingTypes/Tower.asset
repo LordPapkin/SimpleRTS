@@ -16,7 +16,7 @@ MonoBehaviour:
   <Prefab>k__BackingField: {fileID: 8377893412898791642, guid: 301bacaad1574b34ab597fce0aa99f9a, type: 3}
   <HasResourceGeneratorData>k__BackingField: 0
   <ResourceGeneratorData>k__BackingField:
-    timerMax: 0
+    amountPerSecondOnFullSpeed: 0
     resourceType: {fileID: 0}
     resourceDetectionRadius: 0
     maxResourceNodes: 0

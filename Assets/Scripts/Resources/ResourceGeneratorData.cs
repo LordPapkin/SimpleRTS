@@ -5,8 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class ResourceGeneratorData 
 {
-    public float timerMax;
-    public ResourceTypeSO resourceType;
-    public float resourceDetectionRadius;
-    public int maxResourceNodes;
+    [field: SerializeField] public int AmountPerCycle { get; private set; }
+    [field: SerializeField] public float SecondsPerCycle { get; private set; }
+    [field: SerializeField] public ResourceTypeSO ResourceType { get; private set; }
+    [field: SerializeField] public float ResourceDetectionRadius { get; private set; }
+    [field: SerializeField] public int MaxResourceNodes { get; private set; }
 }

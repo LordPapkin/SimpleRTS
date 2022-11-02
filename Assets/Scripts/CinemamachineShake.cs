@@ -44,5 +44,9 @@ public class CinemamachineShake : MonoBehaviour
             float amplitude = intensity * (timer / timerMax);
             channelPerlin.m_AmplitudeGain = amplitude;
         }
+        else
+        {
+            channelPerlin.m_AmplitudeGain = 0f;
+        }
     }
 }

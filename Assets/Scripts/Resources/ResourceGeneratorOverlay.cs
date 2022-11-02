@@ -6,20 +6,19 @@ using UnityEngine;
 public class ResourceGeneratorOverlay : MonoBehaviour
 {
     [SerializeField] private ResourceGenerator resourceGenerator;
-
-    private GameObject bar;
+    [SerializeField] private Transform barGameObject;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private TextMeshPro textMeshPro;
 
     private void Start()
     {
         ResourceGeneratorData resourceGeneratorData = resourceGenerator.GetResourceGeneratorData();
-
-        bar = transform.Find("Bar").gameObject;
-
-        transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = resourceGeneratorData.resourceType.Sprite;        
-        transform.Find("Text").GetComponent<TextMeshPro>().SetText(resourceGenerator.GetAmountGeneratedPerSecond().ToString("F1"));
+        spriteRenderer.sprite = resourceGeneratorData.ResourceType.Sprite;
+        textMeshPro.SetText(resourceGenerator.GetAmountPerSecond().ToString("F1"));        
     }
+
     private void Update()
     {
-        bar.transform.localScale = new Vector3(1f - resourceGenerator.GetTimerNormalized(), 1f, 1f);
+        barGameObject.transform.localScale = new Vector3(1f - resourceGenerator.GetTimerNormalized(), 1f, 1f);
     }
 }

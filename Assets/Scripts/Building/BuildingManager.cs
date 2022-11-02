@@ -74,8 +74,7 @@ public class BuildingManager : MonoBehaviour
         BoxCollider2D boxCollider = buildingType.Prefab.GetComponent<BoxCollider2D>();
 
         if (buildingType.HasResourceGeneratorData)
-        {
-            Debug.Log("HELOO!");
+        {            
             int nearbyResouceAmount = ResourceGenerator.GetNearbyResourceNodes(buildingType.ResourceGeneratorData, mouseWorldPosition);
             if(nearbyResouceAmount == 0)
             {

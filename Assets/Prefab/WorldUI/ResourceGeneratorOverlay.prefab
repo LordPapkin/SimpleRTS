@@ -332,6 +332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceGenerator: {fileID: 0}
+  barGameObject: {fileID: 9032526619123716722}
+  spriteRenderer: {fileID: 9032526620907529717}
+  textMeshPro: {fileID: 9032526619237065962}
 --- !u!210 &7614185469927603750
 SortingGroup:
   m_ObjectHideFlags: 0

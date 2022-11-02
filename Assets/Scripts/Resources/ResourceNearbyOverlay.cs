@@ -13,7 +13,7 @@ public class ResourceNearbyOverlay : MonoBehaviour
     private void Update()
     {
         int nearbyResouceAmount = ResourceGenerator.GetNearbyResourceNodes(resourceGeneratorData, this.transform.parent.position);
-        float percent = Mathf.RoundToInt((float)nearbyResouceAmount / resourceGeneratorData.maxResourceNodes * 100f);
+        float percent = Mathf.RoundToInt((float)nearbyResouceAmount / resourceGeneratorData.MaxResourceNodes * 100f);
         text.SetText(percent + "%");
     }
     public void Show(ResourceGeneratorData resourceGeneratorData)
@@ -21,7 +21,7 @@ public class ResourceNearbyOverlay : MonoBehaviour
         this.resourceGeneratorData = resourceGeneratorData;
         this.gameObject.SetActive(true);
 
-        iconSpirteRenderer.sprite = resourceGeneratorData.resourceType.Sprite;        
+        iconSpirteRenderer.sprite = resourceGeneratorData.ResourceType.Sprite;        
     }
 
     public void Hide()

@@ -16,10 +16,8 @@ public class HighscoreManager : MonoBehaviour
     }
 
     public void SubtractionScore(int value)
-    {
-        Debug.Log(score);
-        score -= value;
-        Debug.Log(score);
+    {        
+        score -= value;        
     }
 
     public void GameEnded()

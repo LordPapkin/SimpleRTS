@@ -10,13 +10,13 @@ public class TooltipUI : MonoBehaviour
         public float timer;
     }
     public static TooltipUI Instance => instance;
-    [SerializeField] private Vector2 padding;    
+    [SerializeField] private Vector2 padding;
+    [SerializeField] private TextMeshProUGUI textMeshPro;
+    [SerializeField] private RectTransform backgroundReactTransform;
+    [SerializeField] private RectTransform rectTransform;
+    [SerializeField] private RectTransform canvasRectTransform;
 
-    private static TooltipUI instance;
-    private TextMeshProUGUI textMeshPro;
-    private RectTransform backgroundReactTransform;
-    private RectTransform rectTransform;
-    private RectTransform canvasRectTransform;
+    private static TooltipUI instance;    
     private TooltipTimer timer;
 
 
@@ -39,12 +39,6 @@ public class TooltipUI : MonoBehaviour
         {
             instance = this;
         }
-
-        textMeshPro = transform.Find("Text").GetComponent<TextMeshProUGUI>();
-        backgroundReactTransform = transform.Find("Background").GetComponent<RectTransform>();
-        canvasRectTransform = transform.parent.GetComponent<RectTransform>();
-        rectTransform = GetComponent<RectTransform>();       
-
     }
     private void Update()
     {
