@@ -30,6 +30,7 @@ public class CinemamachineShake : MonoBehaviour
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         channelPerlin = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
+
     private void Update()
     {
         HandleShake();

@@ -66,7 +66,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
             GameObject copyTemplate = Instantiate(buildingSelectTemplate, this.transform);
             copyTemplate.SetActive(true);
 
-            copyTemplate.transform.Find("buildingImage").GetComponent<Image>().sprite = buildingType.sprite;
+            copyTemplate.transform.Find("buildingImage").GetComponent<Image>().sprite = buildingType.Sprite;
 
             copyTemplate.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * i, 0);
             copyTemplate.GetComponent<Button>().onClick.AddListener(() => { BuildingManager.Instance.SetActiveBuildingType(buildingType); });
@@ -74,7 +74,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
 
             mouseEnterExitEvents = copyTemplate.GetComponent<MouseEnterExitEvents>();
 
-            mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show(buildingType.nameString + "\n" + buildingType.GetConstructionCostString() ); };
+            mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show(buildingType.NameString + "\n" + buildingType.GetConstructionCostString() ); };
             mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs e) => { TooltipUI.Instance.Hide(); };
 
             GameObject copyTemplateSelected = copyTemplate.transform.Find("selected").gameObject;

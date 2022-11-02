@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e62a9f14adbe044be06931ccfef4b6, type: 3}
   m_Name: HQ
   m_EditorClassIdentifier: 
-  nameString: HQ
-  prefab: {fileID: 8377893412898791642, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
-  hasResourceGeneratorData: 1
-  resourceGeneratorData:
-    timerMax: 1
+  <NameString>k__BackingField: HQ
+  <Prefab>k__BackingField: {fileID: 8377893412898791642, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
+  <HasResourceGeneratorData>k__BackingField: 1
+  <ResourceGeneratorData>k__BackingField:
+    timerMax: 2
     resourceType: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
-    resourceDetectionRadius: 10
+    resourceDetectionRadius: 100
     maxResourceNodes: 1
-  sprite: {fileID: 21300000, guid: 7030b8e3eb49e8440ae8eb3ec8b45d05, type: 3}
-  minConstrutionRadius: 0
-  constructionCostArray: []
-  healthAmountMax: 250
-  constructionTime: 9999999
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
+  <MinConstrutionRadius>k__BackingField: 9999
+  <ConstructionCostArray>k__BackingField: []
+  <HealthAmountMax>k__BackingField: 250
+  <ConstructionTime>k__BackingField: 9999

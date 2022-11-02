@@ -43,7 +43,7 @@ public class BuildingConstruction : MonoBehaviour
         if (constructionTimer <= 0f)
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
-            Instantiate(buildingType.prefab, transform.position, Quaternion.identity);
+            Instantiate(buildingType.Prefab, transform.position, Quaternion.identity);
             Instantiate(buildingBuiltSFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -53,12 +53,12 @@ public class BuildingConstruction : MonoBehaviour
     {
         this.buildingType = buildingType;
 
-        boxCollider.size = buildingType.prefab.GetComponent<BoxCollider2D>().size;
-        boxCollider.offset = buildingType.prefab.GetComponent<BoxCollider2D>().offset;
-        spriteRenderer.sprite = buildingType.sprite;
+        boxCollider.size = buildingType.Prefab.GetComponent<BoxCollider2D>().size;
+        boxCollider.offset = buildingType.Prefab.GetComponent<BoxCollider2D>().offset;
+        spriteRenderer.sprite = buildingType.Sprite;
         buildingTypeHolder.BuildingType = buildingType;
 
-        constructionTimerMax = buildingType.constructionTime;
+        constructionTimerMax = buildingType.ConstructionTime;
         constructionTimer = constructionTimerMax;
     }
 }

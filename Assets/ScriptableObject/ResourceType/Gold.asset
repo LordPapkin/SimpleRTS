@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291558f5372c13742af55b92a423b015, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
-  nameString: Gold
-  nameShort: G
-  sprite: {fileID: 21300000, guid: 8b744c47cb320b84889a7b8439a78bc2, type: 3}
-  colorHex: '#FFD700'
+  <NameString>k__BackingField: Gold
+  <NameShort>k__BackingField: G
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 8b744c47cb320b84889a7b8439a78bc2, type: 3}
+  <ColorHex>k__BackingField: '#FFD700'

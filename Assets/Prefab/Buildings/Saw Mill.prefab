@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: -4309073348556816046}
   - component: {fileID: 973380131693546713}
   m_Layer: 0
-  m_Name: WoodHarvester
+  m_Name: Saw Mill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

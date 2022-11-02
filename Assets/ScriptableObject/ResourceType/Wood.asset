@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291558f5372c13742af55b92a423b015, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  nameString: Wood
-  nameShort: W
-  sprite: {fileID: 21300000, guid: 0b991b4895d956f4ea5f954ab13b7529, type: 3}
-  colorHex: '#7D533E'
+  <NameString>k__BackingField: Wood
+  <NameShort>k__BackingField: W
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 0b991b4895d956f4ea5f954ab13b7529, type: 3}
+  <ColorHex>k__BackingField: '#855E42'

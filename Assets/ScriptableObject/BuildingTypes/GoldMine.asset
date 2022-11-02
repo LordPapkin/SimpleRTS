@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44e62a9f14adbe044be06931ccfef4b6, type: 3}
-  m_Name: GoldHarvester
+  m_Name: GoldMine
   m_EditorClassIdentifier: 
-  nameString: Gold Harvester
-  prefab: {fileID: 3516654491173055411, guid: fa96ccc06ee4537428b0cb4252aacdae, type: 3}
-  hasResourceGeneratorData: 1
-  resourceGeneratorData:
+  <NameString>k__BackingField: Gold Mine
+  <Prefab>k__BackingField: {fileID: 3516654491173055411, guid: fa96ccc06ee4537428b0cb4252aacdae, type: 3}
+  <HasResourceGeneratorData>k__BackingField: 1
+  <ResourceGeneratorData>k__BackingField:
     timerMax: 2
     resourceType: {fileID: 11400000, guid: 809faa391ab1fe440b4f27f8afb903a2, type: 2}
-    resourceDetectionRadius: 6
+    resourceDetectionRadius: 7
     maxResourceNodes: 5
-  sprite: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
-  minConstrutionRadius: 7
-  constructionCostArray:
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
+  <MinConstrutionRadius>k__BackingField: 7
+  <ConstructionCostArray>k__BackingField:
   - resourceType: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
     amount: 100
-  healthAmountMax: 100
-  constructionTime: 5
+  <HealthAmountMax>k__BackingField: 150
+  <ConstructionTime>k__BackingField: 5

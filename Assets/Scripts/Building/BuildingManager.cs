@@ -54,19 +54,19 @@ public class BuildingManager : MonoBehaviour
                 return;
                 
             }               
-            if (!ResourceManager.Instance.CanAfford(activeBuildingType.constructionCostArray))
+            if (!ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray))
             {                
                 return;               
             }                
 
-            ResourceManager.Instance.SpendResources(activeBuildingType.constructionCostArray);            
+            ResourceManager.Instance.SpendResources(activeBuildingType.ConstructionCostArray);            
             SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
             BuildingConstruction.Create(Utilities.GetMouseWorldPosition(), activeBuildingType);
         }
     }
     private bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 position, out string errorMessage)
     {
-        BoxCollider2D boxCollider = buildingType.prefab.GetComponent<BoxCollider2D>();
+        BoxCollider2D boxCollider = buildingType.Prefab.GetComponent<BoxCollider2D>();
 
         //checks if area for building is clear if not return false
         Collider2D[] nearbyColliders = Physics2D.OverlapBoxAll(position + (Vector3)boxCollider.offset, boxCollider.size, 0);
@@ -88,7 +88,7 @@ public class BuildingManager : MonoBehaviour
         }
 
         //chceks if they are other buildings same type nearby if yes, return false
-         nearbyColliders = Physics2D.OverlapCircleAll(position, buildingType.minConstrutionRadius);
+         nearbyColliders = Physics2D.OverlapCircleAll(position, buildingType.MinConstrutionRadius);
         foreach (Collider2D collider in nearbyColliders)
         {
             BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();

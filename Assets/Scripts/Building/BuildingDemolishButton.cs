@@ -18,7 +18,7 @@ public class BuildingDemolishButton : MonoBehaviour
         demolishButton.onClick.AddListener(() =>
         {
             BuildingTypeSO demolishBuildingType = building.GetComponent<BuildingTypeHolder>().BuildingType;
-            foreach (ResourceAmount resource in demolishBuildingType.constructionCostArray)
+            foreach (ResourceAmount resource in demolishBuildingType.ConstructionCostArray)
             {
                 ResourceManager.Instance.AddResource(resource.resourceType, Mathf.FloorToInt(resource.amount * 0.6f));
             }

@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e62a9f14adbe044be06931ccfef4b6, type: 3}
   m_Name: Tower
   m_EditorClassIdentifier: 
-  nameString: Tower
-  prefab: {fileID: 8377893412898791642, guid: 301bacaad1574b34ab597fce0aa99f9a, type: 3}
-  hasResourceGeneratorData: 0
-  resourceGeneratorData:
+  <NameString>k__BackingField: Stone Tower
+  <Prefab>k__BackingField: {fileID: 8377893412898791642, guid: 301bacaad1574b34ab597fce0aa99f9a, type: 3}
+  <HasResourceGeneratorData>k__BackingField: 0
+  <ResourceGeneratorData>k__BackingField:
     timerMax: 0
     resourceType: {fileID: 0}
     resourceDetectionRadius: 0
     maxResourceNodes: 0
-  sprite: {fileID: 21300000, guid: 3a549cd61f4d79e4b996c9978dac641f, type: 3}
-  minConstrutionRadius: 7
-  constructionCostArray:
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 3a549cd61f4d79e4b996c9978dac641f, type: 3}
+  <MinConstrutionRadius>k__BackingField: 6
+  <ConstructionCostArray>k__BackingField:
   - resourceType: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
     amount: 40
   - resourceType: {fileID: 11400000, guid: 4e9a4bd3e6c352c4182a886e12ea8cdb, type: 2}
     amount: 25
-  healthAmountMax: 200
-  constructionTime: 5
+  <HealthAmountMax>k__BackingField: 250
+  <ConstructionTime>k__BackingField: 8
