@@ -311,6 +311,7 @@ MonoBehaviour:
   searchRange: 12.5
   lookForTargetTimerMax: 0.8
   deathEffect: {fileID: 533070145800854221, guid: fa53ff3e077270e4d8a679c8fa7de07f, type: 3}
+  scoreValue: 10
 --- !u!114 &6742614221099374027
 MonoBehaviour:
   m_ObjectHideFlags: 0

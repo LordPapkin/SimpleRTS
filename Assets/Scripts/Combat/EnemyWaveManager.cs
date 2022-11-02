@@ -25,9 +25,11 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField] private float timeToFirstWave = 30f;
     [SerializeField] private float timeBetweenWaves = 15f;
     [SerializeField] private float nextEnemyTimerMax = 0.2f;
+    [SerializeField] private float waveNumberToIncreaseSpawnAmount = 5f;
     [SerializeField] private List<GameObject> spawnPoints;
     [SerializeField] private GameObject nextWaveSpawnPoint;
-    [SerializeField] [Range(0f, 30f)] private float spawnRandominess;
+    [SerializeField] [Range(0f, 30f)] private float spawnPointRandominess;
+    [SerializeField] [Range(0f, 5f)] private float spawnRandominess;
 
     [Header("Enemies")]
     [SerializeField] private Transform enemiesParent;
@@ -78,7 +80,7 @@ public class EnemyWaveManager : MonoBehaviour
     }
     private void SpawningWave()
     {        
-        if(remainingEnemySpawnAmount < 0)
+        if(remainingEnemySpawnAmount <= 0)
         {
             SetNextSpawnPoint();
             state = State.WaitingToSpawnWave;
@@ -106,7 +108,7 @@ public class EnemyWaveManager : MonoBehaviour
 
             default:
                 nextEnemyTimer = UnityEngine.Random.Range(0f, nextEnemyTimerMaxCurrent);
-                GameObject spawnedEnemy = Instantiate(enemyUnits[0], spawnPoint + Utilities.GetRandomDir() * UnityEngine.Random.Range(0f, 5f), Quaternion.identity);
+                GameObject spawnedEnemy = Instantiate(enemyUnits[0], spawnPoint + Utilities.GetRandomDir() * UnityEngine.Random.Range(0f, spawnRandominess), Quaternion.identity);
                 spawnedEnemy.transform.SetParent(enemiesParent);
                 remainingEnemySpawnAmount--;
                 break;
@@ -117,16 +119,20 @@ public class EnemyWaveManager : MonoBehaviour
     private void SetWave()
     {        
         nextWaveTimer = timeBetweenWaves;
-        remainingEnemySpawnAmount = 5 + (waveNumber * (3 + Mathf.FloorToInt(waveNumber/5f)));
+
+        remainingEnemySpawnAmount = 5 + (waveNumber * (3 + Mathf.FloorToInt(waveNumber/ waveNumberToIncreaseSpawnAmount)));
+
         nextEnemyTimerMaxCurrent = nextEnemyTimerMax - (waveNumber * 0.0005f);
-        nextEnemyTimerMaxCurrent = Mathf.Clamp(nextEnemyTimerMaxCurrent, 0f, nextEnemyTimerMax / 2f);
+        nextEnemyTimerMaxCurrent = Mathf.Clamp(nextEnemyTimerMaxCurrent, nextEnemyTimerMax / 2f, nextEnemyTimerMax );
+
         waveNumber++;
         OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);
         state = State.SpawningWave;
     }
+
     private void SetNextSpawnPoint()
     {
-        spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform.position + (Utilities.GetRandomDir() * spawnRandominess);
+        spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform.position + (Utilities.GetRandomDir() * spawnPointRandominess);
         nextWaveSpawnPoint.transform.position = spawnPoint;
     }
 }

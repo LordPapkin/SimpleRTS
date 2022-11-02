@@ -13,7 +13,8 @@ public class BuildingTypeSO : ScriptableObject
     [field: SerializeField] public float MinConstrutionRadius { get; private set; }
     [field: SerializeField] public ResourceAmount[] ConstructionCostArray { get; private set; }
     [field: SerializeField] public int HealthAmountMax { get; private set; }
-    [field: SerializeField] public float ConstructionTime { get; private set; }   
+    [field: SerializeField] public float ConstructionTime { get; private set; }
+    [field: SerializeField] public int ScoreValue { get; private set; }
 
     public string GetConstructionCostString()
     {

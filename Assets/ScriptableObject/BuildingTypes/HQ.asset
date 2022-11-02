@@ -25,3 +25,4 @@ MonoBehaviour:
   <ConstructionCostArray>k__BackingField: []
   <HealthAmountMax>k__BackingField: 250
   <ConstructionTime>k__BackingField: 9999
+  <ScoreValue>k__BackingField: 500

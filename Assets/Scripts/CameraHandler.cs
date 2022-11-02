@@ -103,7 +103,7 @@ public class CameraHandler : MonoBehaviour
         moveDir.Normalize();
         zoomScale = orthographicSize / startOrthographicSize;
 
-        targetTransformPosition = transform.position + (moveDir * moveSpeed * zoomScale * moveSpeedOnZoomMultiplayer * Time.deltaTime);
+        targetTransformPosition = transform.position + (moveDir * moveSpeed * (zoomScale * moveSpeedOnZoomMultiplayer) * Time.deltaTime);
         if (Mathf.Abs(targetTransformPosition.x) > mapBoundX || Mathf.Abs(targetTransformPosition.y) > mapBoundY)
         {
             return;

@@ -5,15 +5,10 @@ using TMPro;
 
 public class ResourceNearbyOverlay : MonoBehaviour
 {
-    private ResourceGeneratorData resourceGeneratorData;
-    private TextMeshPro text;
-    private Sprite icon;
+    [SerializeField] private TextMeshPro text;
+    [SerializeField] private SpriteRenderer iconSpirteRenderer;
 
-    private void Awake()
-    {
-        text = transform.Find("Text").GetComponent<TextMeshPro>();
-        icon = transform.Find("Icon").GetComponent<SpriteRenderer>().sprite;
-    }
+    private ResourceGeneratorData resourceGeneratorData;   
 
     private void Update()
     {
@@ -26,7 +21,7 @@ public class ResourceNearbyOverlay : MonoBehaviour
         this.resourceGeneratorData = resourceGeneratorData;
         this.gameObject.SetActive(true);
 
-        icon = resourceGeneratorData.resourceType.Sprite;        
+        iconSpirteRenderer.sprite = resourceGeneratorData.resourceType.Sprite;        
     }
 
     public void Hide()

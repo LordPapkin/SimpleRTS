@@ -54,6 +54,7 @@ public class OptionsUI : MonoBehaviour
         });
         mainMenuButton.onClick.AddListener(() =>
         {
+            Time.timeScale = 1f;
             GameSceneManager.Load(GameSceneManager.Scene.MainMenuScene);
         });        
         edgeScrollingToggle.onValueChanged.AddListener((bool set) =>
@@ -61,6 +62,7 @@ public class OptionsUI : MonoBehaviour
             CameraHandler.Instance.ToggleEdgeScrolling(set);
         });
     }
+
     private void Start()
     {
         UpdateSoundVolumeText();

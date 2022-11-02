@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float searchRange;
     [SerializeField] private float lookForTargetTimerMax;
     [SerializeField] private ParticleSystem deathEffect;
+    [SerializeField] private int scoreValue;
 
     private GameObject targetBuilding;
     private Rigidbody2D rb;
@@ -113,6 +114,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        HighscoreManager.Instance.AddScore(scoreValue);
         CinemamachineShake.Instance.ShakeCamera(4f, 0.1f);
         SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
         Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -125,7 +127,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void HealthSystem_OnDied(object sender, System.EventArgs e)
-    {        
+    { 
         Die();
     }
 }

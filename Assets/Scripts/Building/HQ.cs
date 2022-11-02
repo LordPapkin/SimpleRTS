@@ -6,8 +6,8 @@ using UnityEngine;
 public class HQ : Building
 {
     protected override void HealthSystem_OnDied(object sender, EventArgs e)
-    {
-        GameOverUI.Instance.Show();
+    {       
         base.HealthSystem_OnDied(sender, e);
+        GameOverUI.Instance.Show();
     }
 }

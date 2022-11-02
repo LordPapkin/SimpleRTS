@@ -27,3 +27,4 @@ MonoBehaviour:
     amount: 100
   <HealthAmountMax>k__BackingField: 150
   <ConstructionTime>k__BackingField: 5
+  <ScoreValue>k__BackingField: 150

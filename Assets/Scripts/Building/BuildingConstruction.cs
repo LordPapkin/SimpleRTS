@@ -16,18 +16,19 @@ public class BuildingConstruction : MonoBehaviour
     }
 
     public float ConstructionTimerNormailezed { get { return 1f - constructionTimer / constructionTimerMax; } }
+
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private BuildingTypeHolder buildingTypeHolder;
     [SerializeField] private ParticleSystem buildingBuiltSFX;
-    private Material constructionMaterial;
+   
     private float constructionTimer; 
     private float constructionTimerMax;
+    private Transform buildingsParent;
     private BuildingTypeSO buildingType;  
 
     private void Awake()
-    {
-        constructionMaterial = spriteRenderer.material;
+    {        
         Instantiate(buildingBuiltSFX, transform.position, Quaternion.identity);
     }
 
@@ -38,12 +39,12 @@ public class BuildingConstruction : MonoBehaviour
 
     private void HandleConstruction()
     {
-        constructionMaterial.SetFloat("_Progress", ConstructionTimerNormailezed);
+        
         constructionTimer -= Time.deltaTime;
         if (constructionTimer <= 0f)
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
-            Instantiate(buildingType.Prefab, transform.position, Quaternion.identity);
+            Instantiate(buildingType.Prefab, transform.position, Quaternion.identity, this.transform.parent);
             Instantiate(buildingBuiltSFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -56,7 +57,7 @@ public class BuildingConstruction : MonoBehaviour
         boxCollider.size = buildingType.Prefab.GetComponent<BoxCollider2D>().size;
         boxCollider.offset = buildingType.Prefab.GetComponent<BoxCollider2D>().offset;
         spriteRenderer.sprite = buildingType.Sprite;
-        buildingTypeHolder.BuildingType = buildingType;
+        buildingTypeHolder.BuildingType = buildingType;        
 
         constructionTimerMax = buildingType.ConstructionTime;
         constructionTimer = constructionTimerMax;
