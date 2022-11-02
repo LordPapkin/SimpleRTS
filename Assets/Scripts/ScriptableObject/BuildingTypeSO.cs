@@ -20,7 +20,7 @@ public class BuildingTypeSO : ScriptableObject
         string result = "";
         foreach (ResourceAmount constructionCost in constructionCostArray)
         {
-            result += "<color="+ constructionCost.resourceType.colorHex+">"+ constructionCost.resourceType.nameShort + constructionCost.amount + "</color> ";
+            result += "<color="+ constructionCost.resourceType.ColorHex+">"+ constructionCost.resourceType.NameShort + constructionCost.amount + "</color> ";
         }
         return result;
     }

@@ -83,7 +83,7 @@ public class ResourceManager : MonoBehaviour
     private void ShowNeededResources(int amountNeeded, int amountAvailable)
     {
         string result = "";       
-        result += "<color=" + repairResource.colorHex + ">" + repairResource.nameShort + (amountNeeded - amountAvailable) + "</color> ";
+        result += "<color=" + repairResource.ColorHex + ">" + repairResource.NameShort + (amountNeeded - amountAvailable) + "</color> ";
         TooltipUI.Instance.Show(result + " Needed!", new TooltipUI.TooltipTimer { timer = 2f });
     }
 
@@ -96,7 +96,7 @@ public class ResourceManager : MonoBehaviour
             int resourcesAvailable = GetResourceAmount(constructionCost.resourceType);
             if (resourcesNeeded > resourcesAvailable)
             {
-                result += "<color=" + constructionCost.resourceType.colorHex + ">" + constructionCost.resourceType.nameShort + (resourcesNeeded - resourcesAvailable) + "</color> ";
+                result += "<color=" + constructionCost.resourceType.ColorHex + ">" + constructionCost.resourceType.NameShort + (resourcesNeeded - resourcesAvailable) + "</color> ";
             }            
         }        
         TooltipUI.Instance.Show(result + " Needed!", new TooltipUI.TooltipTimer { timer = 2f });

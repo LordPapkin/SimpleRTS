@@ -119,7 +119,7 @@ public class EnemyWaveManager : MonoBehaviour
         nextWaveTimer = timeBetweenWaves;
         remainingEnemySpawnAmount = 5 + (waveNumber * (3 + Mathf.FloorToInt(waveNumber/5f)));
         nextEnemyTimerMaxCurrent = nextEnemyTimerMax - (waveNumber * 0.0005f);
-        Mathf.Clamp(nextEnemyTimerMaxCurrent, 0f, nextEnemyTimerMax / 2f);
+        nextEnemyTimerMaxCurrent = Mathf.Clamp(nextEnemyTimerMaxCurrent, 0f, nextEnemyTimerMax / 2f);
         waveNumber++;
         OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);
         state = State.SpawningWave;

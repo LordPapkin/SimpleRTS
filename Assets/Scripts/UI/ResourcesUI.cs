@@ -43,7 +43,7 @@ public class ResourcesUI : MonoBehaviour
 
             templateCopy.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * i, 0);
 
-            templateCopy.transform.Find("image").GetComponent<Image>().sprite = resourceType.sprite;
+            templateCopy.transform.Find("image").GetComponent<Image>().sprite = resourceType.Sprite;
             TextMeshProUGUI resourceAmountUI = templateCopy.transform.Find("text").GetComponent<TextMeshProUGUI>();
 
             resourceTypeUIDictionary.Add(resourceType, resourceAmountUI);

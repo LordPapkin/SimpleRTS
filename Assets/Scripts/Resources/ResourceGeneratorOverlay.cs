@@ -15,7 +15,7 @@ public class ResourceGeneratorOverlay : MonoBehaviour
 
         bar = transform.Find("Bar").gameObject;
 
-        transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = resourceGeneratorData.resourceType.sprite;        
+        transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = resourceGeneratorData.resourceType.Sprite;        
         transform.Find("Text").GetComponent<TextMeshPro>().SetText(resourceGenerator.GetAmountGeneratedPerSecond().ToString("F1"));
     }
     private void Update()
