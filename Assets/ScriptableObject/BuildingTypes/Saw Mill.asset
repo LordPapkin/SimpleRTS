@@ -26,6 +26,6 @@ MonoBehaviour:
   <ConstructionCostArray>k__BackingField:
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
     <Amount>k__BackingField: 15
-  <HealthAmountMax>k__BackingField: 1000
+  <HealthAmountMax>k__BackingField: 100
   <ConstructionTime>k__BackingField: 3.5
   <ScoreValue>k__BackingField: 100
