@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ResourceAmount 
+
+public struct ResourceAmount 
 {
-    public ResourceTypeSO resourceType;
-    public int amount;
+    [field: SerializeField] public ResourceTypeSO ResourceType { get; private set; }
+    [field: SerializeField] public int Amount { get; set; }
 }

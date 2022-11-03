@@ -325,5 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620e0dc03c7f6a445bfb060148999826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 0}
-  repairButton: {fileID: 0}
+  healthSystem: {fileID: 0}
+  buildingTypeHolder: {fileID: 0}
+  repairButton: {fileID: 2736603011440900268}
+  repairEfficiency: 0.75

@@ -24,8 +24,8 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
   <MinConstrutionRadius>k__BackingField: 16
   <ConstructionCostArray>k__BackingField:
-  - resourceType: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
-    amount: 100
+  - <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
+    <Amount>k__BackingField: 100
   <HealthAmountMax>k__BackingField: 150
   <ConstructionTime>k__BackingField: 5
   <ScoreValue>k__BackingField: 150

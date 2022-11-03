@@ -719,9 +719,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 973380131693546713}
     - target: {fileID: 3903417296681424308, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: healthSystem
+      value: 
+      objectReference: {fileID: -4309073348556816046}
+    - target: {fileID: 3903417296681424308, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: repairButton
       value: 
       objectReference: {fileID: 6487400241553046385}
+    - target: {fileID: 3903417296681424308, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: buildingTypeHolder
+      value: 
+      objectReference: {fileID: -2879997426832671023}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
 --- !u!1 &6487400241769331734 stripped
