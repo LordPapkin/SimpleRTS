@@ -307,7 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
-  dmg: 10
+  timeToAttack: 1
+  dmg: 5
   searchRange: 12.5
   lookForTargetTimerMax: 0.8
   deathEffect: {fileID: 533070145800854221, guid: fa53ff3e077270e4d8a679c8fa7de07f, type: 3}

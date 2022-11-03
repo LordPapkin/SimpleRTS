@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44e62a9f14adbe044be06931ccfef4b6, type: 3}
-  m_Name: Tower
+  m_Name: WoodenTower
   m_EditorClassIdentifier: 
-  <NameString>k__BackingField: Stone Tower
-  <Prefab>k__BackingField: {fileID: 8377893412898791642, guid: 301bacaad1574b34ab597fce0aa99f9a, type: 3}
+  <NameString>k__BackingField: Wooden Tower
+  <Prefab>k__BackingField: {fileID: 5400305384820736129, guid: 77dcde1eb0efa344dbbce461d49dacdd, type: 3}
   <HasResourceGeneratorData>k__BackingField: 0
   <ResourceGeneratorData>k__BackingField:
     <AmountPerCycle>k__BackingField: 0
@@ -21,13 +21,11 @@ MonoBehaviour:
     <ResourceType>k__BackingField: {fileID: 0}
     <ResourceDetectionRadius>k__BackingField: 0
     <MaxResourceNodes>k__BackingField: 0
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 3a549cd61f4d79e4b996c9978dac641f, type: 3}
-  <MinConstrutionRadius>k__BackingField: 9
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 5b036962f7fd15d49aec460e5b44d2ad, type: 3}
+  <MinConstrutionRadius>k__BackingField: 7
   <ConstructionCostArray>k__BackingField:
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
-    <Amount>k__BackingField: 30
-  - <ResourceType>k__BackingField: {fileID: 11400000, guid: 4e9a4bd3e6c352c4182a886e12ea8cdb, type: 2}
-    <Amount>k__BackingField: 55
-  <HealthAmountMax>k__BackingField: 500
-  <ConstructionTime>k__BackingField: 8
-  <ScoreValue>k__BackingField: 25
+    <Amount>k__BackingField: 40
+  <HealthAmountMax>k__BackingField: 200
+  <ConstructionTime>k__BackingField: 5
+  <ScoreValue>k__BackingField: 10

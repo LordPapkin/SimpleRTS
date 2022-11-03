@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private float speed;
+    [SerializeField] private float timeToAttack;
     [SerializeField] private int dmg;
     [SerializeField] private float searchRange;
     [SerializeField] private float lookForTargetTimerMax;
@@ -15,8 +16,11 @@ public class Enemy : MonoBehaviour
     private GameObject targetBuilding;
     private Rigidbody2D rb;
     private HealthSystem healthSystem;
-    private float lookForTargetTimer;
 
+    private float lookForTargetTimer;
+    private float attackTimer;
+
+    private HealthSystem hitBuildingHealthSystem;
 
     private void Awake()
     {
@@ -37,24 +41,34 @@ public class Enemy : MonoBehaviour
     {
         HandleMovemnet();
         HandleTargetSearch();
+        HandleAttackTimer();
     }    
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         HitBuilding(collision);
     }
 
     private void HitBuilding(Collision2D collision)
     {
-        Building building = collision.gameObject.GetComponent<Building>();
-        if (building != null)
+        if (attackTimer > 0)
         {
-            HealthSystem healthSystem = building.GetComponent<HealthSystem>();
-            healthSystem.TakeDamege(dmg);
-
-            Die();
+            return;
         }
+
+        Building building = collision.gameObject.GetComponent<Building>();
+
+        if (building == null)
+        {
+            return;
+        }
+
+        HealthSystem healthSystem = building.GetComponent<HealthSystem>();
+        healthSystem.TakeDamege(dmg);
+
+        attackTimer += timeToAttack;
     }
+
     private void HandleTargetSearch()
     {
         lookForTargetTimer -= Time.deltaTime;
@@ -62,6 +76,14 @@ public class Enemy : MonoBehaviour
         {
             lookForTargetTimer = lookForTargetTimerMax;
             LookForTargets();
+        }
+    }
+
+    private void HandleAttackTimer()
+    {
+        if(attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
         }
     }
 
@@ -85,13 +107,19 @@ public class Enemy : MonoBehaviour
         foreach (Collider2D collider in collider2Ds)
         {
             Building building = collider.gameObject.GetComponent<Building>();
+
             if (building == null)
+            {
                 continue;
+            } 
+            
             if(targetBuilding == null)
             {
                 targetBuilding = building.gameObject;
                 continue;
-            }                
+            } 
+            
+            //if you find closer building change target
             if (Vector2.Distance(transform.position, building.transform.position) < Vector2.Distance(transform.position, targetBuilding.transform.position))
             {
                 targetBuilding = building.gameObject;
