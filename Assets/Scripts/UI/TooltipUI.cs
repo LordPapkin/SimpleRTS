@@ -9,6 +9,7 @@ public class TooltipUI : MonoBehaviour
     {
         public float timer;
     }
+
     public static TooltipUI Instance => instance;
     [SerializeField] private Vector2 padding;
     [SerializeField] private TextMeshProUGUI textMeshPro;

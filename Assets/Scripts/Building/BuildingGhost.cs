@@ -28,13 +28,14 @@ public class BuildingGhost : MonoBehaviour
     {
         if (isShown)
         {
-            if (BuildingManager.Instance.CanPlaceBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), false))
+            if (BuildingManager.Instance.CanPlaceBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), false) && ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray))
             {
                 spirteRenderer.color = canBuildColor;
+                TooltipUI.Instance.Hide();
             }
             else
             {
-                spirteRenderer.color = cantBuildColor;
+                spirteRenderer.color = cantBuildColor;                
             }
         }
     }

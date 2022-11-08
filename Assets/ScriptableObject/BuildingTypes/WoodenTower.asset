@@ -21,7 +21,7 @@ MonoBehaviour:
     <ResourceType>k__BackingField: {fileID: 0}
     <ResourceDetectionRadius>k__BackingField: 0
     <MaxResourceNodes>k__BackingField: 0
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 5b036962f7fd15d49aec460e5b44d2ad, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: b4d836b2dffd95d46b08419f65e593bb, type: 3}
   <MinConstrutionRadius>k__BackingField: 7
   <ConstructionCostArray>k__BackingField:
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
