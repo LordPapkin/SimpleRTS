@@ -21,7 +21,68 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private float safeRadius;    
     private BuildingTypeSO activeBuildingType;
     private BuildingTypeListSO buildingTypeList;
-    
+
+    public bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 mouseWorldPosition, out string errorMessage)
+    {
+        BoxCollider2D boxCollider = buildingType.Prefab.GetComponent<BoxCollider2D>();
+
+        if (buildingType.HasResourceGeneratorData)
+        {
+            int nearbyResouceAmount = ResourceGenerator.GetNearbyResourceNodes(buildingType.ResourceGeneratorData, mouseWorldPosition);
+            if (nearbyResouceAmount == 0)
+            {
+                errorMessage = "There are no resources nearby!";
+                return false;
+            }
+        }
+
+        //checks if area for building is clear if not return false
+        Collider2D[] nearbyColliders = Physics2D.OverlapBoxAll(mouseWorldPosition + (Vector3)boxCollider.offset, boxCollider.size, 0);
+        if (nearbyColliders.Length != 0)
+        {
+            errorMessage = "Area is not clear";
+            return false;
+        }
+
+        nearbyColliders = Physics2D.OverlapCircleAll(mouseWorldPosition, safeRadius);
+        foreach (Collider2D collider in nearbyColliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                errorMessage = "Can't build near enemies!";
+                return false;
+            }
+        }
+
+        //chceks if they are other buildings same type nearby if yes, return false
+        nearbyColliders = Physics2D.OverlapCircleAll(mouseWorldPosition, buildingType.MinConstrutionRadius);
+        foreach (Collider2D collider in nearbyColliders)
+        {
+            BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
+            if (buildingTypeHolder != null && buildingTypeHolder.BuildingType == buildingType)
+            {
+                errorMessage = "Too close for another building of the same type";
+                return false;
+            }
+
+        }
+
+        //checks if they are any building at all, if yes return true
+        nearbyColliders = Physics2D.OverlapCircleAll(mouseWorldPosition, maxConstrutionRadius);
+        foreach (Collider2D collider in nearbyColliders)
+        {
+            BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
+            if (buildingTypeHolder != null)
+            {
+                errorMessage = "";
+                return true;
+            }
+
+        }
+        errorMessage = "Too far from any other building";
+        return false;
+    }
 
     public void SetActiveBuildingType(BuildingTypeSO buildingType)
     {
@@ -41,94 +102,54 @@ public class BuildingManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);        
+        Init();
     }
-   
+
     private void Update()
+    {
+        HandleBuildingPlacing();
+    }
+
+    private void HandleBuildingPlacing()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            if (activeBuildingType == null)
+            if(!CheckSpawnRequirements())
                 return;
-            if (!CanSpawnBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), out string errorMessage))
-            {
-                TooltipUI.Instance.Show(errorMessage, new TooltipUI.TooltipTimer { timer = 2f }); ;
-                return;
-                
-            }               
-            if (!ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray))
-            {                
-                return;               
-            }                
-
-            ResourceManager.Instance.SpendResources(activeBuildingType.ConstructionCostArray);            
-            SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
-            BuildingConstruction buildingConstruction = BuildingConstruction.Create(Utilities.GetMouseWorldPosition(), activeBuildingType);
-            buildingConstruction.transform.SetParent(buildingsParent);
+            SpawnBuilding();
         }
     }
 
-    private bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 mouseWorldPosition, out string errorMessage)
+    private void Init()
     {
-        BoxCollider2D boxCollider = buildingType.Prefab.GetComponent<BoxCollider2D>();
+        Instance = this;
+        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
+    }
 
-        if (buildingType.HasResourceGeneratorData)
-        {            
-            int nearbyResouceAmount = ResourceGenerator.GetNearbyResourceNodes(buildingType.ResourceGeneratorData, mouseWorldPosition);
-            if(nearbyResouceAmount == 0)
-            {
-                errorMessage = "There are no resources nearby!";
-                return false;
-            }
-        }        
+    private void SpawnBuilding()
+    {
+        ResourceManager.Instance.SpendResources(activeBuildingType.ConstructionCostArray);
+        SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingPlaced);
+        BuildingConstruction buildingConstruction = BuildingConstruction.Create(Utilities.GetMouseWorldPosition(), activeBuildingType);
+        buildingConstruction.transform.SetParent(buildingsParent);
+    }
 
-        //checks if area for building is clear if not return false
-        Collider2D[] nearbyColliders = Physics2D.OverlapBoxAll(mouseWorldPosition + (Vector3)boxCollider.offset, boxCollider.size, 0);
-        if(nearbyColliders.Length != 0)
+    private bool CheckSpawnRequirements()
+    {
+        if (activeBuildingType == null)
+            return false;
+
+        if (!ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray))
+            return false;
+
+        if (!CanSpawnBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), out string errorMessage))
         {
-            errorMessage = "Area is not clear";
+            TooltipUI.Instance.Show(errorMessage, new TooltipUI.TooltipTimer { timer = 2f }); ;
             return false;
         }
-
-        nearbyColliders = Physics2D.OverlapCircleAll(mouseWorldPosition, safeRadius);
-        foreach(Collider2D collider in nearbyColliders)
-        {
-            Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                errorMessage = "Can't build near enemies!";
-                return false;
-            }
-        }
-
-        //chceks if they are other buildings same type nearby if yes, return false
-         nearbyColliders = Physics2D.OverlapCircleAll(mouseWorldPosition, buildingType.MinConstrutionRadius);
-        foreach (Collider2D collider in nearbyColliders)
-        {
-            BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
-            if (buildingTypeHolder != null && buildingTypeHolder.BuildingType == buildingType)
-            {
-                errorMessage = "Too close for another building of the same type";
-                return false;
-            }
-                
-        }
-
-        //checks if they are any building at all, if yes return true
-        nearbyColliders = Physics2D.OverlapCircleAll(mouseWorldPosition, maxConstrutionRadius);
-        foreach (Collider2D collider in nearbyColliders)
-        {
-            BuildingTypeHolder buildingTypeHolder = collider.GetComponent<BuildingTypeHolder>();
-            if (buildingTypeHolder != null)
-            {
-                errorMessage = "";
-                return true;
-            }
-                
-        }
-        errorMessage = "Too far from any other building";
-        return false;
+        return true;
     }
+
+
 
 }
