@@ -35,6 +35,6 @@ public class HighscoreManager : MonoBehaviour
             instance = this;
 
         highScore = PlayerPrefs.GetInt("highScore", 0);  
-        Debug.Log(highScore);
+        Debug.Log("Current highscore: " + highScore);
     }
 }

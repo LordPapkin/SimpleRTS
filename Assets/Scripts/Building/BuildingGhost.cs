@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BuildingGhost : MonoBehaviour
 {
-    private GameObject spirteGameObject;
-    private ResourceNearbyOverlay resourceNearbyOverlay;
-    private void Awake()
-    {
-        spirteGameObject = transform.Find("sprite").gameObject;
-        resourceNearbyOverlay = transform.Find("ResourceNearbyOverlay").GetComponent<ResourceNearbyOverlay>();  
-    }
+    [SerializeField] private SpriteRenderer spirteRenderer;
+    [SerializeField] private ResourceNearbyOverlay resourceNearbyOverlay;
+    [Header("Highlight Settings")]
+    [SerializeField] private Color canBuildColor;
+    [SerializeField] private Color cantBuildColor;
+
+    private bool isShown;
+    private BuildingTypeSO activeBuildingType;
+
     private void Start()
     {
         BuildingManager.Instance.OnActiveBuildingTypeChanged += BuildingManager_OnActiveBuildingTypeChanged;        
@@ -19,16 +21,37 @@ public class BuildingGhost : MonoBehaviour
     private void Update()
     {
         transform.position = Utilities.GetMouseWorldPosition();
+        HandleHighlight();
     }
+
+    private void HandleHighlight()
+    {
+        if (isShown)
+        {
+            if (BuildingManager.Instance.CanPlaceBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), false))
+            {
+                spirteRenderer.color = canBuildColor;
+            }
+            else
+            {
+                spirteRenderer.color = cantBuildColor;
+            }
+        }
+    }
+
     private void Show(Sprite ghostSprite)
     {
-        spirteGameObject.GetComponent<SpriteRenderer>().sprite = ghostSprite;
-        spirteGameObject.SetActive(true);       
+        spirteRenderer.sprite = ghostSprite;
+        spirteRenderer.gameObject.SetActive(true);  
+        isShown = true;
     }
+
     private void Hide()
     {
-        spirteGameObject.SetActive(false);
+        spirteRenderer.gameObject.SetActive(false);
+        isShown = false;
     }
+
     private void BuildingManager_OnActiveBuildingTypeChanged(object sender, BuildingManager.OnActiveBuildingTypeChangedEventArgs e)
     {
         if(e.activeBuildingType == null)
@@ -38,16 +61,17 @@ public class BuildingGhost : MonoBehaviour
         }
         else
         {
-            Show(e.activeBuildingType.Sprite);
-            if (e.activeBuildingType.HasResourceGeneratorData)
+            activeBuildingType = e.activeBuildingType;
+            Show(activeBuildingType.Sprite);
+
+            if (activeBuildingType.HasResourceGeneratorData)
             {
-                resourceNearbyOverlay.Show(e.activeBuildingType.ResourceGeneratorData);
+                resourceNearbyOverlay.Show(activeBuildingType.ResourceGeneratorData);
             }
             else
             {
                 resourceNearbyOverlay.Hide();
-            }
-            
+            }            
         }
     }
 }

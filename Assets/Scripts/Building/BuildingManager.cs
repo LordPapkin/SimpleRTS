@@ -22,38 +22,38 @@ public class BuildingManager : MonoBehaviour
     private BuildingTypeSO activeBuildingType;
     private BuildingTypeListSO buildingTypeList;   
 
-    public bool CanSpawnBuilding(BuildingTypeSO buildingType, Vector3 mouseWorldPosition)
+    public bool CanPlaceBuilding(BuildingTypeSO buildingType, Vector3 mouseWorldPosition, bool showTooltip)
     {
         BoxCollider2D boxCollider = buildingType.Prefab.GetComponent<BoxCollider2D>();
         string errorMessage;
 
         if(!CheckResourceNodes(buildingType, mouseWorldPosition, out errorMessage))
         {
-            SetToolTip(errorMessage);
+            SetToolTip(errorMessage, showTooltip);
             return false;
         }
 
         if (!CheckIsAreaClear(mouseWorldPosition, boxCollider, out errorMessage))
         {
-            SetToolTip(errorMessage);
+            SetToolTip(errorMessage, showTooltip);
             return false;
         }           
 
         if (CheckForEnemies(mouseWorldPosition, safeRadius, out errorMessage))
         {
-            SetToolTip(errorMessage);
+            SetToolTip(errorMessage, showTooltip);
             return false;
         }
 
         if (CheckForSameBuildings(buildingType, mouseWorldPosition, out errorMessage))
         {
-            SetToolTip(errorMessage);
+            SetToolTip(errorMessage, showTooltip);
             return false;
         }
 
         if (!CheckForFriendlyBuildings(mouseWorldPosition, maxConstrutionRadius, out errorMessage))
         {
-            SetToolTip(errorMessage);
+            SetToolTip(errorMessage, showTooltip);
             return false;
         }
 
@@ -111,7 +111,7 @@ public class BuildingManager : MonoBehaviour
         if (!ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray))
             return false;
 
-        if (!CanSpawnBuilding(activeBuildingType, Utilities.GetMouseWorldPosition()))
+        if (!CanPlaceBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), true))
             return false;
 
         return true;
@@ -200,8 +200,11 @@ public class BuildingManager : MonoBehaviour
         return false;
     }
 
-    private void SetToolTip(string message)
+    private void SetToolTip(string message, bool showTooltip)
     {
+        if (!showTooltip)
+            return;
+
         TooltipUI.Instance.Show(message, new TooltipUI.TooltipTimer { timer = 2f });
     }
 }
