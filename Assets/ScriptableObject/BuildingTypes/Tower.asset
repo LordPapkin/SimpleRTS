@@ -25,7 +25,7 @@ MonoBehaviour:
   <MinConstrutionRadius>k__BackingField: 9
   <ConstructionCostArray>k__BackingField:
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
-    <Amount>k__BackingField: 30
+    <Amount>k__BackingField: 65
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 4e9a4bd3e6c352c4182a886e12ea8cdb, type: 2}
     <Amount>k__BackingField: 55
   <HealthAmountMax>k__BackingField: 500

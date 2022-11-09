@@ -28,14 +28,7 @@ public class Building : MonoBehaviour
 
     private void Awake()
     {
-        buildingType = GetComponent<BuildingTypeHolder>().BuildingType;
-        healthSystem = GetComponent<HealthSystem>();
-        healthSystem.OnDied += HealthSystem_OnDied;
-        healthSystem.OnDamaged += HealthSystem_OnDamaged;
-        healthSystem.OnHeal += HealthSystem_OnHeal;
-        healthSystem.SetHealthAmountMax(buildingType.HealthAmountMax, true);
-        ToggleDemolishButton(false);
-        ToggleRepairButton(false);
+        Init();
     }
     
     private void OnMouseEnter()
@@ -80,6 +73,19 @@ public class Building : MonoBehaviour
     {
         ToggleRepairButton(false);
     }
+
+    private void Init()
+    {
+        buildingType = GetComponent<BuildingTypeHolder>().BuildingType;
+        healthSystem = GetComponent<HealthSystem>();
+        healthSystem.OnDied += HealthSystem_OnDied;
+        healthSystem.OnDamaged += HealthSystem_OnDamaged;
+        healthSystem.OnHeal += HealthSystem_OnHeal;
+        healthSystem.SetHealthAmountMax(buildingType.HealthAmountMax, true);
+        ToggleDemolishButton(false);
+        ToggleRepairButton(false);
+    }
+
 
 
 }

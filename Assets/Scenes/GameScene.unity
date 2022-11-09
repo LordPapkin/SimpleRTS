@@ -5062,7 +5062,7 @@ MonoBehaviour:
   spawnRandominess: 2
   enemiesParent: {fileID: 1352876370}
   enemyUnits:
-  - {fileID: 7996046304131752085, guid: 6a1def37e11729148919573442139ff4, type: 3}
+  - {fileID: 7996046304131752085, guid: d9cbeae599eacec41bb08181a6587591, type: 3}
   state: 0
   nextWaveTimer: 0
   nextEnemyTimer: 0
@@ -10226,6 +10226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8642015730402327699, guid: df991382be7c3284681048069d2d5e96, type: 3}
+      propertyPath: enemyWaveManager
+      value: 
+      objectReference: {fileID: 855836773}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df991382be7c3284681048069d2d5e96, type: 3}
 --- !u!4 &1847606081 stripped

@@ -29,10 +29,10 @@ Transform:
   m_Children:
   - {fileID: 8642015729039471280}
   - {fileID: 8642015729151720242}
-  - {fileID: 8642015729770947082}
-  - {fileID: 8642015728585477791}
-  - {fileID: 8642015728550617745}
   - {fileID: 8642015729043259204}
+  - {fileID: 8642015729770947082}
+  - {fileID: 8642015728550617745}
+  - {fileID: 8642015728585477791}
   - {fileID: 8642015729519533377}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,6 +44,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8642015728709655163}
     m_Modifications:
+    - target: {fileID: 8174611047480248782, guid: fc9a460b2ebbbe34ca6462184b49b884, type: 3}
+      propertyPath: offset
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 8174611047480248782, guid: fc9a460b2ebbbe34ca6462184b49b884, type: 3}
       propertyPath: enemyWaveManager
       value: 
@@ -62,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8174611047842928471, guid: fc9a460b2ebbbe34ca6462184b49b884, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8174611047842928471, guid: fc9a460b2ebbbe34ca6462184b49b884, type: 3}
       propertyPath: m_AnchorMax.x
@@ -238,6 +242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6593630891535251342, guid: 8327385333225e146ae69a7e28e664af, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8327385333225e146ae69a7e28e664af, type: 3}
 --- !u!224 &8642015729519533377 stripped
@@ -252,6 +260,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8642015728709655163}
     m_Modifications:
+    - target: {fileID: 5673832340172609963, guid: 4b3234d4f0f213a438eaf788014808de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5673832340172609964, guid: 4b3234d4f0f213a438eaf788014808de, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -364,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3325813187889325722, guid: f8d66187917724e4b952bfbd965297db, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3325813187889325722, guid: f8d66187917724e4b952bfbd965297db, type: 3}
       propertyPath: m_AnchorMax.x
@@ -456,6 +468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8642015728709655163}
     m_Modifications:
+    - target: {fileID: 1797057851483111905, guid: 6cd8a4f147d1b844fbf5546d9982f3ea, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1797057851483111906, guid: 6cd8a4f147d1b844fbf5546d9982f3ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -466,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797057851483111906, guid: 6cd8a4f147d1b844fbf5546d9982f3ea, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1797057851483111906, guid: 6cd8a4f147d1b844fbf5546d9982f3ea, type: 3}
       propertyPath: m_AnchorMax.x

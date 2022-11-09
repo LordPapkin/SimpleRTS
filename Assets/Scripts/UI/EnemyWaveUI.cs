@@ -30,7 +30,7 @@ public class EnemyWaveUI : MonoBehaviour
     {
         Vector3 dirToNextSpawnPoint = (enemyWaveManager.SpawnPoint - mainCamera.transform.position).normalized;
 
-        float distance = Vector3.Distance(enemyWaveManager.SpawnPoint, mainCamera.transform.position) * 1.3f;
+        float distance = Vector3.Distance(enemyWaveManager.SpawnPoint, mainCamera.transform.position);
         if(distance < mainCamera.orthographicSize)
         {
             waveSpawnIndicator.gameObject.SetActive(false);
