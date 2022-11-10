@@ -121,6 +121,8 @@ MonoBehaviour:
   demolishButtonGameObject: {fileID: 4197436508832396492}
   reapirButtonGameObject: {fileID: 2113198198910721836}
   delayTime: 2.5
+  healthSystem: {fileID: 2329259726956166823}
+  buildingTypeHolder: {fileID: 3119460559171272879}
 --- !u!1 &3679992348790333229
 GameObject:
   m_ObjectHideFlags: 0

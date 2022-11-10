@@ -8,7 +8,8 @@ public class Building : MonoBehaviour
     [SerializeField] protected GameObject demolishButtonGameObject;
     [SerializeField] protected GameObject reapirButtonGameObject;
     [SerializeField] protected float delayTime = 1.5f;
-    protected HealthSystem healthSystem;
+    [SerializeField] protected HealthSystem healthSystem;
+    [SerializeField] protected BuildingTypeHolder buildingTypeHolder;
     protected BuildingTypeSO buildingType;
 
     protected virtual void HealthSystem_OnDied(object sender, System.EventArgs e)
@@ -76,8 +77,7 @@ public class Building : MonoBehaviour
 
     private void Init()
     {
-        buildingType = GetComponent<BuildingTypeHolder>().BuildingType;
-        healthSystem = GetComponent<HealthSystem>();
+        buildingType = buildingTypeHolder.BuildingType;
         healthSystem.OnDied += HealthSystem_OnDied;
         healthSystem.OnDamaged += HealthSystem_OnDamaged;
         healthSystem.OnHeal += HealthSystem_OnHeal;
