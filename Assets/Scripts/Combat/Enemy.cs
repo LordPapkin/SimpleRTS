@@ -5,33 +5,28 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    [SerializeField] private float speed;
-    [SerializeField] private float timeToAttack;
-    [SerializeField] private int dmg;
-    [SerializeField] private float searchRange;
-    [SerializeField] private float lookForTargetTimerMax;
-    [SerializeField] private ParticleSystem deathEffect;
-    [SerializeField] private int scoreValue;
+    [SerializeField] private EnemySO enemyData;
+    [SerializeField] private HealthSystem healthSystem;
+    [SerializeField] private Rigidbody2D rb;
+    private float speed;
+    private float timeToAttack;
+    private int dmg;
+    private int hp;
+    private float searchRange;
+    private float lookForTargetTimerMax;
+    private ParticleSystem deathEffect;
+    private int scoreValue;
+    
 
-    private GameObject targetBuilding;
-    private Rigidbody2D rb;
-    private HealthSystem healthSystem;
-
+    private GameObject targetBuilding; 
     private float lookForTargetTimer;
     private float attackTimer;
 
-    private HealthSystem hitBuildingHealthSystem;
-
     private void Awake()
     {
-        healthSystem = GetComponent<HealthSystem>();
-        healthSystem.OnDamaged += HealthSystem_OnDamaged;
-        healthSystem.OnDied += HealthSystem_OnDied;
-
-        rb = GetComponent<Rigidbody2D>();
-        lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);
+        Init();
     }
-
+   
     private void Start()
     {
         SetDefaultTarget();
@@ -48,6 +43,24 @@ public class Enemy : MonoBehaviour
     {
         HitBuilding(collision);
     }
+
+    private void Init()
+    {
+        this.speed = enemyData.speed;
+        this.timeToAttack = enemyData.timeToAttack;
+        this.dmg = enemyData.dmg;
+        this.hp = enemyData.hp;
+        this.searchRange = enemyData.searchRange;
+        this.lookForTargetTimerMax = enemyData.lookForTargetTimerMax;
+        this.deathEffect = enemyData.deathEffect;
+        this.scoreValue = enemyData.scoreValue;
+
+        healthSystem.OnDamaged += HealthSystem_OnDamaged;
+        healthSystem.OnDied += HealthSystem_OnDied;
+        healthSystem.SetHealthAmountMax(hp, true);
+        lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);
+    }
+
 
     private void HitBuilding(Collision2D collision)
     {

@@ -14,6 +14,15 @@ public class ArrowProjectile : MonoBehaviour
     public void SetTarget(Enemy targetEnemy)
     {
         this.targetEnemy = targetEnemy;
+
+        if(targetEnemy == null)
+            Destroy(gameObject);    
+    }
+
+    private void Start()
+    {
+        if (targetEnemy == null)
+            Destroy(this.gameObject);
     }
 
     private void Update()
