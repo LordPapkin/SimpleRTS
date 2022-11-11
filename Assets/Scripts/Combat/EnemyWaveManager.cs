@@ -36,7 +36,7 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField] private WaveType[] waveTypes;
 
     private EnemySO enemyToSpawn;
-    private WaveType currentWaveType;
+    [SerializeField] private WaveType currentWaveType;
     private int currentWaveIndex;
 
     private Vector3 spawnPoint;
@@ -146,11 +146,12 @@ public class EnemyWaveManager : MonoBehaviour
 
     private void SelectRandomEnemy()
     {
-        while (true)
-        {
-            enemyToSpawn = currentWaveType.enemies[UnityEngine.Random.Range(0, currentWaveType.enemies.Length)];
-            if (remainingSpawnPoints >= enemyToSpawn.SpawnPointsCost)
-                break;
-        }        
+        enemyToSpawn = currentWaveType.enemies[UnityEngine.Random.Range(0, currentWaveType.enemies.Length)];
+        //while (true)
+        //{
+
+        //    if (remainingSpawnPoints >= enemyToSpawn.SpawnPointsCost)
+        //        break;
+        //}        
     }
 }

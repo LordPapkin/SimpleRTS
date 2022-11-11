@@ -176,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 4316669611888095898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 4316669612658145188}
   m_RootOrder: 0
@@ -335,10 +335,37 @@ MonoBehaviour:
   - <WaveNumber>k__BackingField: 0
     <enemies>k__BackingField:
     - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-  - <WaveNumber>k__BackingField: 15
+  - <WaveNumber>k__BackingField: 8
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
+    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+  - <WaveNumber>k__BackingField: 20
     <enemies>k__BackingField:
     - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
     - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+  - <WaveNumber>k__BackingField: 30
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
+    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: 383e4392a8cb33c4589ab868d9fb85b7, type: 2}
+  - <WaveNumber>k__BackingField: 50
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
+    - {fileID: 11400000, guid: 383e4392a8cb33c4589ab868d9fb85b7, type: 2}
+  currentWaveType:
+    <WaveNumber>k__BackingField: 0
+    <enemies>k__BackingField: []
   state: 0
   nextWaveTimer: 0
   nextEnemyTimer: 0
