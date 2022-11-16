@@ -15,11 +15,14 @@ MonoBehaviour:
   <Name>k__BackingField: Orc
   <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 20ebc8d54717a794a9a46e51dd5c179c, type: 3}
   <SpawnPointsCost>k__BackingField: 2
-  scoreValue: 20
-  speed: 4
-  timeToAttack: 1
-  dmg: 15
-  hp: 50
-  searchRange: 15
-  lookForTargetTimerMax: 1
-  deathEffect: {fileID: 533070145800854221, guid: fa53ff3e077270e4d8a679c8fa7de07f, type: 3}
+  <ScoreValue>k__BackingField: 20
+  <Speed>k__BackingField: 4.5
+  <TimeToAttack>k__BackingField: 1
+  <Dmg>k__BackingField: 20
+  <AttackType>k__BackingField: 0
+  <Hp>k__BackingField: 40
+  <ResistType>k__BackingField: 0
+  <ResistValue>k__BackingField: 0.2
+  <SearchRange>k__BackingField: 15
+  <LookForTargetTimerMax>k__BackingField: 1
+  <DeathEffect>k__BackingField: {fileID: 533070145800854221, guid: fa53ff3e077270e4d8a679c8fa7de07f, type: 3}

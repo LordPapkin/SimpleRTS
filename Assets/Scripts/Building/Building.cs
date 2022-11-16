@@ -81,7 +81,7 @@ public class Building : MonoBehaviour
         healthSystem.OnDied += HealthSystem_OnDied;
         healthSystem.OnDamaged += HealthSystem_OnDamaged;
         healthSystem.OnHeal += HealthSystem_OnHeal;
-        healthSystem.SetHealthAmountMax(buildingType.HealthAmountMax, true);
+        healthSystem.SetUpHealthSystem(buildingType.HealthAmountMax, buildingType.ResistType, buildingType.ResistValue, true);
         ToggleDemolishButton(false);
         ToggleRepairButton(false);
     }

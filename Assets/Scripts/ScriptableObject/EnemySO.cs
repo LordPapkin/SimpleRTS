@@ -11,22 +11,27 @@ public class EnemySO : ScriptableObject
 
     [field: SerializeField] public int SpawnPointsCost { get; private set; }
 
-    [field: SerializeField] public int scoreValue;
+    [field: SerializeField] public int ScoreValue { get; private set; }
 
-    [Header("Enemy Settings")]
-    [field: SerializeField] public float speed;
+    [field: SerializeField] public float Speed { get; private set; }
 
-    [field: SerializeField] public float timeToAttack;
+    [field: SerializeField] public float TimeToAttack { get; private set; }
 
-    [field: SerializeField] public int dmg;
+    [field: SerializeField] public int Dmg { get; private set; }
 
-    [field: SerializeField] public int hp;
+    [field: SerializeField] public Type AttackType { get; private set; }
 
-    [field: SerializeField] public float searchRange;
+    [field: SerializeField] public int Hp { get; private set; }
 
-    [field: SerializeField] public float lookForTargetTimerMax;
+    [field: SerializeField] public Type ResistType { get; private set; }
 
-    [field: SerializeField] public ParticleSystem deathEffect;
+    [field: SerializeField] public float ResistValue { get; private set; }
 
-    
+    [field: SerializeField] public float SearchRange { get; private set; }
+
+    [field: SerializeField] public float LookForTargetTimerMax { get; private set; }
+
+    [field: SerializeField] public ParticleSystem DeathEffect { get; private set; }
+
+
 }

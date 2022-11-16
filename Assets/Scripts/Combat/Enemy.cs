@@ -11,7 +11,10 @@ public class Enemy : MonoBehaviour
     private float speed;
     private float timeToAttack;
     private int dmg;
+    private Type attackType;
     private int hp;
+    private Type resistType;
+    private float resistValue;
     private float searchRange;
     private float lookForTargetTimerMax;
     private ParticleSystem deathEffect;
@@ -46,18 +49,21 @@ public class Enemy : MonoBehaviour
 
     private void Init()
     {
-        this.speed = enemyData.speed;
-        this.timeToAttack = enemyData.timeToAttack;
-        this.dmg = enemyData.dmg;
-        this.hp = enemyData.hp;
-        this.searchRange = enemyData.searchRange;
-        this.lookForTargetTimerMax = enemyData.lookForTargetTimerMax;
-        this.deathEffect = enemyData.deathEffect;
-        this.scoreValue = enemyData.scoreValue;
+        this.speed = enemyData.Speed;
+        this.timeToAttack = enemyData.TimeToAttack;
+        this.dmg = enemyData.Dmg;
+        this.attackType= enemyData.AttackType;
+        this.hp = enemyData.Hp;
+        this.resistType = enemyData.ResistType;
+        this.resistValue = enemyData.ResistValue;
+        this.searchRange = enemyData.SearchRange;
+        this.lookForTargetTimerMax = enemyData.LookForTargetTimerMax;
+        this.deathEffect = enemyData.DeathEffect;
+        this.scoreValue = enemyData.ScoreValue;
 
         healthSystem.OnDamaged += HealthSystem_OnDamaged;
         healthSystem.OnDied += HealthSystem_OnDied;
-        healthSystem.SetHealthAmountMax(hp, true);
+        healthSystem.SetUpHealthSystem(hp ,resistType ,resistValue ,true);
         lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);
     }
 
@@ -77,7 +83,7 @@ public class Enemy : MonoBehaviour
         }
 
         HealthSystem healthSystem = building.GetComponent<HealthSystem>();
-        healthSystem.TakeDamege(dmg);
+        healthSystem.TakeDamege(dmg, attackType);
 
         attackTimer += timeToAttack;
     }

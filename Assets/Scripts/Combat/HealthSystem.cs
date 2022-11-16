@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
@@ -14,10 +16,16 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private int healthAmountMax;
     private int healthAmount;
+    private Type resistType;
+    private float resistValue;
 
-    public void TakeDamege(int damage)
+    public void TakeDamege(int damage, Type attackType)
     {
-        healthAmount -= damage;
+        int takenDamage = damage;
+        if (attackType == resistType)
+            takenDamage = Mathf.FloorToInt(takenDamage * resistValue);
+
+        healthAmount -= takenDamage;
         healthAmount = Mathf.Clamp(healthAmount, 0, healthAmountMax);
 
         OnDamaged?.Invoke(this, EventArgs.Empty);
@@ -47,8 +55,10 @@ public class HealthSystem : MonoBehaviour
             return true;
         return false;
     }
-    public void SetHealthAmountMax(int healthAmountMax, bool updateHealthAmount)
+    public void SetUpHealthSystem(int healthAmountMax, Type resistType, float resistValue, bool updateHealthAmount)
     {
+        this.resistType = resistType;
+        this.resistValue = resistValue;
         this.healthAmountMax = healthAmountMax;
         if (updateHealthAmount)
         {

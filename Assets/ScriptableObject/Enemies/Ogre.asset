@@ -15,11 +15,14 @@ MonoBehaviour:
   <Name>k__BackingField: Ogre
   <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 99bdb4c23e23d7546811e845630302bc, type: 3}
   <SpawnPointsCost>k__BackingField: 10
-  scoreValue: 100
-  speed: 3.5
-  timeToAttack: 1.5
-  dmg: 80
-  hp: 500
-  searchRange: 20
-  lookForTargetTimerMax: 1
-  deathEffect: {fileID: 5133218796547245083, guid: 5731055b57af76744aa0f260d9e0e788, type: 3}
+  <ScoreValue>k__BackingField: 100
+  <Speed>k__BackingField: 4
+  <TimeToAttack>k__BackingField: 2
+  <Dmg>k__BackingField: 80
+  <AttackType>k__BackingField: 0
+  <Hp>k__BackingField: 600
+  <ResistType>k__BackingField: 0
+  <ResistValue>k__BackingField: 0
+  <SearchRange>k__BackingField: 15
+  <LookForTargetTimerMax>k__BackingField: 1
+  <DeathEffect>k__BackingField: {fileID: 5133218796547245083, guid: 5731055b57af76744aa0f260d9e0e788, type: 3}

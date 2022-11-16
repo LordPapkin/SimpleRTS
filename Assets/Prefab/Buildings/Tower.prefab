@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   searchRange: 22
   lookForTargetTimerMax: 0.2
-  shootTimerMax: 0.5
+  shootTimerMax: 0.33
   arrowSpawn: {fileID: 6774880578167422857}
   arrowType: {fileID: 4589000473416501578, guid: e96545f0ce2f247469e1dc83f1c172a6, type: 3}
   arrowsParent: {fileID: 5922362847031057053}

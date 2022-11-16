@@ -176,5 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 30
+  attackType: 1
   moveSpeed: 20
   timeToDie: 4
