@@ -23,7 +23,7 @@ public class HealthSystem : MonoBehaviour
     {
         int takenDamage = damage;
         if (attackType == resistType)
-            takenDamage = Mathf.FloorToInt(takenDamage * resistValue);
+            takenDamage = Mathf.FloorToInt(takenDamage * (1f - resistValue));
 
         healthAmount -= takenDamage;
         healthAmount = Mathf.Clamp(healthAmount, 0, healthAmountMax);

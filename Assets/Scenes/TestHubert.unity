@@ -5052,7 +5052,7 @@ MonoBehaviour:
   timeToFirstWave: 30
   timeBetweenWaves: 15
   nextEnemyTimerMax: 0.2
-  waveNumberToIncreaseSpawnAmount: 5
+  waveNumberToIncreaseSpawnPoints: 5
   spawnPoints:
   - {fileID: 877640094}
   - {fileID: 1437349761}
@@ -5066,12 +5066,14 @@ MonoBehaviour:
   spawnPointRandominess: 10
   spawnRandominess: 2
   enemiesParent: {fileID: 1352876370}
-  enemyUnits:
-  - {fileID: 7996046304131752085, guid: 6a1def37e11729148919573442139ff4, type: 3}
+  waveTypes: []
+  currentWaveType:
+    <WaveNumber>k__BackingField: 0
+    <enemies>k__BackingField: []
   state: 0
   nextWaveTimer: 0
   nextEnemyTimer: 0
-  remainingEnemySpawnAmount: 0
+  remainingSpawnPoints: 0
   waveNumber: 50
 --- !u!1001 &862186724
 PrefabInstance:
