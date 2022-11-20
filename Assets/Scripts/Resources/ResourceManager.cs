@@ -42,13 +42,14 @@ public class ResourceManager : MonoBehaviour
 
     }
 
-    public bool CanAfford(ResourceAmount[] resourceCostArray)
+    public bool CanAfford(ResourceAmount[] resourceCostArray, bool showToolTip)
     {
         foreach(ResourceAmount resourceCost in resourceCostArray)
         {
             if(resourceCost.Amount > GetResourceAmount(resourceCost.ResourceType))
             {
-                ShowNeededResources(resourceCostArray);
+                if(showToolTip)
+                    ShowNeededResources(resourceCostArray);
                 return false;
             }
         }

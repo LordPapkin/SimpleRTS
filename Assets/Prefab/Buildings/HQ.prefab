@@ -884,7 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4287633826329071423, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
       propertyPath: hpSegment
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4287633826329071423, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
       propertyPath: healthSystem

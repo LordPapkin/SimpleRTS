@@ -32,7 +32,7 @@ public class BuildingRepairButton : MonoBehaviour
                 repairCostArray[i].Amount = Mathf.FloorToInt((float)buildingTypeHolder.BuildingType.ConstructionCostArray[i].Amount * repairEfficiency * damagedPercent);
             }
 
-            if (ResourceManager.Instance.CanAfford(repairCostArray))
+            if (ResourceManager.Instance.CanAfford(repairCostArray, true))
             {
                 healthSystem.Heal();  
                 ResourceManager.Instance.SpendResources(repairCostArray);

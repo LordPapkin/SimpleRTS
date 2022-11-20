@@ -314,8 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819c36839c0ea71409fdb90e6287dc72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToFirstWave: 30
-  timeBetweenWaves: 15
+  timeToFirstWave: 5
+  timeBetweenWaves: 5
   nextEnemyTimerMax: 0.2
   waveNumberToIncreaseSpawnPoints: 5
   spawnPoints:
@@ -328,44 +328,13 @@ MonoBehaviour:
   - {fileID: 4316669611497347223}
   - {fileID: 4316669611553578387}
   nextWaveSpawnPoint: {fileID: 4316669612658145187}
-  spawnPointRandominess: 10
-  spawnRandominess: 2
+  spawnPointRandominess: 15
+  spawnRandominess: 3.5
   enemiesParent: {fileID: 0}
   waveTypes:
   - <WaveNumber>k__BackingField: 0
     <enemies>k__BackingField:
-    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-  - <WaveNumber>k__BackingField: 8
-    <enemies>k__BackingField:
-    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-  - <WaveNumber>k__BackingField: 20
-    <enemies>k__BackingField:
-    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-  - <WaveNumber>k__BackingField: 30
-    <enemies>k__BackingField:
-    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-    - {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: 383e4392a8cb33c4589ab868d9fb85b7, type: 2}
-  - <WaveNumber>k__BackingField: 50
-    <enemies>k__BackingField:
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: ca00fb85985279c4b93f63ce507e31e5, type: 2}
-    - {fileID: 11400000, guid: 383e4392a8cb33c4589ab868d9fb85b7, type: 2}
-  currentWaveType:
-    <WaveNumber>k__BackingField: 0
-    <enemies>k__BackingField: []
+    - {fileID: 11400000, guid: dcfe29b36368eb84ba37f25ca6323c2b, type: 2}
   state: 0
   nextWaveTimer: 0
   nextEnemyTimer: 0

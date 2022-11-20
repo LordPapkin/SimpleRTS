@@ -139,7 +139,7 @@ public class BuildingManager : MonoBehaviour
         if (activeBuildingType == null)
             return false;
 
-        if (!ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray))
+        if (!ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray, true))
             return false;
 
         if (!CanPlaceBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), true))

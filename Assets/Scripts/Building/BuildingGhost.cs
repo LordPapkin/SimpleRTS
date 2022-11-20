@@ -28,7 +28,7 @@ public class BuildingGhost : MonoBehaviour
     {
         if (isShown)
         {
-            if (BuildingManager.Instance.CanPlaceBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), false) && ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray))
+            if (BuildingManager.Instance.CanPlaceBuilding(activeBuildingType, Utilities.GetMouseWorldPosition(), false) && ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionCostArray, false))
             {
                 spirteRenderer.color = canBuildColor;
                 TooltipUI.Instance.Hide();

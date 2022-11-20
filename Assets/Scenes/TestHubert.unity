@@ -3932,26 +3932,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 376404638, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 309108989864126060, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148533747857550965, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264671162245729406, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
-      propertyPath: hpSegment
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8082979756819178730, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
-      propertyPath: arrowsParent
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8377893412898791642, guid: ef461cb0626ea6c4e951f002868ae155, type: 3}
       propertyPath: m_Name
       value: HQ
@@ -8451,10 +8431,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 78771178}
     m_Modifications:
-    - target: {fileID: 410694158487726773, guid: 2b5ede09ea0a5c5408476d6f5a1fb7d5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 410694159367389628, guid: 2b5ede09ea0a5c5408476d6f5a1fb7d5, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9818,14 +9794,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 78771178}
     m_Modifications:
-    - target: {fileID: 8642015728550617750, guid: df991382be7c3284681048069d2d5e96, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8642015728585477788, guid: df991382be7c3284681048069d2d5e96, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8642015728709655156, guid: df991382be7c3284681048069d2d5e96, type: 3}
       propertyPath: m_Name
       value: UI
@@ -9873,18 +9841,6 @@ PrefabInstance:
     - target: {fileID: 8642015728709655163, guid: df991382be7c3284681048069d2d5e96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8642015728928376240, guid: df991382be7c3284681048069d2d5e96, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8642015729519533382, guid: df991382be7c3284681048069d2d5e96, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8642015729770947087, guid: df991382be7c3284681048069d2d5e96, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642015730402327699, guid: df991382be7c3284681048069d2d5e96, type: 3}
       propertyPath: enemyWaveManager
@@ -11159,35 +11115,11 @@ PrefabInstance:
       objectReference: {fileID: 1352876370}
     - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
       propertyPath: timeToFirstWave
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: spawnRandominess
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: timeBetweenWaves
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: waveTypes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: spawnPointRandominess
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: waveTypes.Array.data[0].<enemies>k__BackingField.Array.size
-      value: 1
+      propertyPath: timeBetweenWaves
+      value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: waveTypes.Array.data[0].<enemies>k__BackingField.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: dcfe29b36368eb84ba37f25ca6323c2b, type: 2}
-    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: waveTypes.Array.data[0].<enemies>k__BackingField.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 2062bae16999e8a4fb94823f07cd4b94, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}

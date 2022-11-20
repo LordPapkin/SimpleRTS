@@ -21,14 +21,13 @@ abstract public class EnemyBasic : MonoBehaviour
     private int scoreValue;
     
 
-    [SerializeField] private GameObject targetBuilding; 
+    private GameObject targetBuilding; 
     private float lookForTargetTimer;
     protected float attackTimer;
 
     private void Awake()
     {
-        Init();
-        Debug.Log("Enemy Init");
+        Init();        
     }
    
     private void Start()
@@ -135,8 +134,9 @@ abstract public class EnemyBasic : MonoBehaviour
             CinemamachineShake.Instance.ShakeCamera(4f, 0.1f);
         if(SoundManager.Instance != null)
             SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+        if(deathEffect != null)
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
 
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

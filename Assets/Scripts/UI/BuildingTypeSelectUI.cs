@@ -38,26 +38,6 @@ public class BuildingTypeSelectUI : MonoBehaviour
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
         buildingTypeUIDictionary = new Dictionary<BuildingTypeSO, GameObject>();
 
-        #region ArrowButton
-        arrowButton = Instantiate(buildingSelectTemplate, this.transform);
-        arrowButton.SetActive(true);
-
-        GameObject arrowButtonImage = arrowButton.transform.Find("buildingImage").gameObject;
-        arrowButtonImage.GetComponent<Image>().sprite = arrowSprite;
-        arrowButtonImage.GetComponent<RectTransform>().sizeDelta = new Vector2(0, -50f);
-
-        arrowButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * i, 0);
-        arrowButton.GetComponent<Button>().onClick.AddListener(() => { BuildingManager.Instance.SetActiveBuildingType(null); });
-
-        MouseEnterExitEvents mouseEnterExitEvents = arrowButton.GetComponent<MouseEnterExitEvents>();
-
-        mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show("Pointer"); };
-        mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs e) => { TooltipUI.Instance.Hide(); };
-
-        arrowButtonSelected = arrowButton.transform.Find("selected").gameObject;        
-        i++;
-        #endregion
-
         foreach (BuildingTypeSO buildingType in buildingTypeList.list)
         {
             if (buildingsToIgnore.Contains(buildingType))
@@ -72,7 +52,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
             copyTemplate.GetComponent<Button>().onClick.AddListener(() => { BuildingManager.Instance.SetActiveBuildingType(buildingType); });
 
 
-            mouseEnterExitEvents = copyTemplate.GetComponent<MouseEnterExitEvents>();
+            MouseEnterExitEvents mouseEnterExitEvents = copyTemplate.GetComponent<MouseEnterExitEvents>();
 
             mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show(buildingType.NameString + "\n" + buildingType.GetConstructionCostString() ); };
             mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs e) => { TooltipUI.Instance.Hide(); };
@@ -84,8 +64,7 @@ public class BuildingTypeSelectUI : MonoBehaviour
     }
 
     private void UpdateActiveBuildingTypeButton()
-    {
-        arrowButtonSelected.SetActive(false);
+    {        
         foreach (BuildingTypeSO buildingType in buildingTypeUIDictionary.Keys)
         {
             GameObject buildingButtonSelected = buildingTypeUIDictionary[buildingType];
@@ -93,15 +72,10 @@ public class BuildingTypeSelectUI : MonoBehaviour
         }
 
         BuildingTypeSO activebuildingType = BuildingManager.Instance.GetActiveBuildingType();
-        if(activebuildingType == null)
-        {
-            arrowButtonSelected.SetActive(true);
-        }
-        else
+        if(activebuildingType != null)
         {
             buildingTypeUIDictionary[activebuildingType].SetActive(true);
         }
-        
     }
 
     private void BuildingManager_OnActiveBuildingTypeChanged(object sender, BuildingManager.OnActiveBuildingTypeChangedEventArgs e)

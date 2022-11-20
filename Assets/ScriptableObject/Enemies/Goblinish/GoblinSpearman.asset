@@ -25,4 +25,4 @@ MonoBehaviour:
   <ResistValue>k__BackingField: 0
   <SearchRange>k__BackingField: 15
   <LookForTargetTimerMax>k__BackingField: 1
-  <DeathEffect>k__BackingField: {fileID: 533070145800854221, guid: fa53ff3e077270e4d8a679c8fa7de07f, type: 3}
+  <DeathEffect>k__BackingField: {fileID: 0}
