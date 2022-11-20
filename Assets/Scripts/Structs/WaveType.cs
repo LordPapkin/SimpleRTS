@@ -7,6 +7,6 @@ using UnityEngine;
 public struct WaveType
 {
     [field: SerializeField] public int WaveNumber { get; set; }
-    [field: SerializeField] public EnemySO[] enemies { get; private set; }
+    [field: SerializeField] public WarbandSO[] enemies { get; private set; }
     
 }

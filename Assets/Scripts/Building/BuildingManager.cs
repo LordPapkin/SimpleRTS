@@ -96,17 +96,24 @@ public class BuildingManager : MonoBehaviour
     private void OnEnable()
     {
         playerInputHandler = new PlayerInputHandler();
-        playerInputHandler.PlaceBuildingClick += OnPlaceBuildingClick;        
+        playerInputHandler.PlaceBuildingClick += OnPlaceBuildingClick;       
+        playerInputHandler.CancelBuildingClick += OnCancelBuildingClick;
     }
 
     private void OnDisable()
     {
         playerInputHandler.PlaceBuildingClick -= OnPlaceBuildingClick;
+        playerInputHandler.CancelBuildingClick -= OnCancelBuildingClick;
     }
 
     private void OnPlaceBuildingClick(InputAction.CallbackContext context)
     {
         HandleBuildingPlacing();
+    }
+
+    private void OnCancelBuildingClick(InputAction.CallbackContext context)
+    {
+        SetActiveBuildingType(null);
     }
 
     private void HandleBuildingPlacing()

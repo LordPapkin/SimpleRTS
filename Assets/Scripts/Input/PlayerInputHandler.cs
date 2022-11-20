@@ -11,6 +11,7 @@ public class PlayerInputHandler
         input.Player.Move.Enable();
         input.Player.MousePositon.Enable();
         input.Player.PlaceBuildingClick.Enable();
+        input.Player.CancelBuildingClick.Enable();
         input.Player.ScrollWheel.Enable();
     }
 
@@ -19,6 +20,7 @@ public class PlayerInputHandler
         input.Player.Move.Disable();
         input.Player.MousePositon.Disable();
         input.Player.PlaceBuildingClick.Disable();
+        input.Player.CancelBuildingClick.Disable();
         input.Player.ScrollWheel.Disable(); 
     }
 
@@ -26,6 +28,12 @@ public class PlayerInputHandler
     {
         add { input.Player.PlaceBuildingClick.performed += value; }
         remove { input.Player.PlaceBuildingClick.performed -= value; }
+    }
+
+    public event Action<InputAction.CallbackContext> CancelBuildingClick
+    {
+        add { input.Player.CancelBuildingClick.performed += value; }
+        remove { input.Player.CancelBuildingClick.performed -= value; }
     }
 
     public Vector2 KeyboardMovementInput()

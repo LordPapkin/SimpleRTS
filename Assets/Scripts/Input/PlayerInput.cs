@@ -55,6 +55,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""CancelBuildingClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a141f28-df69-4470-9c13-63ebd801e715"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ScrollWheel"",
                     ""type"": ""PassThrough"",
                     ""id"": ""e60c4d4d-e0dc-45c9-8dd8-f31aa4de246b"",
@@ -205,6 +214,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""ScrollWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dd997e1-38c8-4d3f-85e9-90d88a823314"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelBuildingClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -751,6 +771,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_MousePositon = m_Player.FindAction("MousePositon", throwIfNotFound: true);
         m_Player_PlaceBuildingClick = m_Player.FindAction("PlaceBuildingClick", throwIfNotFound: true);
+        m_Player_CancelBuildingClick = m_Player.FindAction("CancelBuildingClick", throwIfNotFound: true);
         m_Player_ScrollWheel = m_Player.FindAction("ScrollWheel", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -826,6 +847,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_MousePositon;
     private readonly InputAction m_Player_PlaceBuildingClick;
+    private readonly InputAction m_Player_CancelBuildingClick;
     private readonly InputAction m_Player_ScrollWheel;
     public struct PlayerActions
     {
@@ -834,6 +856,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @MousePositon => m_Wrapper.m_Player_MousePositon;
         public InputAction @PlaceBuildingClick => m_Wrapper.m_Player_PlaceBuildingClick;
+        public InputAction @CancelBuildingClick => m_Wrapper.m_Player_CancelBuildingClick;
         public InputAction @ScrollWheel => m_Wrapper.m_Player_ScrollWheel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -853,6 +876,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @PlaceBuildingClick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlaceBuildingClick;
                 @PlaceBuildingClick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlaceBuildingClick;
                 @PlaceBuildingClick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPlaceBuildingClick;
+                @CancelBuildingClick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancelBuildingClick;
+                @CancelBuildingClick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancelBuildingClick;
+                @CancelBuildingClick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancelBuildingClick;
                 @ScrollWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollWheel;
                 @ScrollWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollWheel;
                 @ScrollWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollWheel;
@@ -869,6 +895,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @PlaceBuildingClick.started += instance.OnPlaceBuildingClick;
                 @PlaceBuildingClick.performed += instance.OnPlaceBuildingClick;
                 @PlaceBuildingClick.canceled += instance.OnPlaceBuildingClick;
+                @CancelBuildingClick.started += instance.OnCancelBuildingClick;
+                @CancelBuildingClick.performed += instance.OnCancelBuildingClick;
+                @CancelBuildingClick.canceled += instance.OnCancelBuildingClick;
                 @ScrollWheel.started += instance.OnScrollWheel;
                 @ScrollWheel.performed += instance.OnScrollWheel;
                 @ScrollWheel.canceled += instance.OnScrollWheel;
@@ -995,6 +1024,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnMousePositon(InputAction.CallbackContext context);
         void OnPlaceBuildingClick(InputAction.CallbackContext context);
+        void OnCancelBuildingClick(InputAction.CallbackContext context);
         void OnScrollWheel(InputAction.CallbackContext context);
     }
     public interface IUIActions

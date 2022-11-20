@@ -35,12 +35,13 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField] private Transform enemiesParent;
     [SerializeField] private WaveType[] waveTypes;
 
-    private EnemySO enemyToSpawn;
-    [SerializeField] private WaveType currentWaveType;
+    private WarbandSO warbandToSpawn;
+    private WaveType currentWaveType;
     private int currentWaveIndex;
 
     private Vector3 spawnPoint;
     private float nextEnemyTimerMaxCurrent;
+    private int leftoverSpawnPoints;
     //SF for testing only
     [Header("Current State")]
     [SerializeField] private State state;
@@ -106,17 +107,31 @@ public class EnemyWaveManager : MonoBehaviour
     private void SpawnEnemy()
     {
         nextEnemyTimer = UnityEngine.Random.Range(0f, nextEnemyTimerMaxCurrent);
-        SelectRandomEnemy();       
-        GameObject spawnedEnemy = Instantiate(enemyToSpawn.Prefab, spawnPoint + Utilities.GetRandomDir() * UnityEngine.Random.Range(0f, spawnRandominess), Quaternion.identity);
-        spawnedEnemy.transform.SetParent(enemiesParent);
-        remainingSpawnPoints -= enemyToSpawn.SpawnPointsCost;
+        SelectRandomWarband();
+
+        if (CheckSpawnPoints())
+        {
+            HandleSpawnPoints(true);
+        }
+        else
+        {
+            HandleSpawnPoints(false);
+            return;
+        }
+        for (int i = 0; i < warbandToSpawn.Warband.Length; i++)
+        {
+            GameObject spawnedEnemy = Instantiate(warbandToSpawn.Warband[i].Prefab, spawnPoint + Utilities.GetRandomDir() * UnityEngine.Random.Range(0f, spawnRandominess), Quaternion.identity);
+            spawnedEnemy.transform.SetParent(enemiesParent);
+        }
     }
 
     private void SetWave()
     {        
         nextWaveTimer = timeBetweenWaves;
 
-        remainingSpawnPoints = 5 + (waveNumber * (3 + Mathf.FloorToInt(waveNumber/ waveNumberToIncreaseSpawnPoints)));
+        remainingSpawnPoints = 5 + (waveNumber * (3 + Mathf.FloorToInt(waveNumber/ waveNumberToIncreaseSpawnPoints))) + leftoverSpawnPoints;
+        leftoverSpawnPoints = 0;
+
         nextEnemyTimerMaxCurrent = nextEnemyTimerMax - (waveNumber * 0.0005f);
         nextEnemyTimerMaxCurrent = Mathf.Clamp(nextEnemyTimerMaxCurrent, nextEnemyTimerMax / 2f, nextEnemyTimerMax );
 
@@ -134,8 +149,7 @@ public class EnemyWaveManager : MonoBehaviour
         {
             currentWaveIndex++;
             currentWaveType = waveTypes[currentWaveIndex];
-        }
-           
+        }           
     }
 
     private void SetNextSpawnPoint()
@@ -144,14 +158,33 @@ public class EnemyWaveManager : MonoBehaviour
         nextWaveSpawnPoint.transform.position = spawnPoint;
     }
 
-    private void SelectRandomEnemy()
+    private void SelectRandomWarband()
     {
-        enemyToSpawn = currentWaveType.enemies[UnityEngine.Random.Range(0, currentWaveType.enemies.Length)];
-        //while (true)
-        //{
+        warbandToSpawn = currentWaveType.enemies[UnityEngine.Random.Range(0, currentWaveType.enemies.Length)];                      
+    }
 
-        //    if (remainingSpawnPoints >= enemyToSpawn.SpawnPointsCost)
-        //        break;
-        //}        
+    private bool CheckSpawnPoints()
+    {
+        if (remainingSpawnPoints >= warbandToSpawn.SpawnPointsCost)
+        {            
+            return true;
+        }            
+        else
+        {            
+            return false;
+        }
+    }
+
+    private void HandleSpawnPoints(bool value)
+    {
+        if (value)
+        {
+            remainingSpawnPoints -= warbandToSpawn.SpawnPointsCost;
+        }
+        else
+        {
+            leftoverSpawnPoints = remainingSpawnPoints;
+            remainingSpawnPoints = 0;
+        }
     }
 }

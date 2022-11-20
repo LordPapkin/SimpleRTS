@@ -8,8 +8,7 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager Instance { get; private set; }
 
     public event EventHandler OnResourceAmountChanged;
-    [SerializeField] private List<ResourceAmount> startingResourceAmountList;
-    [SerializeField] private ResourceTypeSO repairResource;
+    [SerializeField] private List<ResourceAmount> startingResourceAmountList;    
     private Dictionary<ResourceTypeSO, int> resourceAmountDictionary;
     private ResourceTypeListSO resourceTypeList;    
 
@@ -72,13 +71,6 @@ public class ResourceManager : MonoBehaviour
         {
             AddResource(resourceAmount.ResourceType, resourceAmount.Amount);
         }
-    }
-
-    private void ShowNeededResources(int amountNeeded, int amountAvailable)
-    {
-        string result = "";       
-        result += "<color=" + repairResource.ColorHex + ">" + repairResource.NameShort + (amountNeeded - amountAvailable) + "</color> ";
-        TooltipUI.Instance.Show(result + " Needed!", new TooltipUI.TooltipTimer { timer = 2f });
     }
 
     private void ShowNeededResources(ResourceAmount[] resourceCostArray)

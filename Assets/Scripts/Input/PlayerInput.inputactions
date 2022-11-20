@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "CancelBuildingClick",
+                    "type": "Button",
+                    "id": "2a141f28-df69-4470-9c13-63ebd801e715",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ScrollWheel",
                     "type": "PassThrough",
                     "id": "e60c4d4d-e0dc-45c9-8dd8-f31aa4de246b",
@@ -183,6 +192,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "ScrollWheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0dd997e1-38c8-4d3f-85e9-90d88a823314",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CancelBuildingClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

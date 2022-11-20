@@ -11143,6 +11143,10 @@ PrefabInstance:
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
+      propertyPath: waveTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
       propertyPath: spawnPointRandominess
       value: 15
       objectReference: {fileID: 0}

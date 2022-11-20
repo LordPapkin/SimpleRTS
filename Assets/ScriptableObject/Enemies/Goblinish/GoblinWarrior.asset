@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 290cb9571a8fe4c49a32c6240bc9ed51, type: 3}
-  m_Name: Orc
+  m_Name: GoblinWarrior
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Orc
-  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 20ebc8d54717a794a9a46e51dd5c179c, type: 3}
-  <SpawnPointsCost>k__BackingField: 2
-  <ScoreValue>k__BackingField: 20
-  <Speed>k__BackingField: 4.5
+  <Name>k__BackingField: Goblin
+  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: d9cbeae599eacec41bb08181a6587591, type: 3}
+  <SpawnPointsCost>k__BackingField: 1
+  <ScoreValue>k__BackingField: 15
+  <Speed>k__BackingField: 5
   <TimeToAttack>k__BackingField: 1
-  <Dmg>k__BackingField: 20
+  <Dmg>k__BackingField: 12
   <AttackType>k__BackingField: 0
-  <Hp>k__BackingField: 40
+  <Hp>k__BackingField: 20
   <ResistType>k__BackingField: 0
-  <ResistValue>k__BackingField: 0.2
+  <ResistValue>k__BackingField: 0.15
   <SearchRange>k__BackingField: 15
   <LookForTargetTimerMax>k__BackingField: 1
   <DeathEffect>k__BackingField: {fileID: 533070145800854221, guid: fa53ff3e077270e4d8a679c8fa7de07f, type: 3}
