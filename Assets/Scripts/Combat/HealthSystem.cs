@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    public event EventHandler OnDamaged;
-    public event EventHandler OnDied;
-    public event EventHandler OnHeal;
+    public event EventHandler Damaged;
+    public event EventHandler Died;
+    public event EventHandler Healed;
 
     public int HealthAmountMax => healthAmountMax;
     public int HealthAmount => healthAmount;
@@ -28,15 +28,15 @@ public class HealthSystem : MonoBehaviour
         healthAmount -= takenDamage;
         healthAmount = Mathf.Clamp(healthAmount, 0, healthAmountMax);
 
-        OnDamaged?.Invoke(this, EventArgs.Empty);
+        Damaged?.Invoke(this, EventArgs.Empty);
 
         if (IsDead())
-            OnDied?.Invoke(this, EventArgs.Empty);
+            Died?.Invoke(this, EventArgs.Empty);
     }
     public void Heal()
     {
         healthAmount = healthAmountMax;
-        OnHeal?.Invoke(this, EventArgs.Empty);  
+        Healed?.Invoke(this, EventArgs.Empty);  
     }
     
     public float GetHealthAmountNormalized()

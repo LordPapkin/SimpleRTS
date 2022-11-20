@@ -8,10 +8,10 @@ public class ArrowProjectile : MonoBehaviour
     [SerializeField] private Type attackType;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float timeToDie;
-    private Enemy targetEnemy;
+    private EnemyBasic targetEnemy;
     private Vector3 moveDir;
 
-    public void SetTarget(Enemy targetEnemy)
+    public void SetTarget(EnemyBasic targetEnemy)
     {
         this.targetEnemy = targetEnemy;
         if (this.targetEnemy == null)
@@ -42,7 +42,7 @@ public class ArrowProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
+        EnemyBasic enemy = collision.GetComponent<EnemyBasic>();
         if(enemy != null)
         {
             HealthSystem healthSystem = enemy.GetComponent<HealthSystem>();

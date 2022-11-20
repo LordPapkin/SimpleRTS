@@ -15,8 +15,8 @@ public class HealthBar : MonoBehaviour
     private void Awake()
     {
         separatorTemplate.gameObject.SetActive(false);
-        healthSystem.OnDamaged += HealthSystem_OnDamaged;
-        healthSystem.OnHeal += HealthSystem_OnHeal;
+        healthSystem.Damaged += OnDamaged;
+        healthSystem.Healed += OnHeal;
     }
     private void Start()
     {
@@ -33,13 +33,13 @@ public class HealthBar : MonoBehaviour
         UpdateBar();
     }
 
-    private void HealthSystem_OnHeal(object sender, System.EventArgs e)
+    private void OnHeal(object sender, System.EventArgs e)
     {
         UpdateBar();
         UpdateHeatlhBarVisibility();
     }
 
-    private void HealthSystem_OnDamaged(object sender, System.EventArgs e)
+    private void OnDamaged(object sender, System.EventArgs e)
     {
         UpdateBar();
         UpdateHeatlhBarVisibility();

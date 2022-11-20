@@ -690,8 +690,8 @@ GameObject:
   - component: {fileID: 8798282326647897246}
   - component: {fileID: 2856529312073568358}
   - component: {fileID: 3783601345777699472}
-  - component: {fileID: 6149885674743561767}
   - component: {fileID: 6742614221099374027}
+  - component: {fileID: 1876650997040720865}
   m_Layer: 0
   m_Name: GoblinSpearman
   m_TagString: Untagged
@@ -762,21 +762,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6149885674743561767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7996046304131752085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eef7d5eb40cdca4eb7bbf1e1ea6c39c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
-  healthSystem: {fileID: 6742614221099374027}
-  rb: {fileID: 3783601345777699472}
 --- !u!114 &6742614221099374027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,3 +775,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmountMax: 20
+--- !u!114 &1876650997040720865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996046304131752085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424fea00cbe323749b7c581ce03e2634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: c4396acbe88f67f4ba1a1a62a2233e85, type: 2}
+  healthSystem: {fileID: 6742614221099374027}
+  rb: {fileID: 3783601345777699472}

@@ -13,7 +13,7 @@ public class Tower : MonoBehaviour
     [Header("Arrow Hierarchy")]
     [SerializeField] private Transform arrowsParent;
 
-    private Enemy target;
+    private EnemyBasic target;
     private float lookForTargetTimer;
     private float shootTimer;   
 
@@ -59,7 +59,7 @@ public class Tower : MonoBehaviour
 
         foreach (Collider2D collider in collider2Ds)
         {
-            Enemy enemy = collider.gameObject.GetComponent<Enemy>();
+            EnemyBasic enemy = collider.gameObject.GetComponent<EnemyBasic>();
             if (enemy == null)
                 continue;
             if (target == null)

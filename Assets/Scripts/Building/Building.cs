@@ -12,7 +12,7 @@ public class Building : MonoBehaviour
     [SerializeField] protected BuildingTypeHolder buildingTypeHolder;
     protected BuildingTypeSO buildingType;
 
-    protected virtual void HealthSystem_OnDied(object sender, System.EventArgs e)
+    protected virtual void OnDied(object sender, System.EventArgs e)
     {
         HighscoreManager.Instance.SubtractionScore(buildingType.ScoreValue);
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDestroyed);
@@ -20,7 +20,7 @@ public class Building : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void HealthSystem_OnDamaged(object sender, System.EventArgs e)
+    protected virtual void OnDamaged(object sender, System.EventArgs e)
     {
         ToggleRepairButton(true);
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDamaged);
@@ -70,7 +70,7 @@ public class Building : MonoBehaviour
         ToggleDemolishButton(false);        
     }
    
-    private void HealthSystem_OnHeal(object sender, System.EventArgs e)
+    private void OnHeal(object sender, System.EventArgs e)
     {
         ToggleRepairButton(false);
     }
@@ -78,9 +78,9 @@ public class Building : MonoBehaviour
     private void Init()
     {
         buildingType = buildingTypeHolder.BuildingType;
-        healthSystem.OnDied += HealthSystem_OnDied;
-        healthSystem.OnDamaged += HealthSystem_OnDamaged;
-        healthSystem.OnHeal += HealthSystem_OnHeal;
+        healthSystem.Died += OnDied;
+        healthSystem.Damaged += OnDamaged;
+        healthSystem.Healed += OnHeal;
         healthSystem.SetUpHealthSystem(buildingType.HealthAmountMax, buildingType.ResistType, buildingType.ResistValue, true);
         ToggleDemolishButton(false);
         ToggleRepairButton(false);

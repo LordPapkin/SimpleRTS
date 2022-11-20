@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+abstract public class EnemyBasic : MonoBehaviour
 {
     [Header("Enemy Settings")]
     [SerializeField] private EnemySO enemyData;
     [SerializeField] private HealthSystem healthSystem;
     [SerializeField] private Rigidbody2D rb;
     private float speed;
-    private float timeToAttack;
-    private int dmg;
-    private Type attackType;
+    protected float timeToAttack;
+    protected int dmg;
+    protected Type attackType;
     private int hp;
     private Type resistType;
     private float resistValue;
@@ -21,13 +21,14 @@ public class Enemy : MonoBehaviour
     private int scoreValue;
     
 
-    private GameObject targetBuilding; 
+    [SerializeField] private GameObject targetBuilding; 
     private float lookForTargetTimer;
-    private float attackTimer;
+    protected float attackTimer;
 
     private void Awake()
     {
         Init();
+        Debug.Log("Enemy Init");
     }
    
     private void Start()
@@ -35,17 +36,13 @@ public class Enemy : MonoBehaviour
         SetDefaultTarget();
     }
    
-    private void Update()
+    protected virtual void Update()
     {
         HandleMovemnet();
-        HandleTargetSearch();
-        HandleAttackTimer();
+        HandleTargetSearch();       
     }    
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        HitBuilding(collision);
-    }
+    
 
     private void Init()
     {
@@ -61,31 +58,10 @@ public class Enemy : MonoBehaviour
         this.deathEffect = enemyData.DeathEffect;
         this.scoreValue = enemyData.ScoreValue;
 
-        healthSystem.OnDamaged += HealthSystem_OnDamaged;
-        healthSystem.OnDied += HealthSystem_OnDied;
+        healthSystem.Damaged += OnDamaged;
+        healthSystem.Died += OnDied;
         healthSystem.SetUpHealthSystem(hp ,resistType ,resistValue ,true);
         lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);
-    }
-
-
-    private void HitBuilding(Collision2D collision)
-    {
-        if (attackTimer > 0)
-        {
-            return;
-        }
-
-        Building building = collision.gameObject.GetComponent<Building>();
-
-        if (building == null)
-        {
-            return;
-        }
-
-        HealthSystem healthSystem = building.GetComponent<HealthSystem>();
-        healthSystem.TakeDamege(dmg, attackType);
-
-        attackTimer += timeToAttack;
     }
 
     private void HandleTargetSearch()
@@ -95,14 +71,6 @@ public class Enemy : MonoBehaviour
         {
             lookForTargetTimer = lookForTargetTimerMax;
             LookForTargets();
-        }
-    }
-
-    private void HandleAttackTimer()
-    {
-        if(attackTimer > 0)
-        {
-            attackTimer -= Time.deltaTime;
         }
     }
 
@@ -161,19 +129,24 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        HighscoreManager.Instance.AddScore(scoreValue);
-        CinemamachineShake.Instance.ShakeCamera(4f, 0.1f);
-        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+        if(HighscoreManager.Instance != null)
+            HighscoreManager.Instance.AddScore(scoreValue);
+        if(CinemamachineShake.Instance != null)
+            CinemamachineShake.Instance.ShakeCamera(4f, 0.1f);
+        if(SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
-    private void HealthSystem_OnDamaged(object sender, System.EventArgs e)
+    private void OnDamaged(object sender, System.EventArgs e)
     {
-        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+        if(SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
     }
 
-    private void HealthSystem_OnDied(object sender, System.EventArgs e)
+    private void OnDied(object sender, System.EventArgs e)
     { 
         Die();
     }

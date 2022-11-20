@@ -188,7 +188,7 @@ public class BuildingManager : MonoBehaviour
         Collider2D[] nearbyColliders = Physics2D.OverlapCircleAll(mouseWorldPosition, safeRadius);
         foreach (Collider2D collider in nearbyColliders)
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
+            EnemyBasic enemy = collider.GetComponent<EnemyBasic>();
             if (enemy != null)
             {
                 errorMessage = "Can't build near enemies!";

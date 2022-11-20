@@ -2641,7 +2641,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1023767885}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 29.99996
+    OrthographicSize: 29.99998
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3054,7 +3054,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 29.99996
+  orthographic size: 29.99998
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9818,6 +9818,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 78771178}
     m_Modifications:
+    - target: {fileID: 8642015728550617750, guid: df991382be7c3284681048069d2d5e96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642015728585477788, guid: df991382be7c3284681048069d2d5e96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8642015728709655156, guid: df991382be7c3284681048069d2d5e96, type: 3}
       propertyPath: m_Name
       value: UI
@@ -9865,6 +9873,18 @@ PrefabInstance:
     - target: {fileID: 8642015728709655163, guid: df991382be7c3284681048069d2d5e96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642015728928376240, guid: df991382be7c3284681048069d2d5e96, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642015729519533382, guid: df991382be7c3284681048069d2d5e96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642015729770947087, guid: df991382be7c3284681048069d2d5e96, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642015730402327699, guid: df991382be7c3284681048069d2d5e96, type: 3}
       propertyPath: enemyWaveManager

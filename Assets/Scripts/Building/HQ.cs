@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class HQ : Building
 {
-    protected override void HealthSystem_OnDied(object sender, EventArgs e)
+    protected override void OnDied(object sender, EventArgs e)
     {       
-        base.HealthSystem_OnDied(sender, e);
+        base.OnDied(sender, e);
         GameOverUI.Instance.Show();
     }
 }
