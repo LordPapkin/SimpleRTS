@@ -61,7 +61,7 @@ public class TooltipUI : MonoBehaviour
 
     private void UpdateToolTipPosition()
     {
-        Vector2 anchoredPosition = Input.mousePosition / canvasRectTransform.localScale.x;
+        Vector2 anchoredPosition = Utilities.GetMousePosition() / canvasRectTransform.localScale.x;
 
         if (anchoredPosition.x + backgroundReactTransform.rect.width > canvasRectTransform.rect.width)
         {

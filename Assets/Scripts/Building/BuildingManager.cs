@@ -3,24 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class BuildingManager : MonoBehaviour
 {
-    public static BuildingManager Instance { get; private set; }
-
-    public event EventHandler<OnActiveBuildingTypeChangedEventArgs> OnActiveBuildingTypeChanged;
-
     public class OnActiveBuildingTypeChangedEventArgs : EventArgs
     {
         public BuildingTypeSO activeBuildingType;
     }
 
+    public static BuildingManager Instance { get; private set; }
+
+    public event EventHandler<OnActiveBuildingTypeChangedEventArgs> OnActiveBuildingTypeChanged;
+
     [SerializeField] private Transform buildingsParent;
     [SerializeField] private Building hqBuilding;
     [SerializeField] private float maxConstrutionRadius = 10f;
-    [SerializeField] private float safeRadius;    
+    [SerializeField] private float safeRadius;
+
+    private PlayerInputHandler playerInputHandler;
     private BuildingTypeSO activeBuildingType;
-    private BuildingTypeListSO buildingTypeList;   
+    private BuildingTypeListSO buildingTypeList;
+    private bool isOverUI;
 
     public bool CanPlaceBuilding(BuildingTypeSO buildingType, Vector3 mouseWorldPosition, bool showTooltip)
     {
@@ -83,18 +87,38 @@ public class BuildingManager : MonoBehaviour
 
     private void Update()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+            isOverUI = true;
+        else
+            isOverUI= false;
+    }
+
+    private void OnEnable()
+    {
+        playerInputHandler = new PlayerInputHandler();
+        playerInputHandler.PlaceBuildingClick += OnPlaceBuildingClick;        
+    }
+
+    private void OnDisable()
+    {
+        playerInputHandler.PlaceBuildingClick -= OnPlaceBuildingClick;
+    }
+
+    private void OnPlaceBuildingClick(InputAction.CallbackContext context)
+    {
         HandleBuildingPlacing();
     }
 
     private void HandleBuildingPlacing()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            if(!CheckSpawnRequirements())
-                return;
-            
-            SpawnBuilding();
-        }
+        if (isOverUI)
+            return;
+
+        if (!CheckSpawnRequirements())
+            return;
+
+        SpawnBuilding();
+
     }
 
     private void Init()

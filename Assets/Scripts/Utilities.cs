@@ -5,21 +5,29 @@ using UnityEngine;
 public static class Utilities 
 {
     private static Camera mainCamera;
+    private static PlayerInputHandler playerInputHandler = new PlayerInputHandler();
+
     public static Vector3 GetMouseWorldPosition()
     {
         if(mainCamera == null)
             mainCamera = Camera.main;
 
-        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0f; 
+        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(playerInputHandler.MousePosition());
+        mouseWorldPosition.z = 0f;
 
         return mouseWorldPosition;
+    }
+
+    public static Vector2 GetMousePosition()
+    {
+        return playerInputHandler.MousePosition();
     }
 
     public static Vector3 GetRandomDir()
     {
         return new Vector3(Random.Range(-1f,-1f), Random.Range(-1f,1f)).normalized;
     }
+
     public static float GetAngleFromVector(Vector3 vector)
     {
         float radians = Mathf.Atan2(vector.y, vector.x);

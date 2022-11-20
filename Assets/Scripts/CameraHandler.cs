@@ -23,6 +23,8 @@ public class CameraHandler : MonoBehaviour
     [SerializeField] private float mapBoundX = 150f;
     [SerializeField] private float mapBoundY = 150f;
 
+    private PlayerInputHandler playerInputHandler;
+
     private Vector3 targetTransformPosition;
     private Vector3 moveDir = Vector3.zero;
 
@@ -38,6 +40,12 @@ public class CameraHandler : MonoBehaviour
         isEdgeScrollingEnabled = isEnabled;
         PlayerPrefs.SetInt("edgeScrolling", isEdgeScrollingEnabled ? 1 : 0);
     }
+
+    private void OnEnable()
+    {
+        playerInputHandler = new PlayerInputHandler();       
+    }
+
     private void Awake()
     {
         if(instance == null)
@@ -45,14 +53,16 @@ public class CameraHandler : MonoBehaviour
             instance = this;
         }
 
-        isEdgeScrollingEnabled = PlayerPrefs.GetInt("edgeScrolling", 0) == 1;
+        isEdgeScrollingEnabled = PlayerPrefs.GetInt("edgeScrolling", 0) == 1;        
     }
+
     private void Start()
     {
         orthographicSize = cinemachineVirtualCamera.m_Lens.OrthographicSize;
         targetOrthographicSize = orthographicSize;
         startOrthographicSize = orthographicSize;
     }
+
     void Update()
     {
         HandleCameraMovement();
@@ -62,7 +72,7 @@ public class CameraHandler : MonoBehaviour
     private void HandleCameraZoom()
     {
         
-        targetOrthographicSize += -Input.mouseScrollDelta.y * zoomAmount;
+        targetOrthographicSize += -playerInputHandler.ScrollWheel().y * zoomAmount;
         
         targetOrthographicSize = Mathf.Clamp(targetOrthographicSize, minOrthographicSize, maxOrthographicSize);
         
@@ -74,35 +84,33 @@ public class CameraHandler : MonoBehaviour
     private void HandleCameraMovement()
     {
         //take keyboard input
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        moveDir = (Vector3)playerInputHandler.KeyboardMovementInput();
 
         //take mouse input
         if (isEdgeScrollingEnabled)
         {
-            if (Input.mousePosition.x > Screen.width - egdeScrollingSize)
+            if (playerInputHandler.MousePosition().x > Screen.width - egdeScrollingSize)
             {
-                x = +1f;
+                moveDir.x = +1f;
             }
-            if (Input.mousePosition.x < egdeScrollingSize)
+            if (playerInputHandler.MousePosition().x < egdeScrollingSize)
             {
-                x = -1f;
+                moveDir.x = -1f;
             }
-            if (Input.mousePosition.y > Screen.height - egdeScrollingSize)
+            if (playerInputHandler.MousePosition().y > Screen.height - egdeScrollingSize)
             {
-                y = +1f;
+                moveDir.y = +1f;
             }
-            if (Input.mousePosition.y < egdeScrollingSize)
+            if (playerInputHandler.MousePosition().y < egdeScrollingSize)
             {
-                y = -1f;
+                moveDir.y = -1f;
             }
-        }        
-
-        moveDir.x = x;
-        moveDir.y = y;
+        }
+           
         moveDir.Normalize();
         zoomScale = orthographicSize / startOrthographicSize;
 
+        Debug.Log(moveDir);
         targetTransformPosition = transform.position + (moveDir * moveSpeed * (zoomScale * moveSpeedOnZoomMultiplayer) * Time.deltaTime);
         if (Mathf.Abs(targetTransformPosition.x) > mapBoundX || Mathf.Abs(targetTransformPosition.y) > mapBoundY)
         {
