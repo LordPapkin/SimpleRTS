@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819c36839c0ea71409fdb90e6287dc72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToFirstWave: 5
+  timeToFirstWave: 90
   timeBetweenWaves: 5
   nextEnemyTimerMax: 1
   waveNumberToIncreaseSpawnPoints: 5

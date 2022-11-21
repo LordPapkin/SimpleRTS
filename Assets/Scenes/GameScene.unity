@@ -10413,7 +10413,6 @@ MonoBehaviour:
     <Amount>k__BackingField: 0
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 809faa391ab1fe440b4f27f8afb903a2, type: 2}
     <Amount>k__BackingField: 0
-  repairResource: {fileID: 11400000, guid: 809faa391ab1fe440b4f27f8afb903a2, type: 2}
 --- !u!1 &1954697530
 GameObject:
   m_ObjectHideFlags: 0
@@ -11139,8 +11138,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1352876370}
     - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
+      propertyPath: timeToFirstWave
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
       propertyPath: spawnRandominess
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
+      propertyPath: timeBetweenWaves
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
       propertyPath: waveTypes.Array.size
