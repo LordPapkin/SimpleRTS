@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Orc
-  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 20ebc8d54717a794a9a46e51dd5c179c, type: 3}
+  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 4f59c22beab3fe64b95f1dcaa004bc30, type: 3}
   <ScoreValue>k__BackingField: 30
   <Speed>k__BackingField: 4
   <TimeToAttack>k__BackingField: 1

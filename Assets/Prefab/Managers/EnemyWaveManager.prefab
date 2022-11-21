@@ -316,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToFirstWave: 5
   timeBetweenWaves: 5
-  nextEnemyTimerMax: 0.2
+  nextEnemyTimerMax: 1
   waveNumberToIncreaseSpawnPoints: 5
   spawnPoints:
   - {fileID: 4316669611965739494}
@@ -335,6 +335,72 @@ MonoBehaviour:
   - <WaveNumber>k__BackingField: 0
     <enemies>k__BackingField:
     - {fileID: 11400000, guid: dcfe29b36368eb84ba37f25ca6323c2b, type: 2}
+  - <WaveNumber>k__BackingField: 5
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: dcfe29b36368eb84ba37f25ca6323c2b, type: 2}
+    - {fileID: 11400000, guid: c098eca7289d08740b8275e8e92ddfe0, type: 2}
+    - {fileID: 11400000, guid: 281a43164491e604e984206f8ab5a1ac, type: 2}
+  - <WaveNumber>k__BackingField: 12
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: dcfe29b36368eb84ba37f25ca6323c2b, type: 2}
+    - {fileID: 11400000, guid: c098eca7289d08740b8275e8e92ddfe0, type: 2}
+    - {fileID: 11400000, guid: d33eb6eb70aca0d4bbcf560ecd791071, type: 2}
+    - {fileID: 11400000, guid: d33eb6eb70aca0d4bbcf560ecd791071, type: 2}
+    - {fileID: 11400000, guid: 75fe8fc4ccf3e914bb25ee5dec6e4c5b, type: 2}
+    - {fileID: 11400000, guid: 281a43164491e604e984206f8ab5a1ac, type: 2}
+  - <WaveNumber>k__BackingField: 15
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: d33eb6eb70aca0d4bbcf560ecd791071, type: 2}
+    - {fileID: 11400000, guid: d33eb6eb70aca0d4bbcf560ecd791071, type: 2}
+    - {fileID: 11400000, guid: 75fe8fc4ccf3e914bb25ee5dec6e4c5b, type: 2}
+    - {fileID: 11400000, guid: 75fe8fc4ccf3e914bb25ee5dec6e4c5b, type: 2}
+    - {fileID: 11400000, guid: 281a43164491e604e984206f8ab5a1ac, type: 2}
+    - {fileID: 11400000, guid: 590c3d1d145e6c24f99a22f30e9da36e, type: 2}
+  - <WaveNumber>k__BackingField: 20
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: d33eb6eb70aca0d4bbcf560ecd791071, type: 2}
+    - {fileID: 11400000, guid: 75fe8fc4ccf3e914bb25ee5dec6e4c5b, type: 2}
+    - {fileID: 11400000, guid: 281a43164491e604e984206f8ab5a1ac, type: 2}
+    - {fileID: 11400000, guid: 590c3d1d145e6c24f99a22f30e9da36e, type: 2}
+    - {fileID: 11400000, guid: 590c3d1d145e6c24f99a22f30e9da36e, type: 2}
+    - {fileID: 11400000, guid: f583448c284efcd4aab45d44c2f087a0, type: 2}
+  - <WaveNumber>k__BackingField: 28
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: 281a43164491e604e984206f8ab5a1ac, type: 2}
+    - {fileID: 11400000, guid: 590c3d1d145e6c24f99a22f30e9da36e, type: 2}
+    - {fileID: 11400000, guid: 590c3d1d145e6c24f99a22f30e9da36e, type: 2}
+    - {fileID: 11400000, guid: f583448c284efcd4aab45d44c2f087a0, type: 2}
+    - {fileID: 11400000, guid: f583448c284efcd4aab45d44c2f087a0, type: 2}
+    - {fileID: 11400000, guid: f583448c284efcd4aab45d44c2f087a0, type: 2}
+    - {fileID: 11400000, guid: f583448c284efcd4aab45d44c2f087a0, type: 2}
+    - {fileID: 11400000, guid: 9bf07035e6e0bda4a8a1009cd90a1e9e, type: 2}
+    - {fileID: 11400000, guid: 9bf07035e6e0bda4a8a1009cd90a1e9e, type: 2}
+    - {fileID: 11400000, guid: f2c3f3029dd67314ab74f01f0d5084ff, type: 2}
+  - <WaveNumber>k__BackingField: 35
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: 281a43164491e604e984206f8ab5a1ac, type: 2}
+    - {fileID: 11400000, guid: 9bf07035e6e0bda4a8a1009cd90a1e9e, type: 2}
+    - {fileID: 11400000, guid: 9bf07035e6e0bda4a8a1009cd90a1e9e, type: 2}
+    - {fileID: 11400000, guid: 9bf07035e6e0bda4a8a1009cd90a1e9e, type: 2}
+    - {fileID: 11400000, guid: f2c3f3029dd67314ab74f01f0d5084ff, type: 2}
+    - {fileID: 11400000, guid: f2c3f3029dd67314ab74f01f0d5084ff, type: 2}
+    - {fileID: 11400000, guid: 66a83100aff6f544d8afc0866ad1750e, type: 2}
+  - <WaveNumber>k__BackingField: 42
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: 281a43164491e604e984206f8ab5a1ac, type: 2}
+    - {fileID: 11400000, guid: 66a83100aff6f544d8afc0866ad1750e, type: 2}
+    - {fileID: 11400000, guid: 66a83100aff6f544d8afc0866ad1750e, type: 2}
+    - {fileID: 11400000, guid: 66a83100aff6f544d8afc0866ad1750e, type: 2}
+    - {fileID: 11400000, guid: 66a83100aff6f544d8afc0866ad1750e, type: 2}
+    - {fileID: 11400000, guid: 9ef77d37acf4640448ad116134d7d778, type: 2}
+    - {fileID: 11400000, guid: 9ef77d37acf4640448ad116134d7d778, type: 2}
+  - <WaveNumber>k__BackingField: 50
+    <enemies>k__BackingField:
+    - {fileID: 11400000, guid: d92d5c3cff8299a4ab028227596074e8, type: 2}
+    - {fileID: 11400000, guid: d92d5c3cff8299a4ab028227596074e8, type: 2}
+    - {fileID: 11400000, guid: d92d5c3cff8299a4ab028227596074e8, type: 2}
+    - {fileID: 11400000, guid: 9ef77d37acf4640448ad116134d7d778, type: 2}
+    - {fileID: 11400000, guid: 9ef77d37acf4640448ad116134d7d778, type: 2}
   state: 0
   nextWaveTimer: 0
   nextEnemyTimer: 0

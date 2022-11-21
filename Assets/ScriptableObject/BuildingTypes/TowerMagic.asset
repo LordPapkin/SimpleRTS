@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e62a9f14adbe044be06931ccfef4b6, type: 3}
+  m_Name: TowerMagic
+  m_EditorClassIdentifier: 
+  <NameString>k__BackingField: Stone Tower (Magic)
+  <Prefab>k__BackingField: {fileID: 8377893412898791642, guid: 06a53ab88f7a55648a218401cb05f22c, type: 3}
+  <HasResourceGeneratorData>k__BackingField: 0
+  <ResourceGeneratorData>k__BackingField:
+    <AmountPerCycle>k__BackingField: 0
+    <SecondsPerCycle>k__BackingField: 0
+    <ResourceType>k__BackingField: {fileID: 0}
+    <ResourceDetectionRadius>k__BackingField: 0
+    <MaxResourceNodes>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 3a549cd61f4d79e4b996c9978dac641f, type: 3}
+  <MinConstrutionRadius>k__BackingField: 9
+  <ConstructionCostArray>k__BackingField:
+  - <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
+    <Amount>k__BackingField: 65
+  - <ResourceType>k__BackingField: {fileID: 11400000, guid: 4e9a4bd3e6c352c4182a886e12ea8cdb, type: 2}
+    <Amount>k__BackingField: 55
+  - <ResourceType>k__BackingField: {fileID: 11400000, guid: 809faa391ab1fe440b4f27f8afb903a2, type: 2}
+    <Amount>k__BackingField: 60
+  <HealthAmountMax>k__BackingField: 700
+  <ResistType>k__BackingField: 0
+  <ResistValue>k__BackingField: 0.4
+  <ConstructionTime>k__BackingField: 8
+  <ScoreValue>k__BackingField: 25

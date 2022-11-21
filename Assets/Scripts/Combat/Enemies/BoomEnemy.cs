@@ -8,7 +8,8 @@ public class BoomEnemy : EnemyBasic
 {
     [Header("Boom Settings")]
     [SerializeField] private float radiusOfBoom = 5f;
-    
+    private bool isBoomed;
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         HitBuilding(collision);
@@ -32,15 +33,19 @@ public class BoomEnemy : EnemyBasic
     
     private void Boom()
     {
+        if (isBoomed)
+            return;
+
+        isBoomed = true;
         Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, radiusOfBoom);
         foreach(Collider2D collider2D in collider2Ds)
-        {
+        {  
             HealthSystem healthSystem = collider2D.GetComponent<HealthSystem>();
             if (healthSystem != null)
             {
                 healthSystem.TakeDamege(dmg, attackType);
             }
-        }
+        }      
         Die();
     }
 }

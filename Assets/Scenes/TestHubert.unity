@@ -2641,7 +2641,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1023767885}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 29.99998
+    OrthographicSize: 29.99997
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3054,7 +3054,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 29.99998
+  orthographic size: 29.99997
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6892,7 +6892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.6796638
   m_FrequencyGain: 3
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &1258365631
@@ -10384,11 +10384,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingResourceAmountList:
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 740b2f6ef8f4334498a88305bb639632, type: 2}
-    <Amount>k__BackingField: 500
+    <Amount>k__BackingField: 5000
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 4e9a4bd3e6c352c4182a886e12ea8cdb, type: 2}
-    <Amount>k__BackingField: 500
+    <Amount>k__BackingField: 5000
   - <ResourceType>k__BackingField: {fileID: 11400000, guid: 809faa391ab1fe440b4f27f8afb903a2, type: 2}
-    <Amount>k__BackingField: 500
+    <Amount>k__BackingField: 5000
 --- !u!1 &1954697530
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,11 +11115,7 @@ PrefabInstance:
       objectReference: {fileID: 1352876370}
     - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
       propertyPath: timeToFirstWave
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
-      propertyPath: timeBetweenWaves
-      value: 15
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}

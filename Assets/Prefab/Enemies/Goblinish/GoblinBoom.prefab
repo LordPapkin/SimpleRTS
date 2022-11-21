@@ -956,4 +956,4 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 9f14cd76506c2804caa496dcc7d76c39, type: 2}
   healthSystem: {fileID: 6742614221099374027}
   rb: {fileID: 3783601345777699472}
-  radiusOfBoom: 5
+  radiusOfBoom: 4.5

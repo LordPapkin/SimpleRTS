@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlackOrcCheftain
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Orc
-  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 20ebc8d54717a794a9a46e51dd5c179c, type: 3}
+  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 33d3f932cfd1eb148be192d82eb1814a, type: 3}
   <ScoreValue>k__BackingField: 200
   <Speed>k__BackingField: 3.5
   <TimeToAttack>k__BackingField: 1

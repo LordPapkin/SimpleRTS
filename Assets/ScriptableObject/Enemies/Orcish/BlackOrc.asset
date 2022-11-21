@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: BlackOrc
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Orc
-  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 20ebc8d54717a794a9a46e51dd5c179c, type: 3}
+  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 484580c9b392e554090c665b261d8f59, type: 3}
   <ScoreValue>k__BackingField: 100
   <Speed>k__BackingField: 3.5
   <TimeToAttack>k__BackingField: 1
   <Dmg>k__BackingField: 40
   <AttackType>k__BackingField: 0
-  <Hp>k__BackingField: 140
+  <Hp>k__BackingField: 160
   <ResistType>k__BackingField: 0
   <ResistValue>k__BackingField: 0.5
   <SearchRange>k__BackingField: 18

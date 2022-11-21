@@ -17,8 +17,8 @@ MonoBehaviour:
   <ScoreValue>k__BackingField: 0
   <Speed>k__BackingField: 7
   <TimeToAttack>k__BackingField: 1
-  <Dmg>k__BackingField: 10
-  <AttackType>k__BackingField: 0
+  <Dmg>k__BackingField: 70
+  <AttackType>k__BackingField: 1
   <Hp>k__BackingField: 50
   <ResistType>k__BackingField: 0
   <ResistValue>k__BackingField: 0.35

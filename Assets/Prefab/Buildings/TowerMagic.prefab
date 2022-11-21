@@ -132,7 +132,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3a549cd61f4d79e4b996c9978dac641f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.0141509175, g: 0.98116213, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: -7654104800794136653}
   - component: {fileID: 6880687867154734693}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: TowerMagic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf502469ab55ab44a4e3c4aad3ed438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: {fileID: 11400000, guid: 724597e19003e034ab924a0b45a7bb0e, type: 2}
+  buildingType: {fileID: 11400000, guid: 9cecb9fc094958540bc9dbc35a389069, type: 2}
 --- !u!114 &-6714378512983718203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   lookForTargetTimerMax: 0.33
   shootTimerMax: 0.33
   arrowSpawn: {fileID: 6774880578167422857}
-  arrowType: {fileID: 4589000473416501578, guid: e96545f0ce2f247469e1dc83f1c172a6, type: 3}
+  arrowType: {fileID: 4589000473416501578, guid: 4711c058e57e05b43b73c1dbecdb836f, type: 3}
   arrowsParent: {fileID: 5922362847031057053}
 --- !u!1 &8806214987218987942
 GameObject:
