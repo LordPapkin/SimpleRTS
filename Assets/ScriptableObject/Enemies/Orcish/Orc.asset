@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290cb9571a8fe4c49a32c6240bc9ed51, type: 3}
+  m_Name: Orc
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Orc
+  <Prefab>k__BackingField: {fileID: 7996046304131752085, guid: 20ebc8d54717a794a9a46e51dd5c179c, type: 3}
+  <ScoreValue>k__BackingField: 30
+  <Speed>k__BackingField: 4
+  <TimeToAttack>k__BackingField: 1
+  <Dmg>k__BackingField: 20
+  <AttackType>k__BackingField: 0
+  <Hp>k__BackingField: 80
+  <ResistType>k__BackingField: 0
+  <ResistValue>k__BackingField: 0
+  <SearchRange>k__BackingField: 18
+  <LookForTargetTimerMax>k__BackingField: 1
+  <DeathEffect>k__BackingField: {fileID: 0}

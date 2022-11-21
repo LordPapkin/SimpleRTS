@@ -9,8 +9,6 @@ public class EnemySO : ScriptableObject
 
     [field: SerializeField] public GameObject Prefab { get; private set; }
 
-    [field: SerializeField] public int SpawnPointsCost { get; private set; }
-
     [field: SerializeField] public int ScoreValue { get; private set; }
 
     [field: SerializeField] public float Speed { get; private set; }

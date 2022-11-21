@@ -25,6 +25,7 @@ abstract public class EnemyBasic : MonoBehaviour
     private float lookForTargetTimer;
     protected float attackTimer;
 
+
     private void Awake()
     {
         Init();        
@@ -39,9 +40,27 @@ abstract public class EnemyBasic : MonoBehaviour
     {
         HandleMovemnet();
         HandleTargetSearch();       
-    }    
+    }
 
-    
+    protected virtual void OnDied(object sender, System.EventArgs e)
+    {
+        Die();
+    }
+
+    protected void Die()
+    {
+        if (HighscoreManager.Instance != null)
+            HighscoreManager.Instance.AddScore(scoreValue);
+        if (CinemamachineShake.Instance != null)
+            CinemamachineShake.Instance.ShakeCamera(4f, 0.1f);
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
+        if (deathEffect != null)
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        Destroy(this.gameObject);
+    }
+
 
     private void Init()
     {
@@ -62,7 +81,7 @@ abstract public class EnemyBasic : MonoBehaviour
         healthSystem.SetUpHealthSystem(hp ,resistType ,resistValue ,true);
         lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);
     }
-
+   
     private void HandleTargetSearch()
     {
         lookForTargetTimer -= Time.deltaTime;
@@ -125,20 +144,7 @@ abstract public class EnemyBasic : MonoBehaviour
             targetBuilding = BuildingManager.Instance.GetHQBuilding().gameObject;
         }
     }
-
-    private void Die()
-    {
-        if(HighscoreManager.Instance != null)
-            HighscoreManager.Instance.AddScore(scoreValue);
-        if(CinemamachineShake.Instance != null)
-            CinemamachineShake.Instance.ShakeCamera(4f, 0.1f);
-        if(SoundManager.Instance != null)
-            SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
-        if(deathEffect != null)
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-
-        Destroy(this.gameObject);
-    }
+    
 
     private void OnDamaged(object sender, System.EventArgs e)
     {
@@ -146,8 +152,5 @@ abstract public class EnemyBasic : MonoBehaviour
             SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
     }
 
-    private void OnDied(object sender, System.EventArgs e)
-    { 
-        Die();
-    }
+   
 }

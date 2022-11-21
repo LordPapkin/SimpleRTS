@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <SpawnPointsCost>k__BackingField: 8
   <Warband>k__BackingField:
-  - {fileID: 11400000, guid: 4d3e417fd4a5d9e49ab7ea19a59e670f, type: 2}
+  - {fileID: 11400000, guid: 8e1eaf473ce0fce4ca7835badf49b7fc, type: 2}
   - {fileID: 11400000, guid: 8e1eaf473ce0fce4ca7835badf49b7fc, type: 2}
   - {fileID: 11400000, guid: 8e1eaf473ce0fce4ca7835badf49b7fc, type: 2}
   - {fileID: 11400000, guid: 8e1eaf473ce0fce4ca7835badf49b7fc, type: 2}
