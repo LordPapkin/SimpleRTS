@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4540341263618398401}
   - component: {fileID: 2329259726956166823}
   - component: {fileID: -7200782086963373635}
-  m_Layer: 0
+  - component: {fileID: -1833280378678338065}
+  m_Layer: 7
   m_Name: GoldMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,6 +124,19 @@ MonoBehaviour:
   delayTime: 2.5
   healthSystem: {fileID: 2329259726956166823}
   buildingTypeHolder: {fileID: 3119460559171272879}
+  mouseEnterExitEvents: {fileID: -1833280378678338065}
+--- !u!114 &-1833280378678338065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516654491173055411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adeb5ea751df2a844a1e49b56fa8f792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3679992348790333229
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +148,7 @@ GameObject:
   - component: {fileID: 3251501742704566882}
   - component: {fileID: 2628168465652180510}
   - component: {fileID: 3307811844996331956}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MinimapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,6 +242,18 @@ PrefabInstance:
       propertyPath: resourceGenerator
       value: 
       objectReference: {fileID: -3124803275659222066}
+    - target: {fileID: 9032526619123716723, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032526619237065956, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032526619352540218, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9032526620246662605, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -276,6 +302,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfResourceGeneratorOverlay
       objectReference: {fileID: 0}
+    - target: {fileID: 9032526620246662606, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032526620389876417, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032526620907529719, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17cfb9c3c80589e4089288fce1b19b50, type: 3}
 --- !u!1 &7559984332780623877 stripped
@@ -306,9 +344,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3516654491173055410}
     m_Modifications:
+    - target: {fileID: 1359099759994559332, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898527630791270806, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2156701223262941850, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
       propertyPath: m_Name
       value: pfGoldHarvesterVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156701223262941850, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2156701223262941851, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
       propertyPath: m_RootOrder
@@ -354,6 +404,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4530789051544615550, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651083683912841605, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516176909751793203, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be38c585b36f6194a8bb08b68a0c4302, type: 3}
 --- !u!1 &842342335950726326 stripped
@@ -396,6 +458,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DemolishButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2736603011440900270, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736603011509435962, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -403,6 +473,10 @@ PrefabInstance:
     - target: {fileID: 2736603011568517067, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: m_Name
       value: pfBuildingDemolishButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736603011568517067, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517078, guid: e9ef018351c0b3647be43868b12d9c77, type: 3}
       propertyPath: building
@@ -538,6 +612,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RepairButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2736603011440900270, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736603011509435962, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517065, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -545,6 +627,10 @@ PrefabInstance:
     - target: {fileID: 2736603011568517067, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_Name
       value: pfBuildingRepairButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736603011568517067, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2736603011568517079, guid: 2e9e05c8c3e9cd44baf65eb7c1601850, type: 3}
       propertyPath: m_Pivot.x
@@ -680,6 +766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfHealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 4287633826329071297, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4287633826329071422, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -728,6 +818,30 @@ PrefabInstance:
       propertyPath: healthSystem
       value: 
       objectReference: {fileID: 2329259726956166823}
+    - target: {fileID: 4287633826513952283, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287633827143305151, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287633828081470904, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287633828217536628, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582379487031616813, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099514234405927142, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa36db9e85318e44684ce0ec9ad6cb5a, type: 3}
 --- !u!1 &6876970206880782158 stripped

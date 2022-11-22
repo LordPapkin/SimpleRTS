@@ -5,11 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BuildingTypeSelectUI : MonoBehaviour
-{
-    [SerializeField] private Sprite arrowSprite;
-    [SerializeField] private List<BuildingTypeSO> buildingsToIgnore;
-    private GameObject arrowButton;
-    private GameObject arrowButtonSelected;
+{    
+    [SerializeField] private List<BuildingTypeSO> buildingsToIgnore;   
 
     private GameObject buildingSelectTemplate;
     private BuildingTypeListSO buildingTypeList;
@@ -54,8 +51,8 @@ public class BuildingTypeSelectUI : MonoBehaviour
 
             MouseEnterExitEvents mouseEnterExitEvents = copyTemplate.GetComponent<MouseEnterExitEvents>();
 
-            mouseEnterExitEvents.OnMouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show(buildingType.NameString + "\n" + buildingType.GetConstructionCostString() ); };
-            mouseEnterExitEvents.OnMouseExit += (object sender, EventArgs e) => { TooltipUI.Instance.Hide(); };
+            mouseEnterExitEvents.MouseEnter += (object sender, EventArgs e) => { TooltipUI.Instance.Show(buildingType.NameString + "\n" + buildingType.GetConstructionCostString()); };
+            mouseEnterExitEvents.MouseExit += (object sender, EventArgs e) => { TooltipUI.Instance.Hide(); };
 
             GameObject copyTemplateSelected = copyTemplate.transform.Find("selected").gameObject;
             buildingTypeUIDictionary.Add(buildingType, copyTemplateSelected);

@@ -87,10 +87,16 @@ public class BuildingManager : MonoBehaviour
 
     private void Update()
     {
-        if(EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
             isOverUI = true;
+            Debug.Log("OverGameObject");
+        }
         else
-            isOverUI= false;
+        {
+            isOverUI = false;
+            Debug.Log("Free");
+        }
     }
 
     private void OnEnable()

@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class Building : MonoBehaviour
 {
@@ -10,7 +13,13 @@ public class Building : MonoBehaviour
     [SerializeField] protected float delayTime = 1.5f;
     [SerializeField] protected HealthSystem healthSystem;
     [SerializeField] protected BuildingTypeHolder buildingTypeHolder;
+    [SerializeField] private MouseEnterExitEvents mouseEnterExitEvents;
     protected BuildingTypeSO buildingType;
+
+    private void Awake()
+    {
+        Init();        
+    }
 
     protected virtual void OnDied(object sender, System.EventArgs e)
     {
@@ -24,22 +33,6 @@ public class Building : MonoBehaviour
     {
         ToggleRepairButton(true);
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDamaged);
-    }
-
-
-    private void Awake()
-    {
-        Init();
-    }
-    
-    private void OnMouseEnter()
-    {
-        ToggleDemolishButton(true);       
-    }    
-
-    private void OnMouseExit()
-    {
-        StartCoroutine("ToggleDelay");
     }
 
     private void ToggleDemolishButton(bool isEnable)
@@ -82,10 +75,21 @@ public class Building : MonoBehaviour
         healthSystem.Damaged += OnDamaged;
         healthSystem.Healed += OnHeal;
         healthSystem.SetUpHealthSystem(buildingType.HealthAmountMax, buildingType.ResistType, buildingType.ResistValue, true);
+        mouseEnterExitEvents.MouseEnter += OnMouseEnter;
+        mouseEnterExitEvents.MouseExit += OnMouseExit;
         ToggleDemolishButton(false);
         ToggleRepairButton(false);
     }
 
+    private void OnMouseEnter(object sender, EventArgs e)
+    {
+        ToggleDemolishButton(true);
+    }
 
+    private void OnMouseExit(object sender, EventArgs e)
+    {
+        StartCoroutine(ToggleDelay());
+    }
 
+    
 }
