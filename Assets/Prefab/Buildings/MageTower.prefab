@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 3181132729456303716}
   - component: {fileID: 2833352289480223794}
   - component: {fileID: 4871905690910045632}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: MinimapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
