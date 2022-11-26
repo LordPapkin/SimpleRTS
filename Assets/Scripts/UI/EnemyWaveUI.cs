@@ -52,7 +52,15 @@ public class EnemyWaveUI : MonoBehaviour
         }
         else
         {
-            SetTimerText($"Next Wave in {enemyWaveManager.WaveTimer.ToString("F1")} s");
+            if (enemyWaveManager.IsNextWaveBossWave)
+            {
+                SetTimerText($"Warning!!! Huge wave in {enemyWaveManager.WaveTimer.ToString("F1")} s");
+            }
+            else
+            {
+                SetTimerText($"Next Wave in {enemyWaveManager.WaveTimer.ToString("F1")} s");
+            }
+            
         }
     }
 

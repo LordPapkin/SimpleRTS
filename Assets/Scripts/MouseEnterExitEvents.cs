@@ -11,12 +11,12 @@ public class MouseEnterExitEvents : MonoBehaviour, IPointerEnterHandler, IPointe
     public void OnPointerEnter(PointerEventData eventData)
     {
         MouseEnter?.Invoke(this, EventArgs.Empty);
-        Debug.Log("On");
+        //Debug.Log("On");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         MouseExit?.Invoke(this, EventArgs.Empty);
-        Debug.Log("Off");
+        //Debug.Log("Off");
     }
 }

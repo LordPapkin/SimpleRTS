@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyWaveManager : MonoBehaviour
@@ -17,15 +18,21 @@ public class EnemyWaveManager : MonoBehaviour
     public Vector3 SpawnPoint => spawnPoint;
     public string WaveNumberString => waveNumber.ToString();
     public int WaveNumber => waveNumber;
+    public bool IsNextWaveBossWave => isNextWaveBossWave;
     public float WaveTimer => nextWaveTimer;
 
     public event EventHandler OnWaveNumberChanged;
 
     [Header("Spawn Settings")]
     [SerializeField] private float timeToFirstWave = 30f;
-    [SerializeField] private float timeBetweenWaves = 15f;
+    [SerializeField] private float minTimeBetweenWaves = 15f;
+    [SerializeField] private float timeDecreaseAfterWave = 1f;
     [SerializeField] private float nextEnemyTimerMax = 0.2f;
-    [SerializeField] private float waveNumberToIncreaseSpawnPoints = 5f;
+    [SerializeField] private int startingSpawnPoints = 5;
+    [SerializeField] private int startingSpawnPointsIncrementation = 3;
+    [SerializeField] private int waveNumberToIncreaseSpawnPointsIncrementation = 5;
+    [SerializeField] private int WaveToBossWave = 10;
+    [SerializeField] private float bossWaveMultiplayer = 1.5f;
     [SerializeField] private List<GameObject> spawnPoints;
     [SerializeField] private GameObject nextWaveSpawnPoint;
     [SerializeField] [Range(0f, 30f)] private float spawnPointRandominess;
@@ -41,7 +48,9 @@ public class EnemyWaveManager : MonoBehaviour
 
     private Vector3 spawnPoint;
     private float nextEnemyTimerMaxCurrent;
+    private float nextWaveTimerMax;
     private int leftoverSpawnPoints;
+    private bool isNextWaveBossWave;
     //SF for testing only
     [Header("Current State")]
     [SerializeField] private State state;
@@ -58,13 +67,9 @@ public class EnemyWaveManager : MonoBehaviour
 
     private void Start()
     {
-        nextWaveTimer = timeToFirstWave;        
-        SetNextSpawnPoint();
-        currentWaveType = waveTypes[0];
-        currentWaveIndex = 0;
-        state = State.WaitingToSpawnWave;
+        Init();
     }
-
+    
     private void Update()
     {
         switch (state)
@@ -77,7 +82,17 @@ public class EnemyWaveManager : MonoBehaviour
                 break;
         }       
        
-    }   
+    }
+
+    private void Init()
+    {        
+        nextWaveTimerMax = timeToFirstWave;
+        nextWaveTimer = nextWaveTimerMax;
+        SetNextSpawnPoint();
+        currentWaveType = waveTypes[0];
+        currentWaveIndex = 0;
+        state = State.WaitingToSpawnWave;
+    }
 
     private void HandleWaitingToSpawnWave()
     {
@@ -126,21 +141,48 @@ public class EnemyWaveManager : MonoBehaviour
     }
 
     private void SetWave()
-    {        
-        nextWaveTimer = timeBetweenWaves;
+    {
+        nextWaveTimerMax -= timeDecreaseAfterWave;
+        nextWaveTimerMax = Mathf.Clamp(nextWaveTimerMax, minTimeBetweenWaves, timeToFirstWave);
+        nextWaveTimer = nextWaveTimerMax;
 
-        remainingSpawnPoints = 5 + (waveNumber * (3 + Mathf.FloorToInt(waveNumber/ waveNumberToIncreaseSpawnPoints))) + leftoverSpawnPoints;
-        leftoverSpawnPoints = 0;
+        SetSpawnPoints();
 
         nextEnemyTimerMaxCurrent = nextEnemyTimerMax - (waveNumber * 0.0005f);
-        nextEnemyTimerMaxCurrent = Mathf.Clamp(nextEnemyTimerMaxCurrent, nextEnemyTimerMax / 2f, nextEnemyTimerMax );
+        nextEnemyTimerMaxCurrent = Mathf.Clamp(nextEnemyTimerMaxCurrent, nextEnemyTimerMax / 2f, nextEnemyTimerMax);
 
         waveNumber++;
+        CheckForBossWave();
         CheckWaveType();
         OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);
         state = State.SpawningWave;
     }
 
+    private void SetSpawnPoints()
+    {
+        remainingSpawnPoints = startingSpawnPoints + (waveNumber * (startingSpawnPointsIncrementation + (waveNumber / waveNumberToIncreaseSpawnPointsIncrementation)));
+
+        if (isNextWaveBossWave)
+        {
+            remainingSpawnPoints = Mathf.FloorToInt(remainingSpawnPoints * bossWaveMultiplayer);
+            isNextWaveBossWave = false;
+        }
+
+        remainingSpawnPoints += leftoverSpawnPoints;
+        leftoverSpawnPoints = 0;
+    }
+
+    private void CheckForBossWave()
+    {
+        if((waveNumber + 1) % WaveToBossWave == 0)
+        {
+            isNextWaveBossWave = true;
+        }
+        else
+        {
+            isNextWaveBossWave = false;
+        }
+    }
     private void CheckWaveType()
     {
         if (currentWaveIndex + 1 > waveTypes.Length - 1)
