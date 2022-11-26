@@ -25,61 +25,7 @@ public class BuildingManager : MonoBehaviour
     private BuildingTypeSO activeBuildingType;
     private BuildingTypeListSO buildingTypeList;
     private bool isOverUI;
-
-    public bool CanPlaceBuilding(BuildingTypeSO buildingType, Vector3 mouseWorldPosition, bool showTooltip)
-    {
-        BoxCollider2D boxCollider = buildingType.Prefab.GetComponent<BoxCollider2D>();
-        string errorMessage;
-
-        if(!CheckResourceNodes(buildingType, mouseWorldPosition, out errorMessage))
-        {
-            SetToolTip(errorMessage, showTooltip);
-            return false;
-        }
-
-        if (!CheckIsAreaClear(mouseWorldPosition, boxCollider, out errorMessage))
-        {
-            SetToolTip(errorMessage, showTooltip);
-            return false;
-        }           
-
-        if (CheckForEnemies(mouseWorldPosition, safeRadius, out errorMessage))
-        {
-            SetToolTip(errorMessage, showTooltip);
-            return false;
-        }
-
-        if (CheckForSameBuildings(buildingType, mouseWorldPosition, out errorMessage))
-        {
-            SetToolTip(errorMessage, showTooltip);
-            return false;
-        }
-
-        if (!CheckForFriendlyBuildings(mouseWorldPosition, maxConstrutionRadius, out errorMessage))
-        {
-            SetToolTip(errorMessage, showTooltip);
-            return false;
-        }
-
-        return true;
-    }
-
-    public void SetActiveBuildingType(BuildingTypeSO buildingType)
-    {
-        activeBuildingType = buildingType;
-        OnActiveBuildingTypeChanged?.Invoke(this, new OnActiveBuildingTypeChangedEventArgs { activeBuildingType = activeBuildingType});
-    }
-
-    public BuildingTypeSO GetActiveBuildingType()
-    {
-        return activeBuildingType;
-    } 
-
-    public Building GetHQBuilding()
-    {
-        return hqBuilding;
-    }
-
+    
     private void Awake()
     {
         Init();
@@ -111,6 +57,61 @@ public class BuildingManager : MonoBehaviour
         playerInputHandler.PlaceBuildingClick -= OnPlaceBuildingClick;
         playerInputHandler.CancelBuildingClick -= OnCancelBuildingClick;
     }
+
+    public bool CanPlaceBuilding(BuildingTypeSO buildingType, Vector3 mouseWorldPosition, bool showTooltip)
+    {
+        BoxCollider2D boxCollider = buildingType.Prefab.GetComponent<BoxCollider2D>();
+        string errorMessage;
+
+        if (!CheckResourceNodes(buildingType, mouseWorldPosition, out errorMessage))
+        {
+            SetToolTip(errorMessage, showTooltip);
+            return false;
+        }
+
+        if (!CheckIsAreaClear(mouseWorldPosition, boxCollider, out errorMessage))
+        {
+            SetToolTip(errorMessage, showTooltip);
+            return false;
+        }
+
+        if (CheckForEnemies(mouseWorldPosition, safeRadius, out errorMessage))
+        {
+            SetToolTip(errorMessage, showTooltip);
+            return false;
+        }
+
+        if (CheckForSameBuildings(buildingType, mouseWorldPosition, out errorMessage))
+        {
+            SetToolTip(errorMessage, showTooltip);
+            return false;
+        }
+
+        if (!CheckForFriendlyBuildings(mouseWorldPosition, maxConstrutionRadius, out errorMessage))
+        {
+            SetToolTip(errorMessage, showTooltip);
+            return false;
+        }
+
+        return true;
+    }
+
+    public void SetActiveBuildingType(BuildingTypeSO buildingType)
+    {
+        activeBuildingType = buildingType;
+        OnActiveBuildingTypeChanged?.Invoke(this, new OnActiveBuildingTypeChangedEventArgs { activeBuildingType = activeBuildingType });
+    }
+
+    public BuildingTypeSO GetActiveBuildingType()
+    {
+        return activeBuildingType;
+    }
+
+    public Building GetHQBuilding()
+    {
+        return hqBuilding;
+    }
+
 
     private void OnPlaceBuildingClick(InputAction.CallbackContext context)
     {

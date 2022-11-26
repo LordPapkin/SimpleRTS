@@ -13,6 +13,7 @@ public class PlayerInputHandler
         input.Player.PlaceBuildingClick.Enable();
         input.Player.CancelBuildingClick.Enable();
         input.Player.ScrollWheel.Enable();
+        input.Player.OptionMenu.Enable();
     }
 
     public void Disable()
@@ -22,6 +23,7 @@ public class PlayerInputHandler
         input.Player.PlaceBuildingClick.Disable();
         input.Player.CancelBuildingClick.Disable();
         input.Player.ScrollWheel.Disable(); 
+        input.Player.OptionMenu.Disable();
     }
 
     public event Action<InputAction.CallbackContext> PlaceBuildingClick
@@ -34,6 +36,12 @@ public class PlayerInputHandler
     {
         add { input.Player.CancelBuildingClick.performed += value; }
         remove { input.Player.CancelBuildingClick.performed -= value; }
+    }
+
+    public event Action<InputAction.CallbackContext> OptionsMenu
+    {
+        add { input.Player.OptionMenu.performed += value; }
+        remove { input.Player.OptionMenu.performed-= value; }
     }
 
     public Vector2 KeyboardMovementInput()

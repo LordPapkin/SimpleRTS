@@ -15,21 +15,8 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private Toggle edgeScrollingToggle;
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI soundVolumeText;
-    [SerializeField] private TextMeshProUGUI musicVolumeText;
-
-    public void ToggleVisible()
-    {
-        gameObject.SetActive(!gameObject.activeSelf);
-        if (gameObject.activeSelf)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-        }
-    }
-
+    [SerializeField] private TextMeshProUGUI musicVolumeText;   
+    
     private void Awake()
     {
         soundIncreaseButton.onClick.AddListener(() =>
@@ -61,6 +48,7 @@ public class OptionsUI : MonoBehaviour
         {
             CameraHandler.Instance.ToggleEdgeScrolling(set);
         });
+       
     }
 
     private void Start()
@@ -71,6 +59,19 @@ public class OptionsUI : MonoBehaviour
         edgeScrollingToggle.SetIsOnWithoutNotify(CameraHandler.Instance.IsEdgeScrollingEnabled);
     }
 
+    public void ToggleVisible()
+    {       
+        gameObject.SetActive(!gameObject.activeSelf);
+        if (gameObject.activeSelf)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
+  
     private void UpdateSoundVolumeText()
     {
         soundVolumeText.SetText(Mathf.RoundToInt(SoundManager.Instance.Volume * 10).ToString());

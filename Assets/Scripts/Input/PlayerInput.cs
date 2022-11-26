@@ -71,6 +71,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OptionMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""6565c7d6-46de-47bd-8550-6196bbc023ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -225,6 +234,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CancelBuildingClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""798c78a3-d87a-4341-8537-7e0da3aaf622"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OptionMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -773,6 +793,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_PlaceBuildingClick = m_Player.FindAction("PlaceBuildingClick", throwIfNotFound: true);
         m_Player_CancelBuildingClick = m_Player.FindAction("CancelBuildingClick", throwIfNotFound: true);
         m_Player_ScrollWheel = m_Player.FindAction("ScrollWheel", throwIfNotFound: true);
+        m_Player_OptionMenu = m_Player.FindAction("OptionMenu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -849,6 +870,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PlaceBuildingClick;
     private readonly InputAction m_Player_CancelBuildingClick;
     private readonly InputAction m_Player_ScrollWheel;
+    private readonly InputAction m_Player_OptionMenu;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -858,6 +880,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @PlaceBuildingClick => m_Wrapper.m_Player_PlaceBuildingClick;
         public InputAction @CancelBuildingClick => m_Wrapper.m_Player_CancelBuildingClick;
         public InputAction @ScrollWheel => m_Wrapper.m_Player_ScrollWheel;
+        public InputAction @OptionMenu => m_Wrapper.m_Player_OptionMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -882,6 +905,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ScrollWheel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollWheel;
                 @ScrollWheel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollWheel;
                 @ScrollWheel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrollWheel;
+                @OptionMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOptionMenu;
+                @OptionMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOptionMenu;
+                @OptionMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOptionMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -901,6 +927,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ScrollWheel.started += instance.OnScrollWheel;
                 @ScrollWheel.performed += instance.OnScrollWheel;
                 @ScrollWheel.canceled += instance.OnScrollWheel;
+                @OptionMenu.started += instance.OnOptionMenu;
+                @OptionMenu.performed += instance.OnOptionMenu;
+                @OptionMenu.canceled += instance.OnOptionMenu;
             }
         }
     }
@@ -1026,6 +1055,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnPlaceBuildingClick(InputAction.CallbackContext context);
         void OnCancelBuildingClick(InputAction.CallbackContext context);
         void OnScrollWheel(InputAction.CallbackContext context);
+        void OnOptionMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

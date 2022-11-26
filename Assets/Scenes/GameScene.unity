@@ -1796,6 +1796,117 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5208365312607565117, guid: bdbc4b31d7f8a1741895849a4fe9065e, type: 3}
   m_PrefabInstance: {fileID: 346439581}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &346926720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8642015729171272386, guid: df991382be7c3284681048069d2d5e96, type: 3}
+  m_PrefabInstance: {fileID: 1847606080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &346926725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346926720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3337603886a85424d99907068fda2844, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d33d24d6-2bc7-45e6-8c80-8390239af715
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a6e98b7b-1378-4390-98e1-b81b49d864a4
+    m_ActionName: Player/MousePositon[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2f2dac66-de07-409b-a9b4-8d779f1538d8
+    m_ActionName: Player/PlaceBuildingClick[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a141f28-df69-4470-9c13-63ebd801e715
+    m_ActionName: Player/CancelBuildingClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e60c4d4d-e0dc-45c9-8dd8-f31aa4de246b
+    m_ActionName: Player/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 733674937}
+        m_TargetAssemblyTypeName: OptionsUI, Assembly-CSharp
+        m_MethodName: ToggleVisible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6565c7d6-46de-47bd-8550-6196bbc023ad
+    m_ActionName: Player/OptionMenu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 246ebc9e-e6d2-41ad-8fff-aeb266365dff
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7fe6d4f9-e864-4a9c-a921-30221b39e139
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 258ffd2f-95fd-4d1b-9ced-cf91d9384cd4
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f6cef4a-9582-4c4c-b7ec-d6960c48e321
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 18eedaa3-f276-4d62-ab5a-d67092988c6e
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9c95ab8f-86f6-4335-b117-a17b8b4824ff
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31252880-d4d4-4611-8958-39d5e7dbcc77
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d858bdd0-7418-425a-88c1-d3df0896823e
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 920c2e45-ec62-4daf-b61f-7ea089208a5d
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e1cd72f-d478-461d-9dff-9b92a6ea2163
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &347823876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4731,6 +4842,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2962813633830394992, guid: 317d38ed7db0a094b9292bf8b1937418, type: 3}
   m_PrefabInstance: {fileID: 717762570}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &733674937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8642015728780720582, guid: df991382be7c3284681048069d2d5e96, type: 3}
+  m_PrefabInstance: {fileID: 1847606080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d161720453414bb4dac4d28d7a8d3576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &777753375
 PrefabInstance:
   m_ObjectHideFlags: 0
