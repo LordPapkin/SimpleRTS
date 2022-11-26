@@ -97,7 +97,7 @@ MonoBehaviour:
   attackType: 1
   moveSpeed: 15
   timeToDie: 5
-  radiusOfBoom: 1.8
+  radiusOfBoom: 2.75
   boomEffect: {fileID: 2586196222451070026, guid: 2d8dc33e1a5ea2e4282c9b63f3080988, type: 3}
 --- !u!1 &5321841032818948790
 GameObject:

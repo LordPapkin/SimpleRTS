@@ -19,7 +19,7 @@ MonoBehaviour:
   <TimeToAttack>k__BackingField: 1
   <Dmg>k__BackingField: 40
   <AttackType>k__BackingField: 0
-  <Hp>k__BackingField: 160
+  <Hp>k__BackingField: 200
   <ResistType>k__BackingField: 0
   <ResistValue>k__BackingField: 0.5
   <SearchRange>k__BackingField: 18
