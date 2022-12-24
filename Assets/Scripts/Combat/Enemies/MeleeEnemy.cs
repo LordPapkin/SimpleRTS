@@ -38,7 +38,7 @@ public class MeleeEnemy : EnemyBasic
         }
 
         HealthSystem healthSystem = building.GetComponent<HealthSystem>();
-        healthSystem.TakeDamege(dmg, attackType);
+        healthSystem.TakeDamage(dmg, attackType);
 
         attackTimer += timeToAttack;
     }

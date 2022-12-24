@@ -35,10 +35,10 @@ public class Tower : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if(shootTimer < 0)
         {            
-            GameObject arrow = Instantiate(arrowType, arrowSpawn.position, Quaternion.identity);
-            ArrowProjectile arrowProjectile = arrow.GetComponent<ArrowProjectile>();
-            arrowProjectile.SetTarget(target);  
-            arrow.gameObject.transform.SetParent(arrowsParent);
+            GameObject projectileGameObject = Instantiate(arrowType, arrowSpawn.position, Quaternion.identity);
+            BaseProjectile projectile = projectileGameObject.GetComponent<BaseProjectile>();
+            projectile.SetTarget(target);  
+            projectileGameObject.gameObject.transform.SetParent(arrowsParent);
             shootTimer += shootTimerMax;
         }        
     }

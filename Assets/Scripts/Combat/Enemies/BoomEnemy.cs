@@ -43,7 +43,7 @@ public class BoomEnemy : EnemyBasic
             HealthSystem healthSystem = collider2D.GetComponent<HealthSystem>();
             if (healthSystem != null)
             {
-                healthSystem.TakeDamege(dmg, attackType);
+                healthSystem.TakeDamage(dmg, attackType);
             }
         }      
         Die();

@@ -19,7 +19,7 @@ public class HealthSystem : MonoBehaviour
     private Type resistType;
     private float resistValue;
 
-    public void TakeDamege(int damage, Type attackType)
+    public void TakeDamage(int damage, Type attackType)
     {
         int takenDamage = damage;
         if (attackType == resistType)
