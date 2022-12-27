@@ -12188,6 +12188,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
+      propertyPath: enemiesParent
+      value: 
+      objectReference: {fileID: 1352876370}
+    - target: {fileID: 4316669612046172189, guid: 80aa57decdbdb6442a1b84d31172f5a2, type: 3}
       propertyPath: WaveToBossWave
       value: 10
       objectReference: {fileID: 0}

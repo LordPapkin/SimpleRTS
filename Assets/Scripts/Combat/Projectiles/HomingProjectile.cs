@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HomingProjectile : BaseProjectile
 {
-    private Vector3 moveDir;
+    protected Vector3 moveDir;
     
     private void Update()
     {

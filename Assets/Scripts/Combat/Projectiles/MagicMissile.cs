@@ -8,13 +8,7 @@ public class MagicMissile : HomingProjectile
     [Header("Boom Settings")]
     [SerializeField] private float radiusOfBoom = 3f;
     [SerializeField] ParticleSystem boomEffect;
-
-    protected override void Hit(Collider2D collision)
-    {
-        base.Hit(collision);
-       
-    }
-
+    
     protected override void DealDamage(EnemyBasic enemy)
     {
         Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(transform.position, radiusOfBoom);
@@ -32,7 +26,9 @@ public class MagicMissile : HomingProjectile
     private void ShowExplosion()
     {
         missileSprite.enabled = false;
+        boomEffect.gameObject.SetActive(true);
         boomEffect.Play();
+        moveDir = Vector3.zero;
         Destroy(gameObject, 2f);
     }
 }

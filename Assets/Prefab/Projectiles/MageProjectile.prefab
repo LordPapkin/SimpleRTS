@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4589000473416501577}
   - component: {fileID: 4589000473416501576}
   - component: {fileID: 4589000473416501579}
-  - component: {fileID: 4628199356102380264}
+  - component: {fileID: 6827066103059361042}
   m_Layer: 2
   m_Name: MageProjectile
   m_TagString: Untagged
@@ -82,7 +82,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4628199356102380264
+--- !u!114 &6827066103059361042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 100
   attackType: 1
-  moveSpeed: 15
+  moveSpeed: 4
   timeToDie: 5
   missileSprite: {fileID: 4332857639479425769}
   radiusOfBoom: 3
