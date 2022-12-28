@@ -15,10 +15,12 @@ public class Tower : MonoBehaviour
 
     private EnemyBasic target;
     private float lookForTargetTimer;
-    private float shootTimer;   
+    private float shootTimer;
+    [SerializeField] private Queue<BaseProjectile> towerArrows;
 
     private void Start()
     {
+        towerArrows = new Queue<BaseProjectile>();
         lookForTargetTimer = Random.Range(0, lookForTargetTimerMax);        
     }
 
@@ -33,14 +35,24 @@ public class Tower : MonoBehaviour
         if(target == null)
             return;
         shootTimer -= Time.deltaTime;
-        if(shootTimer < 0)
+        if(shootTimer > 0)
         {            
-            GameObject projectileGameObject = Instantiate(arrowType, arrowSpawn.position, Quaternion.identity);
-            BaseProjectile projectile = projectileGameObject.GetComponent<BaseProjectile>();
-            projectile.SetTarget(target);  
-            projectileGameObject.gameObject.transform.SetParent(arrowsParent);
+            return;
+        }
+
+        if (towerArrows.Count > 0)
+        {
+            towerArrows.Peek().Use(target, arrowSpawn.position);
             shootTimer += shootTimerMax;
-        }        
+        }
+        else
+        {
+            GameObject projectileGameObject = Instantiate(arrowType, arrowSpawn.position, Quaternion.identity, arrowsParent);
+            BaseProjectile projectile = projectileGameObject.GetComponent<BaseProjectile>();
+            projectile.Create(towerArrows, target);
+            shootTimer += shootTimerMax;
+        }
+       
     }
 
     private void HandleTargetSearch()

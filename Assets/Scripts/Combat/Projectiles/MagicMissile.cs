@@ -23,6 +23,7 @@ public class MagicMissile : HomingProjectile
         ShowExplosion();
     }
 
+    //todo zaimplementuj object pool w magicznych pociskach
     private void ShowExplosion()
     {
         missileSprite.enabled = false;
